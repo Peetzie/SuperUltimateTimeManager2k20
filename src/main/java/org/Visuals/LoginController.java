@@ -24,8 +24,22 @@ public class LoginController{
 
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {
-        Helper.assignCurrentUser(loginScreenUsername.getText());
-        Launcher.setRoot("adminScreen");
+        if (isAdmin(loginScreenPassword,loginScreenUsername)){
+            Helper.assignCurrentUser(loginScreenUsername.getText());
+            Launcher.setRoot("adminScreen");
+        } else {
+            Helper.assignCurrentUser(loginScreenUsername.getText());
+            Launcher.setRoot("userScreen");
+        }
+    }
+
+
+    boolean isAdmin(PasswordField loginScreenPassword, TextField loginScreenUsername){
+        if (loginScreenUsername.getText().equals("admin") && loginScreenPassword.getText().equals("admin")){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
