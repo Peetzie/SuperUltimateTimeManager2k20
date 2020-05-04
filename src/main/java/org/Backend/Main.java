@@ -12,7 +12,7 @@ public class Main {
     static int currentUser = -1;
 
     public static void main(String [] args){
-        employees.add(new Employee(true));
+        employees.add(new Employee("password","admin",true));
 
         Launcher launcher = new Launcher();
         launcher.launchThis();
@@ -33,19 +33,19 @@ public class Main {
 
         switch(input[0]){
             case "signin":
-                signIn(Integer.parseInt(input[1]));
+                signIn(Integer.parseInt(input[1]),input[2]);
                 break;
             case "newemployee":
-                if(input.length > 1){
-                    if (input[1].equals("admin")){
-                        employees.get(currentUser).createNewEmployee(true);
+                if(input.length > 3){
+                    if (input[3].equals("admin")){
+                        employees.get(currentUser).createNewEmployee(input[1],input[2],true);
                     }
                     else{
-                            employees.get(currentUser).createNewEmployee(false);
+                            employees.get(currentUser).createNewEmployee(input[1],input[2],false);
                     }
                 }
                 else{
-                    employees.get(currentUser).createNewEmployee(false);
+                    employees.get(currentUser).createNewEmployee(input[1],input[2],false);
                 }
                 break;
             case "newproject":
@@ -70,17 +70,22 @@ public class Main {
         }
     }
 
-    private static void signIn(int id){
+    private static void signIn(int id, String password){
         if (employees.size() <= id){
             System.out.println("User "+id+" don't exist");
         }
-        else if(employees.get(id).isAdmin()){
-            System.out.println("Signed in as "+id+" (Admin)");
-            currentUser = id;
+        if (password.equals(employees.get(id).getPassword())){
+            if(employees.get(id).isAdmin()){
+                System.out.println("Signed in as "+id+" (Admin)");
+                currentUser = id;
+            }
+            else    {
+                System.out.println("Signed in as "+id);
+                currentUser = id;
+            }
         }
-        else    {
-            System.out.println("Signed in as "+id);
-            currentUser = id;
+        else{
+            System.out.println("Password was incorrect");
         }
     }
 
