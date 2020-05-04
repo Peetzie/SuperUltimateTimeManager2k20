@@ -7,23 +7,12 @@ import javafx.stage.Window;
 
 
 public class Helper {
-    private static String currentuser;
-
 
     static void closeWindowHelper(ActionEvent event){
         Window window = ((Node) event.getSource()).getScene().getWindow();
         if (window instanceof Stage){
             ((Stage) window).close();
         }
-    }
-
-    static void assignCurrentUser(String username){
-        currentuser = username;
-
-    }
-
-    static String getCurrentUser(){
-        return currentuser;
     }
 
 }
