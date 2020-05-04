@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static private ArrayList<Project> projects = new ArrayList<Project>();
-    static private ArrayList<Employee> employees = new ArrayList<Employee>();
+    static ArrayList<Project> projects = new ArrayList<Project>();
+    static ArrayList<Employee> employees = new ArrayList<Employee>();
     static Scanner sc = new Scanner(System.in);
     static int currentUser = -1;
 
