@@ -40,7 +40,7 @@ public class LoginController{
 
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {
-        Main.command("signin " + loginScreenUsername.getText());
+        Main.command("signin " + loginScreenUsername.getText() + " " + loginScreenPassword.getText());
         if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
             Launcher.setRoot("adminScreen");
         }
