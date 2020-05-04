@@ -7,8 +7,12 @@ public class Employee {
 
     private ArrayList<ProjectEmployeeRelation> projectRelations = new ArrayList<ProjectEmployeeRelation>();
     private boolean admin;
+    private String password;
+    private String name;
 
-    public Employee(boolean admin){
+    public Employee(String password, String name, boolean admin){
+        this.password = password;
+        this.name = name;
         this.admin = admin;
     }
 
@@ -102,9 +106,9 @@ public class Employee {
     }
 
     //Admin
-    public void createNewEmployee(boolean admin){
+    public void createNewEmployee(String password, String name, boolean admin){
         if (this.admin){
-            Main.employees.add(new Employee(admin));
+            Main.employees.add(new Employee(password, name, admin));
             if (admin){
                 System.out.println("Employee " +(Main.employees.size()-1)+" has been created as admin");
             }
@@ -154,6 +158,22 @@ public class Employee {
         else{
             System.out.println("Only admin or project manager can do this");
         }
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
