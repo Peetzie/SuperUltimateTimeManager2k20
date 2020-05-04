@@ -28,6 +28,7 @@ public class Main {
 
         if(currentUser == -1 && !input[0].equals("signin")){
             System.out.println("Sign in before doing anything else");
+            return;
         }
 
         switch(input[0]){
@@ -106,5 +107,8 @@ public class Main {
     }
     public static ArrayList<Project> getProjects(){
         return projects;
+    }
+    public static int getCurrentUser(){
+        return currentUser;
     }
 }
