@@ -18,6 +18,7 @@ public class Helper {
     }
 
     static void assignCurrentUser(String username){
+        currentuser = username;
 
     }
 
