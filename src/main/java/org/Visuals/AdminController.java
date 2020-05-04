@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.Backend.Main;
 
 public class AdminController implements Initializable {
     LoginController loginController;
@@ -45,7 +46,7 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setText(Helper.getCurrentUser());
+        setText(Main.getCurrentUser()+"");
     }
 
 

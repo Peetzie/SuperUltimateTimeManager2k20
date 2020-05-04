@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import org.Backend.Main;
 
 public class LoginController{
 
@@ -23,24 +25,32 @@ public class LoginController{
     private Button loginScreenLoginButton;
 
     @FXML
+    private TextField test;
+
+    @FXML
+    private Button cmdbutton;
+
+    @FXML
+    void cmdbuttonhandler(ActionEvent event) {
+        System.out.println("Test");
+        Main.command(test.getText());
+        test.setText("");
+    }
+
+
+    @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {
-        if (isAdmin(loginScreenPassword,loginScreenUsername)){
-            Helper.assignCurrentUser(loginScreenUsername.getText());
+        Main.command("signin " + loginScreenUsername.getText());
+        if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
             Launcher.setRoot("adminScreen");
-        } else {
-            Helper.assignCurrentUser(loginScreenUsername.getText());
+        }
+        else {
             Launcher.setRoot("userScreen");
         }
     }
 
 
-    boolean isAdmin(PasswordField loginScreenPassword, TextField loginScreenUsername){
-        if (loginScreenUsername.getText().equals("admin") && loginScreenPassword.getText().equals("admin")){
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
 
 

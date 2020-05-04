@@ -9,9 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.Visuals.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.LoginController">
    <children>
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
@@ -34,5 +32,7 @@ fx:controller="org.Visuals.LoginController">
             <Image url="@interface.png" />
          </image>
       </ImageView>
+      <TextField fx:id="test" layoutX="68.0" layoutY="339.0" promptText="skrald" />
+      <Button fx:id="cmdbutton" layoutX="234.0" layoutY="339.0" mnemonicParsing="false" onAction="#cmdbuttonhandler" text="Button" />
    </children>
 </AnchorPane>
