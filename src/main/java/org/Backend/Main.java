@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<Project> projects = new ArrayList<Project>();
-    static ArrayList<Employee> employees = new ArrayList<Employee>();
+    static private ArrayList<Project> projects = new ArrayList<Project>();
+    static private ArrayList<Employee> employees = new ArrayList<Employee>();
     static Scanner sc = new Scanner(System.in);
-    static int currentUser;
+    static int currentUser = -1;
 
     public static void main(String [] args){
         employees.add(new Employee(true));
-        signIn(0);
 
         Launcher launcher = new Launcher();
         launcher.launchThis();
@@ -26,6 +25,10 @@ public class Main {
     public static void command(String str){
 
         String[] input = str.split(" ");
+
+        if(currentUser == -1 && !input[0].equals("signin")){
+            System.out.println("Sign in before doing anything else");
+        }
 
         switch(input[0]){
             case "signin":
@@ -96,5 +99,12 @@ public class Main {
             }
         }
         return null;
+    }
+
+    public static ArrayList<Employee> getEmployees(){
+        return employees;
+    }
+    public static ArrayList<Project> getProjects(){
+        return projects;
     }
 }
