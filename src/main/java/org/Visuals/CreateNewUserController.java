@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import org.Backend.Main;
 
 import java.io.IOException;
 
@@ -39,9 +40,11 @@ public class CreateNewUserController {
     void createButtonHandler(ActionEvent event) throws IOException {
         if (checkPassword(createUserPassword,createUserPasswordrReentry)){
             if (CheckBoxValue){
-                System.out.println("Checkbox marked");
+                Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText() + " admin");
+                Launcher.setRoot("adminScreen");
             } else{
-                System.out.println("Checbox not marked");
+                Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText());
+                Launcher.setRoot("adminScreen");
             }
         } else{
             Alert.AlertType alertAlertType;
