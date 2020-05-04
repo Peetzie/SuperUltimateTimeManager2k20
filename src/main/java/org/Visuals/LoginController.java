@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.Backend.Main;
 
 public class LoginController{
 
@@ -24,23 +25,12 @@ public class LoginController{
 
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {
-        if (isAdmin(loginScreenPassword,loginScreenUsername)){
-            Helper.assignCurrentUser(loginScreenUsername.getText());
-            Launcher.setRoot("adminScreen");
-        } else {
-            Helper.assignCurrentUser(loginScreenUsername.getText());
-            Launcher.setRoot("userScreen");
-        }
+        Main.command("signin " + loginScreenUsername.getText());
+        Launcher.setRoot("adminScreen");
     }
 
 
-    boolean isAdmin(PasswordField loginScreenPassword, TextField loginScreenUsername){
-        if (loginScreenUsername.getText().equals("admin") && loginScreenPassword.getText().equals("admin")){
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
 
 
