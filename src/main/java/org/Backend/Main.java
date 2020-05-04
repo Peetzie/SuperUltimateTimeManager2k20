@@ -1,5 +1,7 @@
 package org.Backend;
 
+import org.Visuals.Launcher;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,45 +15,54 @@ public class Main {
         employees.add(new Employee(true));
         signIn(0);
 
-        while(true){
-            String[] input = sc.nextLine().split(" ");
+        Launcher launcher = new Launcher();
+        launcher.launchThis();
 
-            switch(input[0]){
-                case "signin":
-                    signIn(Integer.parseInt(input[1]));
-                    break;
-                case "newemployee":
-                    if(input.length > 1){
-                        if (input[1].equals("admin")){
-                            employees.get(currentUser).createNewEmployee(true);
-                        }
-                        else{
-                            employees.get(currentUser).createNewEmployee(false);
-                        }
+        while(true){
+            command(sc.nextLine());
+        }
+    }
+
+    public static void command(String str){
+
+        String[] input = str.split(" ");
+
+        switch(input[0]){
+            case "signin":
+                signIn(Integer.parseInt(input[1]));
+                break;
+            case "newemployee":
+                if(input.length > 1){
+                    if (input[1].equals("admin")){
+                        employees.get(currentUser).createNewEmployee(true);
                     }
                     else{
-                        employees.get(currentUser).createNewEmployee(false);
+                            employees.get(currentUser).createNewEmployee(false);
                     }
-                    break;
-                case "newproject":
-                    employees.get(currentUser).createNewProject();
-                    break;
-                case "assignpm":
-                    employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
-                    break;
-                case "leaveproject":
-                    employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
-                    break;
-                case "joinproject":
-                    employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
-                    break;
-                case "assignhours":
-                    employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
-                    break;
-                case "edithours":
-                    employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
-                    break;
-            }
+                }
+                else{
+                    employees.get(currentUser).createNewEmployee(false);
+                }
+                break;
+            case "newproject":
+                employees.get(currentUser).createNewProject();
+                break;
+            case "assignpm":
+                employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
+                break;
+            case "leaveproject":
+                employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
+                break;
+            case "joinproject":
+                employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
+                break;
+            case "assignhours":
+                employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
+                break;
+            case "edithours":
+                employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
+                break;
+
         }
     }
 

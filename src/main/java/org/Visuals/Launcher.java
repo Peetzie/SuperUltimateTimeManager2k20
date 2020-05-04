@@ -37,4 +37,7 @@ public class Launcher extends Application {
         launch();
     }
 
+    public void launchThis(){
+        launch();
+    }
 }
