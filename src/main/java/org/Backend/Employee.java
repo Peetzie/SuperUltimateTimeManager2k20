@@ -121,9 +121,9 @@ public class Employee {
         }
     }
 
-    public void createNewProject(){
+    public void createNewProject(String name, String description){
         if (admin){
-            Main.projects.add(new Project());
+            Main.projects.add(new Project(name, description.replace("_"," ")));
             System.out.println("Project " +(Main.projects.size()-1)+" has been created");
         }
         else{
@@ -174,6 +174,13 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String toString(){
+        if(isAdmin()){
+            return getName() + "(" + Main.employees.indexOf(this) + ") [admin]";
+        }
+        return getName() + "(" + Main.employees.indexOf(this) + ")";
     }
 }
 

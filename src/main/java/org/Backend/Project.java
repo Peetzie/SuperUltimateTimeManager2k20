@@ -6,6 +6,13 @@ public class Project {
     private ArrayList<ProjectEmployeeRelation> employeeRelations = new ArrayList<ProjectEmployeeRelation>();
     private ArrayList<Activity> activities = new ArrayList<Activity>();
     private int status;
+    private String name;
+    private String description;
+
+    public Project(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
 
     public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
         return employeeRelations;
@@ -51,5 +58,25 @@ public class Project {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String toString(){
+        return getName() + "(" + Main.projects.indexOf(this) + ")";
     }
 }

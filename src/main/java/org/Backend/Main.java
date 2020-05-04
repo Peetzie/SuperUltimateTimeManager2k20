@@ -49,7 +49,7 @@ public class Main {
                 }
                 break;
             case "newproject":
-                employees.get(currentUser).createNewProject();
+                employees.get(currentUser).createNewProject(input[1],input[2]);
                 break;
             case "assignpm":
                 employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
