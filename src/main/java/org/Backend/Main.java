@@ -14,8 +14,8 @@ public class Main {
     public static void main(String [] args){
         employees.add(new Employee("password","admin",true));
 
-        //Launcher launcher = new Launcher();
-        //launcher.launchThis();
+        Launcher launcher = new Launcher();
+        launcher.launchThis();
 
         while(true){
             command(sc.nextLine());
