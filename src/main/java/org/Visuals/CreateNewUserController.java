@@ -2,10 +2,8 @@ package org.Visuals;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
 
@@ -17,10 +15,10 @@ public class CreateNewUserController {
     private TextField createUserUsername;
 
     @FXML
-    private TextField createUserPassword;
+    private PasswordField createUserPassword;
 
     @FXML
-    private TextField createUserPasswordrReentry;
+    private PasswordField createUserPasswordrReentry;
 
     @FXML
     private Button createUserCreateButton;
@@ -39,17 +37,32 @@ public class CreateNewUserController {
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException {
-        if (CheckBoxValue){
-            System.out.println("Checkbox marked");
+        if (checkPassword(createUserPassword,createUserPasswordrReentry)){
+            if (CheckBoxValue){
+                System.out.println("Checkbox marked");
+            } else{
+                System.out.println("Checbox not marked");
+            }
         } else{
-            System.out.println("Checbox not marked");
+            Alert.AlertType alertAlertType;
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error create new user");
+            alert.setContentText("Please check the information");
+            alert.showAndWait();
         }
-
     }
 
     @FXML
     void createNewUserCheckBoxHandler(ActionEvent event) {
         CheckBoxValue = !CheckBoxValue;
+    }
+
+    boolean checkPassword(PasswordField createUserPassword, PasswordField createUserPasswordrReentry){
+        if(createUserPassword.getText().equals(createUserPasswordrReentry.getText())){
+            return true;
+        } else{
+            return false;
+        }
     }
 
 
