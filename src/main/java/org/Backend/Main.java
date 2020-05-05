@@ -19,7 +19,7 @@ public class Main {
         employees.add(new Employee("password","admin",true));
 
 
-        if (true){
+        if (false){
             Launcher launcher = new Launcher();
             launcher.launchThis();
         }
@@ -37,7 +37,7 @@ public class Main {
 
         String[] input = str.split(" ");
 
-        if(currentUser == -1 && !input[0].equals("signin")){
+        if(currentUser == -1 && !input[0].equals("signin") && !input[0].equals("help")){
             System.out.println("Sign in before doing anything else");
             return;
         }
@@ -80,8 +80,23 @@ public class Main {
             case "edithours":
                 employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
                 break;
+            case "help":
+                printHelp();
+                break;
 
         }
+    }
+
+    private static void printHelp(){
+        System.out.println("signin [employee]");
+        System.out.println("signout");
+        System.out.println("newemployee [password] [name] (admin)");
+        System.out.println("newproject [name] [description] [estimated time] [deadline]");
+        System.out.println("assignpm [project] [employee]");
+        System.out.println("leaveproject [project]");
+        System.out.println("joinproject [project]");
+        System.out.println("assignhours [project] [description] [start time] [duration]");
+        System.out.println("edithours [project] [entry index] [description] [start time] [duration]");
     }
 
     private static void signIn(int id, String password){
