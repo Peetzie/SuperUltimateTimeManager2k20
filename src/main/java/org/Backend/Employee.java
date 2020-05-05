@@ -121,9 +121,9 @@ public class Employee {
         }
     }
 
-    public void createNewProject(String name, String description){
+    public void createNewProject(String name, String description, int estimatedTime){
         if (admin){
-            Main.projects.add(new Project(name, description.replace("_"," ")));
+            Main.projects.add(new Project(name, description.replace("_"," "), estimatedTime));
             System.out.println("Project " +(Main.projects.size()-1)+" has been created");
         }
         else{

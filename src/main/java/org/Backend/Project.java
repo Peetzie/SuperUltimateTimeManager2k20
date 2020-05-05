@@ -8,10 +8,12 @@ public class Project {
     private int status;
     private String name;
     private String description;
+    private int estimatedTime;
 
-    public Project(String name, String description){
+    public Project(String name, String description, int estimatedTime){
         this.name = name;
         this.description = description;
+        this.estimatedTime = estimatedTime;
     }
 
     public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {

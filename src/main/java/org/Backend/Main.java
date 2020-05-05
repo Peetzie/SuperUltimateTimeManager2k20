@@ -4,14 +4,18 @@ import org.Visuals.Launcher;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class Main {
     static ArrayList<Project> projects = new ArrayList<Project>();
     static ArrayList<Employee> employees = new ArrayList<Employee>();
     static Scanner sc = new Scanner(System.in);
     static int currentUser = -1;
+    static BlockingQueue<InterfaceMessage> interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
 
     public static void main(String [] args){
+        System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
         employees.add(new Employee("password","admin",true));
 
         Launcher launcher = new Launcher();
@@ -23,6 +27,7 @@ public class Main {
     }
 
     public static void command(String str){
+        System.out.println("> "+str);
 
         String[] input = str.split(" ");
 
@@ -49,7 +54,7 @@ public class Main {
                 }
                 break;
             case "newproject":
-                employees.get(currentUser).createNewProject(input[1],input[2]);
+                employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]));
                 break;
             case "assignpm":
                 employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
