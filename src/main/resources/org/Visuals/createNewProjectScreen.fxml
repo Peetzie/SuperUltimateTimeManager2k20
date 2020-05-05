@@ -27,7 +27,7 @@
       </AnchorPane>
       <TextField fx:id="createProjectTitle" layoutX="140.0" layoutY="50.0" promptText="Enter title" />
       <TextArea fx:id="createProjectDescription" layoutX="140.0" layoutY="90.0" prefHeight="87.0" prefWidth="149.0" promptText="Enter description" wrapText="true" />
-      <TextField fx:id="createProjectEstimatedHours" layoutX="140.0" layoutY="206.0" promptText="Enter estimated hours" />
+      <TextField fx:id="createProjectEstimatedHours" layoutX="140.0" layoutY="206.0" promptText="Enter seconds" />
       <ChoiceBox fx:id="createProjectProjectManager" layoutX="140.0" layoutY="260.0" prefWidth="150.0" />
       <Label layoutX="82.0" layoutY="54.0" text="Title">
          <font>
