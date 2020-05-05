@@ -12,11 +12,14 @@ import org.Backend.Main;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CreateNewProjectController implements Initializable {
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
-    String estimatedHours;
+    long deadline;
 
     @FXML
     private TextField createProjectTitle;
@@ -46,9 +49,11 @@ public class CreateNewProjectController implements Initializable {
     }
 
     @FXML
-    void createButtonHandler(ActionEvent event) throws IOException {
-        System.out.println(createProjectEstimatedHours.getText());
-        Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " " +(Integer.parseInt((createProjectEstimatedHours.getText()))) * 3600);
+    void createButtonHandler(ActionEvent event) throws IOException, ParseException {
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
+        deadline = (date.getTime()/1000L);
+        Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " "
+                + Math.round(Float.parseFloat(createProjectEstimatedHours.getText())*3600) + " " + deadline);
         if (createProjectProjectManager.getValue() != null){
             Main.command("assignpm " + (Main.getProjects().size()-1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
         } else{
@@ -60,6 +65,7 @@ public class CreateNewProjectController implements Initializable {
         Launcher.setRoot("adminScreen");
 
     }
+
 
 
 
