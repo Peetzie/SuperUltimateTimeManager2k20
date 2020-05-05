@@ -47,5 +47,15 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
+      <Button fx:id="userScreenAssignHoursButton" layoutX="75.0" layoutY="167.0" mnemonicParsing="false" onAction="#assignHoursButtonHandler" prefHeight="46.0" prefWidth="139.0" text="Assign hours">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="userScrenEditHoursButton" layoutX="75.0" layoutY="236.0" mnemonicParsing="false" onAction="#userScreenEditHoursButtonHandler" prefHeight="46.0" prefWidth="139.0" text="Edit hours">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

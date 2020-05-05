@@ -27,6 +27,23 @@ public class UserController implements Initializable {
     private Button userScreenSignOutButton;
 
     @FXML
+    private Button userScreenAssignHoursButton;
+
+    @FXML
+    private Button UserScrenEditHoursButton;
+
+    @FXML
+    void assignHoursButtonHandler(ActionEvent event){
+        System.out.println("pressed assignhours");
+    }
+
+
+    @FXML
+    void userScreenEditHoursButtonHandler(ActionEvent event){
+        System.out.println("Pressed edit hours button");
+    }
+
+    @FXML
     void signOutHandler(ActionEvent event) throws IOException {
         Main.signOut();
         Launcher.setRoot("loginScreen");
