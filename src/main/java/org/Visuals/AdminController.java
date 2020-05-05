@@ -35,8 +35,9 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    void signoutButtonHandler(ActionEvent event) {
-        Helper.closeWindowHelper(event);
+    void signoutButtonHandler(ActionEvent event) throws IOException {
+        Main.signOut();
+        Launcher.setRoot("loginScreen");
     }
 
     void setText(String text){

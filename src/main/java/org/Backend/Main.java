@@ -118,7 +118,7 @@ public class Main {
         }
     }
 
-    private static void signOut(){
+    public static void signOut(){
         currentUser = -1;
         System.out.println("Employee has signed out");
     }

@@ -50,6 +50,7 @@ public class CreateNewProjectController implements Initializable {
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException, ParseException {
+        System.out.println(Main.getEmployees().toString());
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
         deadline = (date.getTime()/1000L);
         Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " "
@@ -71,6 +72,7 @@ public class CreateNewProjectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        createProjectProjectManager.setItems(userList);
     }
 
 
