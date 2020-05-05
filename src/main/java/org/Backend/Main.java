@@ -19,7 +19,7 @@ public class Main {
         employees.add(new Employee("password","admin",true));
 
 
-        if (false){
+        if (true){
             Launcher launcher = new Launcher();
             launcher.launchThis();
         }
