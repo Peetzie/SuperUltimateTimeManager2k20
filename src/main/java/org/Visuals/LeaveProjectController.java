@@ -16,7 +16,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LeaveProjectController implements Initializable {
-    ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
+    /**
+     * Mangler backend funktion til at tage fra hvilken den indloggede employee har af tilknyttede projekter.
+     */
+    ObservableList<String> projectList = FXCollections.observableArrayList("Lav backend metode til ", "at få informationerne ", "fra hvilke projekter den loggede ind employee er assigned");
+
 
 
     @FXML

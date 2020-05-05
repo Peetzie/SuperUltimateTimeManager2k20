@@ -24,9 +24,17 @@ public class UserController implements Initializable {
     private Button userScreenJoinProject;
 
     @FXML
-    void userScreenJoinProjectHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("leaveProjectScreen");
+    private Button userScreenSignOutButton;
 
+    @FXML
+    void signOutHandler(ActionEvent event) throws IOException {
+        Main.signOut();
+        Launcher.setRoot("loginScreen");
+    }
+
+    @FXML
+    void userScreenJoinProjectHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("joinProjectScreen");
     }
 
     @FXML
