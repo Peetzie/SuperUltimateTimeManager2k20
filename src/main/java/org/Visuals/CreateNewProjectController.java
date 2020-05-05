@@ -9,12 +9,14 @@ import javafx.scene.control.*;
 import org.Backend.Employee;
 import org.Backend.Main;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateNewProjectController implements Initializable {
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
+    String estimatedHours;
 
     @FXML
     private TextField createProjectTitle;
@@ -22,14 +24,18 @@ public class CreateNewProjectController implements Initializable {
     @FXML
     private TextArea createProjectDescription;
 
-    @FXML
-    private TextField createProjectEstimatedHours;
 
     @FXML
     private ChoiceBox createProjectProjectManager;
 
     @FXML
     private Button createNewProjectCreateButton;
+
+    @FXML
+    private TextField createProjectEstimatedHours;
+
+    @FXML
+    private DatePicker createProjectDate;
 
     @FXML
     private Button createNewProjectCancelButton;
@@ -41,7 +47,8 @@ public class CreateNewProjectController implements Initializable {
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException {
-        Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " " + Integer.parseInt(createProjectEstimatedHours.getText()));
+        System.out.println(createProjectEstimatedHours.getText());
+        Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " " +(Integer.parseInt((createProjectEstimatedHours.getText()))) * 3600);
         if (createProjectProjectManager.getValue() != null){
             Main.command("assignpm " + (Main.getProjects().size()-1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
         } else{
@@ -54,9 +61,10 @@ public class CreateNewProjectController implements Initializable {
 
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        createProjectProjectManager.setItems(userList);
     }
 
 
