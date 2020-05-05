@@ -9,11 +9,13 @@ public class Project {
     private String name;
     private String description;
     private int estimatedTime;
+    private long deadline;
 
-    public Project(String name, String description, int estimatedTime){
+    public Project(String name, String description, int estimatedTime, long deadline){
         this.name = name;
         this.description = description;
         this.estimatedTime = estimatedTime;
+        this.deadline = deadline;
     }
 
     public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
@@ -80,5 +82,21 @@ public class Project {
 
     public String toString(){
         return getName() + "(" + Main.projects.indexOf(this) + ")";
+    }
+
+    public int getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(int estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
+
+    public long getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(long deadline) {
+        this.deadline = deadline;
     }
 }

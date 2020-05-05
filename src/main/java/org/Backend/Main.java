@@ -18,12 +18,18 @@ public class Main {
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
         employees.add(new Employee("password","admin",true));
 
-        Launcher launcher = new Launcher();
-        launcher.launchThis();
 
-        while(true){
-            command(sc.nextLine());
+        if (true){
+            Launcher launcher = new Launcher();
+            launcher.launchThis();
         }
+        else {
+            while (true) {
+                command(sc.nextLine());
+            }
+        }
+
+
     }
 
     public static void command(String str){
@@ -40,6 +46,9 @@ public class Main {
             case "signin":
                 signIn(Integer.parseInt(input[1]),input[2]);
                 break;
+            case "signout":
+                signOut();
+                break;
             case "newemployee":
                 if(input.length > 3){
                     if (input[3].equals("admin")){
@@ -54,7 +63,7 @@ public class Main {
                 }
                 break;
             case "newproject":
-                employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]));
+                employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
                 break;
             case "assignpm":
                 employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
@@ -77,7 +86,7 @@ public class Main {
 
     private static void signIn(int id, String password){
         if (employees.size() <= id){
-            System.out.println("User "+id+" don't exist");
+            System.out.println("Employee "+id+" don't exist");
         }
         if (password.equals(employees.get(id).getPassword())){
             if(employees.get(id).isAdmin()){
@@ -92,6 +101,11 @@ public class Main {
         else{
             System.out.println("Password was incorrect");
         }
+    }
+
+    private static void signOut(){
+        currentUser = -1;
+        System.out.println("Employee has signed out");
     }
 
     static boolean projectEmployeeRelationExist(Project project, Employee employee){
