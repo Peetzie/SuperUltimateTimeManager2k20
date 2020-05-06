@@ -32,7 +32,7 @@ public class Employee {
     //ProjectManager
     public void createActivity(int project, String title, String description, int deadline, int estimatedTime){
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
-            Main.getProjects().get(project).getActivities().add(new Activity(title,description,deadline,estimatedTime));
+            Main.getProjects().get(project).getActivities().add(new Activity(title,description.replace("_"," "),deadline,estimatedTime));
             System.out.println("Activity "+(Main.getProjects().get(project).getActivities().size()-1)+" has been created");
         }
         else{

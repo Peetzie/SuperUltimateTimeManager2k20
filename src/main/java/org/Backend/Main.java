@@ -82,6 +82,9 @@ public class Main {
                 case "joinproject":
                     employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
                     break;
+                case "assignpm":
+                    employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                    break;
                 case "assignhours":
                     employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
                     break;
