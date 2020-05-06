@@ -40,7 +40,7 @@ public class AssignHoursController implements Initializable {//controller for as
 
 
     @FXML
-    void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending a assign hours attempt and takes the user back to main user interface
+    void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending an assign hours attempt and takes the user back to main user interface
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
         startDate = (date.getTime()/1000L);
         int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
