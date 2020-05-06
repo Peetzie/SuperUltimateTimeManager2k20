@@ -2,7 +2,8 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Activity {
+public class Activity { //This class is the constructor for creating activities
+    //variable initiation
     private int deadline;
     private int estimatedTime;
     private String title;
@@ -10,13 +11,13 @@ public class Activity {
     private ArrayList<Employee> employees = new ArrayList<Employee>();
     private int status;
 
-    public Activity(String title, String description, int estimatedTime, int deadline){
+    public Activity(String title, String description, int estimatedTime, int deadline){//initiatoin of the object "Activity"
         this.title = title;
         this.description = description;
         this.deadline = deadline;
         this.estimatedTime = estimatedTime;
     }
-
+    //getters and setters
     public int getDeadline() {
         return deadline;
     }
