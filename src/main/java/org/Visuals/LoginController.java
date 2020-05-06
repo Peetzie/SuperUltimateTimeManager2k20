@@ -25,7 +25,7 @@ public class LoginController{//controller for the login scene
     private Button loginScreenLoginButton;//button for sending a login attempt
 
     @FXML
-    private TextField test;
+    private TextField test;//remove before version. used for debugging
 
     @FXML
     private Button cmdbutton;
