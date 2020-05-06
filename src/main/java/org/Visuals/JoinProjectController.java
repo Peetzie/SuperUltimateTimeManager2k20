@@ -14,27 +14,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class JoinProjectController implements Initializable {
+public class JoinProjectController implements Initializable {//controller for join project scene
     ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
-
+    //id for scene elements
     @FXML
     private ChoiceBox joinProjectProjectChooser;
 
-
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("userScreen");
-
-    }
-
-    @FXML
-    void joinButtonHandler(ActionEvent event) throws IOException {
+    void joinButtonHandler(ActionEvent event) throws IOException {//button for joining a project and returns the to the user interface
         Main.command("joinproject " +  Main.getProjects().indexOf(joinProjectProjectChooser.getValue()));
         Launcher.setRoot("userScreen");
     }
 
+    @FXML
+    void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without joining project
+        Launcher.setRoot("userScreen");
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for join project interface
         joinProjectProjectChooser.setItems(projectList);
     }
 }
