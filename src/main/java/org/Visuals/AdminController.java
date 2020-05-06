@@ -36,18 +36,15 @@ public class AdminController implements Initializable {
 
     @FXML
     void signoutButtonHandler(ActionEvent event) throws IOException {
-        Main.signOut();
+        Main.command("signout");
         Launcher.setRoot("loginScreen");
     }
 
-    void setText(String text){
-        adminCurrentUser.setText(text);
-    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setText(Main.getCurrentUser()+"");
+        Helper.setText(adminCurrentUser,Main.getCurrentUser()+"");
     }
 
 

@@ -33,8 +33,8 @@ public class UserController implements Initializable {
     private Button UserScrenEditHoursButton;
 
     @FXML
-    void assignHoursButtonHandler(ActionEvent event){
-        System.out.println("pressed assignhours");
+    void assignHoursButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("assignHoursScreen");
     }
 
 
@@ -45,7 +45,7 @@ public class UserController implements Initializable {
 
     @FXML
     void signOutHandler(ActionEvent event) throws IOException {
-        Main.signOut();
+        Main.command("signout");
         Launcher.setRoot("loginScreen");
     }
 
@@ -59,12 +59,8 @@ public class UserController implements Initializable {
         Launcher.setRoot("leaveProjectScreen");
     }
 
-    void setText(String username){
-        userScreenCurrentUser.setText(username);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setText(Main.getCurrentUser()+"");
+        Helper.setText(userScreenCurrentUser,Main.getCurrentUser()+"");
     }
 }
