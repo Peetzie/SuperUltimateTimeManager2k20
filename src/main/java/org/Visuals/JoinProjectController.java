@@ -1,18 +1,22 @@
 package org.Visuals;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import org.Backend.Employee;
+import org.Backend.Main;
+import org.Backend.Project;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class JoinProjectController {
-    /**
-     * Jeg skal burge en funktion som kigger på den employee som er logget ind og sammenligner hvilke projekter
-     * han eller hun er assigned i, og hvilke vedkommende ikke er assigned i.
-     * vi bør også assigne folk som deltager i et projekt på et prjekt.
-     */
+public class JoinProjectController implements Initializable {
+    ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
 
     @FXML
     private ChoiceBox joinProjectProjectChooser;
@@ -31,8 +35,12 @@ public class JoinProjectController {
 
     @FXML
     void joinButtonHandler(ActionEvent event) throws IOException {
-        System.out.println("Joined project");
+        Main.command("joinproject " +  Main.getProjects().indexOf(joinProjectProjectChooser.getValue()));
         Launcher.setRoot("userScreen");
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        joinProjectProjectChooser.setItems(projectList);
     }
 }

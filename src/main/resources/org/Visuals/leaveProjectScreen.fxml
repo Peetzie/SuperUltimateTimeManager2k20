@@ -8,13 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.Visuals.LeaveProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.LeaveProjectController">
    <children>
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
-            <Label layoutX="94.0" layoutY="174.0" text="Leave project" textFill="WHITE">
+            <Label layoutX="88.0" layoutY="155.0" text="Leave project" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -22,6 +20,11 @@ fx:controller="org.Visuals.LeaveProjectController">
             <ImageView fitHeight="130.0" fitWidth="129.0" layoutX="86.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="116.0" fitWidth="126.0" layoutX="93.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@quit.png" />
                </image>
             </ImageView>
          </children>
@@ -32,12 +35,12 @@ fx:controller="org.Visuals.LeaveProjectController">
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="leaveProjectConfirm" layoutX="144.0" layoutY="255.0" mnemonicParsing="false" onAction="#confirmButtonHandler" text="Confirm">
+      <Button fx:id="leaveProjectConfirm" layoutX="144.0" layoutY="255.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="leaveProjectCancelButton" layoutX="224.0" layoutY="255.0" mnemonicParsing="false" onAction="#cancelButtonHandler" text="Cancel">
+      <Button fx:id="leaveProjectCancelButton" layoutX="224.0" layoutY="255.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807 #C21807;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
