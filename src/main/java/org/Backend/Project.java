@@ -50,6 +50,15 @@ public class Project {
         return null;
     }
 
+    public boolean hasProjectManager(){
+        for(int i = 0; i < employeeRelations.size(); i++){
+            if (employeeRelations.get(i).isProjectManager()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
     public ArrayList<Activity> getActivities() {

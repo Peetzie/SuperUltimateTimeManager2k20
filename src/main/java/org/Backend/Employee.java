@@ -68,8 +68,10 @@ public class Employee {// here we have the constructor for employee with employe
 
     public void leaveProject(int project){//allows an project bound employee to leave a project and checks if they are the project manager and notifies the employee that the project now has no project manager
         if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this)){
-            if (Main.getProjects().get(project).getProjectManager().equals(this)){
-                System.out.println("Project " + project + " no longer have a project manager");
+            if (Main.getProjects().get(project).hasProjectManager()) {
+                if (Main.getProjects().get(project).getProjectManager().equals(this)){
+                    System.out.println("Project " + project + " no longer have a project manager");
+                }
             }
             for(int i = 0; i < projectRelations.size(); i++){
                 if(projectRelations.get(i).getProject().equals(Main.getProjects().get(project))){
