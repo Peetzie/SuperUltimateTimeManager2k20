@@ -81,7 +81,7 @@ public class Project {
     }
 
     public String toString(){
-        return getName() + "(" + Main.getProjects().indexOf(this) + ")";
+        return getName() + " (" + Main.getProjects().indexOf(this) + ")";
     }
 
     public int getEstimatedTime() {
