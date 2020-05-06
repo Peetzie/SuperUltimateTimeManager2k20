@@ -12,32 +12,27 @@ import javafx.stage.Window;
 import java.io.IOException;
 
 
-public class Launcher extends Application {
+public class Launcher extends Application {//launcher for the gui (graphical user interface)
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException {//setup for the gui
         scene = new Scene(loadFXML("loginScreen"));
         stage.setScene(scene); 
         stage.setResizable(false);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    static void setRoot(String fxml) throws IOException {//sets the correct scene/fxml
         scene.setRoot(loadFXML(fxml));
     }
 
-    public static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {//loads the correct scene/fxml
         FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
-
-    public static void main(String[] args) {
-        launch();
-    }
-
-    public void launchThis(){
+    public void launchThis(){//launches the gui
         launch();
     }
 }
