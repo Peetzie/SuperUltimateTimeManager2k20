@@ -1,6 +1,6 @@
 package org.Backend;
 
-public class InterfaceMessage {
+public class InterfaceMessage {//communicates data to interface
     private String[] str;
 
     public InterfaceMessage(String [] str){

@@ -2,8 +2,7 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Employee {// here we have the constructor for employee with employee logic included
-
+public class Employee {//here we have the constructor for employee with employee logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> projectRelations = new ArrayList<ProjectEmployeeRelation>();
     private boolean admin;
@@ -198,6 +197,7 @@ public class Employee {// here we have the constructor for employee with employe
     public void setName(String name) {
         this.name = name;
     }
+
     //to string function
     public String toString(){
         if(isAdmin()){
