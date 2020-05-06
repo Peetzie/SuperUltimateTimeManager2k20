@@ -139,7 +139,7 @@ public class Employee {// here we have the constructor for employee with employe
     }
 
     //Admin and project manager functions
-    public void assignProjectManager(int project, int employee){
+    public void assignProjectManager(int project, int employee){//allows project managers to set new project manager and allows admins to set a project manager
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             if (Main.getProjects().size() > project){
                 if (Main.getEmployees().size() > employee){
@@ -159,7 +159,7 @@ public class Employee {// here we have the constructor for employee with employe
         }
     }
 
-    public void assignEmployeeToProject(int project, int employee){
+    public void assignEmployeeToProject(int project, int employee){//allows admins and project managers to assign employees to a project
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getEmployees().get(employee).joinProject(Main.getProjects().get(project));
         }
@@ -196,7 +196,7 @@ public class Employee {// here we have the constructor for employee with employe
     public void setName(String name) {
         this.name = name;
     }
-
+    //to string function
     public String toString(){
         if(isAdmin()){
             return getName() + " (" + Main.getEmployees().indexOf(this) + ") [admin]";
