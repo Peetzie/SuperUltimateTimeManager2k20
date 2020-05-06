@@ -29,13 +29,13 @@ public class Project {
             employee.joinProject(this);
         }
         Main.findProjectEmployeeRelation(this, employee).setProjectManager(true);
-        System.out.println("Employee "+Main.employees.indexOf(employee)+ " is now project manager for project "+Main.projects.indexOf(this));
+        System.out.println("Employee "+Main.getEmployees().indexOf(employee)+ " is now project manager for project "+Main.getProjects().indexOf(this));
     }
     private void removeCurrentProjectManager(){
         for(int i = 0; i < employeeRelations.size(); i++){
             if (employeeRelations.get(i).isProjectManager()){
                 employeeRelations.get(i).setProjectManager(false);
-                System.out.println("Employee "+Main.employees.indexOf(employeeRelations.get(i).getEmployee())+ " is no longer project manager for project "+Main.projects.indexOf(this));
+                System.out.println("Employee "+Main.getEmployees().indexOf(employeeRelations.get(i).getEmployee())+ " is no longer project manager for project "+Main.getProjects().indexOf(this));
                 return;
             }
         }
@@ -81,7 +81,7 @@ public class Project {
     }
 
     public String toString(){
-        return getName() + "(" + Main.projects.indexOf(this) + ")";
+        return getName() + "(" + Main.getProjects().indexOf(this) + ")";
     }
 
     public int getEstimatedTime() {

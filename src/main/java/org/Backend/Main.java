@@ -8,12 +8,12 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class Main {
-    static ArrayList<Project> projects = new ArrayList<Project>();
-    static ArrayList<Employee> employees = new ArrayList<Employee>();
-    static Scanner sc = new Scanner(System.in);
-    static int currentUser = -1;
-    static BlockingQueue<InterfaceMessage> interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
-    static boolean printProjectInformationOnProjectEmployeeRelations = true;
+    private static ArrayList<Project> projects = new ArrayList<Project>();
+    private static ArrayList<Employee> employees = new ArrayList<Employee>();
+    private static Scanner sc = new Scanner(System.in);
+    private static int currentUser = -1;
+    private static BlockingQueue<InterfaceMessage> interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
+    private static boolean printProjectInformationOnProjectEmployeeRelations = true;
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
@@ -43,54 +43,58 @@ public class Main {
             return;
         }
 
-        switch(input[0]){
-            case "signin":
-                signIn(Integer.parseInt(input[1]),input[2]);
-                break;
-            case "signout":
-                signOut();
-                break;
-            case "newemployee":
-                if(input.length > 3){
-                    if (input[3].equals("admin")){
-                        employees.get(currentUser).createNewEmployee(input[1],input[2],true);
+        try {
+            switch(input[0]){
+                case "signin":
+                    signIn(Integer.parseInt(input[1]),input[2]);
+                    break;
+                case "signout":
+                    signOut();
+                    break;
+                case "newemployee":
+                    if(input.length > 3){
+                        if (input[3].equals("admin")){
+                            employees.get(currentUser).createNewEmployee(input[1],input[2],true);
+                        }
+                        else{
+                            employees.get(currentUser).createNewEmployee(input[1],input[2],false);
+                        }
                     }
                     else{
-                            employees.get(currentUser).createNewEmployee(input[1],input[2],false);
+                        employees.get(currentUser).createNewEmployee(input[1],input[2],false);
                     }
-                }
-                else{
-                    employees.get(currentUser).createNewEmployee(input[1],input[2],false);
-                }
-                break;
-            case "newproject":
-                employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
-                break;
-            case "newactivity":
-                employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
-                break;
-            case "assignactivity":
-                employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
-                break;
-            case "joinactivity":
-                employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
-                break;
-            case "leaveproject":
-                employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
-                break;
-            case "joinproject":
-                employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
-                break;
-            case "assignhours":
-                employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
-                break;
-            case "edithours":
-                employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
-                break;
-            case "help":
-                printHelp();
-                break;
+                    break;
+                case "newproject":
+                    employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
+                    break;
+                case "newactivity":
+                    employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
+                    break;
+                case "assignactivity":
+                    employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
+                    break;
+                case "joinactivity":
+                    employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
+                    break;
+                case "leaveproject":
+                    employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
+                    break;
+                case "joinproject":
+                    employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
+                    break;
+                case "assignhours":
+                    employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
+                    break;
+                case "edithours":
+                    employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
+                    break;
+                case "help":
+                    printHelp();
+                    break;
 
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 

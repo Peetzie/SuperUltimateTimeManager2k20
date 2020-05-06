@@ -31,7 +31,7 @@ public class Employee {
 
     //ProjectManager
     public void createActivity(int project, String title, String description, int deadline, int estimatedTime){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getProjects().get(project).getActivities().add(new Activity(title,description,deadline,estimatedTime));
             System.out.println("Activity "+(Main.getProjects().get(project).getActivities().size()-1)+" has been created");
         }
@@ -41,8 +41,8 @@ public class Employee {
     }
 
     public void editEmployeesHours(int project, int employee, int index, int startTime, int duration){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
-            Main.employees.get(employee).editHours(project, index, duration, startTime);
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getEmployees().get(employee).editHours(project, index, duration, startTime);
         }
         else{
             System.out.println("Only admin or project manager can do this");
@@ -50,12 +50,12 @@ public class Employee {
     }
 
     public void assignActivity(int project, int activity, int employee){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this) || Main.employees.indexOf(this) == employee){
-            if (Main.getProjects().get(project).getActivities().get(activity).getEmployees().contains(Main.employees.get(employee))){
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this) || Main.getEmployees().indexOf(this) == employee){
+            if (Main.getProjects().get(project).getActivities().get(activity).getEmployees().contains(Main.getEmployees().get(employee))){
                 System.out.println("Employee "+employee+" was already assigned to activity "+activity+" on project "+project+", so no harm done");
             }
             else{
-                Main.getProjects().get(project).getActivities().get(activity).getEmployees().add(Main.employees.get(employee));
+                Main.getProjects().get(project).getActivities().get(activity).getEmployees().add(Main.getEmployees().get(employee));
                 System.out.println("Employee "+employee+" has been assigned to activity "+activity+" on project "+project);
             }
         }
@@ -65,8 +65,8 @@ public class Employee {
     }
 
     public void changeProjectStatus(int project, int newStatus){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
-            Main.projects.get(project).setStatus(newStatus);
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getProjects().get(project).setStatus(newStatus);
             System.out.println("Status set to "+newStatus+" for project "+project);
         }
         else{
@@ -80,33 +80,33 @@ public class Employee {
     }
 
     public void leaveProject(int project){
-        if(Main.projectEmployeeRelationExist(Main.projects.get(project),this)){
-            if (Main.projects.get(project).getProjectManager().equals(this)){
+        if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this)){
+            if (Main.getProjects().get(project).getProjectManager().equals(this)){
                 System.out.println("Project " + project + " no longer have a project manager");
             }
             for(int i = 0; i < projectRelations.size(); i++){
-                if(projectRelations.get(i).getProject().equals(Main.projects.get(project))){
+                if(projectRelations.get(i).getProject().equals(Main.getProjects().get(project))){
                     projectRelations.get(i).getProject().getEmployeeRelations().remove(projectRelations.get(i));
                     projectRelations.remove(projectRelations.get(i));
-                    System.out.println("Employee "+Main.employees.indexOf(this)+" has been removed from project "+project);
+                    System.out.println("Employee "+Main.getEmployees().indexOf(this)+" has been removed from project "+project);
                 }
             }
         }
         else{
-            System.out.println("Employee "+Main.employees.indexOf(this)+" was not on project "+project+", so no harm done");
+            System.out.println("Employee "+Main.getEmployees().indexOf(this)+" was not on project "+project+", so no harm done");
         }
 
     }
 
     public void assignHours(int project, int startTime, int duration){
-        Main.findProjectEmployeeRelation(Main.projects.get(project),this).getHours().add(new Hour(startTime, duration));
-        System.out.println("Hours entry "+(Main.findProjectEmployeeRelation(Main.projects.get(project),this).getHours().size()-1)+" has been created for employee "+Main.employees.indexOf(this)+" on project "+project);
+        Main.findProjectEmployeeRelation(Main.getProjects().get(project),this).getHours().add(new Hour(startTime, duration));
+        System.out.println("Hours entry "+(Main.findProjectEmployeeRelation(Main.getProjects().get(project),this).getHours().size()-1)+" has been created for employee "+Main.getEmployees().indexOf(this)+" on project "+project);
     }
 
     public void editHours(int project, int index, int startTime, int duration){
-        Main.findProjectEmployeeRelation(Main.projects.get(project),this).getHours().get(index).setStartTime(startTime);
-        Main.findProjectEmployeeRelation(Main.projects.get(project),this).getHours().get(index).setDuration(duration);
-        System.out.println("Hours entry "+index+" for employee "+Main.employees.indexOf(this)+" on project "+project+" has been updated");
+        Main.findProjectEmployeeRelation(Main.getProjects().get(project),this).getHours().get(index).setStartTime(startTime);
+        Main.findProjectEmployeeRelation(Main.getProjects().get(project),this).getHours().get(index).setDuration(duration);
+        System.out.println("Hours entry "+index+" for employee "+Main.getEmployees().indexOf(this)+" on project "+project+" has been updated");
     }
 
     //Employee
@@ -114,7 +114,7 @@ public class Employee {
         if (!Main.projectEmployeeRelationExist(project, this)){
             projectRelations.add(new ProjectEmployeeRelation(project, this));
             project.getEmployeeRelations().add(projectRelations.get(projectRelations.size()-1));
-            System.out.println("Employee "+Main.employees.indexOf(this)+" is now on project "+Main.projects.indexOf(project));
+            System.out.println("Employee "+Main.getEmployees().indexOf(this)+" is now on project "+Main.getProjects().indexOf(project));
         }
         else{
             System.out.println("Employee "+Main.getEmployees().indexOf(this)+" was already on project "+project+", so no harm done");
@@ -128,12 +128,12 @@ public class Employee {
     //Admin
     public void createNewEmployee(String password, String name, boolean admin){
         if (this.admin){
-            Main.employees.add(new Employee(password, name, admin));
+            Main.getEmployees().add(new Employee(password, name, admin));
             if (admin){
-                System.out.println("Employee " +(Main.employees.size()-1)+" has been created as admin");
+                System.out.println("Employee " +(Main.getEmployees().size()-1)+" has been created as admin");
             }
             else{
-                System.out.println("Employee " +(Main.employees.size()-1)+" has been created");
+                System.out.println("Employee " +(Main.getEmployees().size()-1)+" has been created");
             }
         }
         else{
@@ -143,8 +143,8 @@ public class Employee {
 
     public void createNewProject(String name, String description, int estimatedTime, long deadline){
         if (admin){
-            Main.projects.add(new Project(name, description.replace("_"," "), estimatedTime, deadline));
-            System.out.println("Project " +(Main.projects.size()-1)+" has been created");
+            Main.getProjects().add(new Project(name, description.replace("_"," "), estimatedTime, deadline));
+            System.out.println("Project " +(Main.getProjects().size()-1)+" has been created");
         }
         else{
             System.out.println("Only admin can do this");
@@ -153,10 +153,10 @@ public class Employee {
 
     //Admin and project manager
     public void assignProjectManager(int project, int employee){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
-            if (Main.projects.size() > project){
-                if (Main.employees.size() > employee){
-                    Main.projects.get(project).setProjectManager(Main.employees.get(employee));
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            if (Main.getProjects().size() > project){
+                if (Main.getEmployees().size() > employee){
+                    Main.getProjects().get(project).setProjectManager(Main.getEmployees().get(employee));
                 }
                 else{
                     System.out.println("Employee "+employee+" don't exist");
@@ -172,8 +172,8 @@ public class Employee {
     }
 
     public void assignEmployeeToProject(int project, int employee){
-        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
-            Main.employees.get(employee).joinProject(Main.projects.get(project));
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getEmployees().get(employee).joinProject(Main.getProjects().get(project));
         }
         else{
             System.out.println("Only admin or project manager can do this");
@@ -198,9 +198,9 @@ public class Employee {
 
     public String toString(){
         if(isAdmin()){
-            return getName() + "(" + Main.employees.indexOf(this) + ") [admin]";
+            return getName() + "(" + Main.getEmployees().indexOf(this) + ") [admin]";
         }
-        return getName() + "(" + Main.employees.indexOf(this) + ")";
+        return getName() + "(" + Main.getEmployees().indexOf(this) + ")";
     }
 }
 
