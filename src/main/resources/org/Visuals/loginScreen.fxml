@@ -31,7 +31,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <TextField fx:id="loginScreenUsername" layoutX="67.0" layoutY="168.0" promptText="Enter user ID" />
+      <TextField fx:id="loginScreenUserID" layoutX="67.0" layoutY="168.0" promptText="Enter user ID" />
       <PasswordField fx:id="loginScreenPassword" layoutX="67.0" layoutY="217.0" promptText="Enter password" />
       <Button fx:id="loginScreenLoginButton" layoutX="109.0" layoutY="280.0" mnemonicParsing="false" onAction="#loginButtonHandler" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE">
          <font>
