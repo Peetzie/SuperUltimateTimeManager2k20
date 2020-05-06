@@ -21,14 +21,6 @@ public class CreateNewUserController {
     @FXML
     private PasswordField createUserPasswordrReentry;
 
-    @FXML
-    private Button createUserCreateButton;
-
-    @FXML
-    private Button createUserCancelButton;
-
-    @FXML
-    private CheckBox createNewUserAssignAdmitCheckBox;
 
     @FXML
     void cancelbuttonHandler(ActionEvent event) throws IOException {

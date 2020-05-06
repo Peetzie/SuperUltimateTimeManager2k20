@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import org.Backend.Employee;
 import org.Backend.Main;
 
@@ -27,12 +28,8 @@ public class CreateNewProjectController implements Initializable {
     @FXML
     private TextArea createProjectDescription;
 
-
     @FXML
     private ChoiceBox createProjectProjectManager;
-
-    @FXML
-    private Button createNewProjectCreateButton;
 
     @FXML
     private TextField createProjectEstimatedHours;
@@ -40,8 +37,6 @@ public class CreateNewProjectController implements Initializable {
     @FXML
     private DatePicker createProjectDate;
 
-    @FXML
-    private Button createNewProjectCancelButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
@@ -50,21 +45,20 @@ public class CreateNewProjectController implements Initializable {
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException, ParseException {
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
-        deadline = (date.getTime()/1000L);
-        Main.command("newproject " + createProjectTitle.getText() + " " + createProjectDescription.getText().replace(" ", "_") + " "
-                + Math.round(Float.parseFloat(createProjectEstimatedHours.getText())*3600) + " " + deadline);
-        if (createProjectProjectManager.getValue() != null){
-            Main.command("assignpm " + (Main.getProjects().size()-1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
-        } else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Alert!");
-            alert.setContentText("Creating project with out a project manager");
-            alert.showAndWait();
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
+            deadline = (date.getTime() / 1000L);
+            Main.command("newproject " + createProjectTitle.getText().replace(" ", "_") + " " + createProjectDescription.getText().replace(" ", "_") + " "
+                    + Math.round(Float.parseFloat(createProjectEstimatedHours.getText()) * 3600) + " " + deadline);
+            if (createProjectProjectManager.getValue() != null) {
+                Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Alert!");
+                alert.setContentText("Creating project with out a project manager");
+                alert.showAndWait();
+            }
+            Launcher.setRoot("adminScreen");
         }
-        Launcher.setRoot("adminScreen");
-
-    }
 
 
 

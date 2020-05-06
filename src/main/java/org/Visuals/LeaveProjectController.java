@@ -22,11 +22,6 @@ public class LeaveProjectController implements Initializable {
     @FXML
     private ChoiceBox leaveProjectChooseProject;
 
-    @FXML
-    private Button leaveProjectConfirm;
-
-    @FXML
-    private Button leaveProjectCancelButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
@@ -36,7 +31,9 @@ public class LeaveProjectController implements Initializable {
 
     @FXML
     void confirmButtonHandler(ActionEvent event) throws IOException {
-        Main.command("leaveproject " + Main.getProjects().indexOf(leaveProjectChooseProject.getValue()));
+        String string1 = leaveProjectChooseProject.getValue().toString().split(" ")[1];
+        string1 = string1.substring(1,string1.length()-1);
+        Main.command("leaveproject " + string1);
         Launcher.setRoot("userScreen");
     }
 

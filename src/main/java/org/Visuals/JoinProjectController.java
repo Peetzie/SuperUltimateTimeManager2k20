@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import org.Backend.Employee;
 import org.Backend.Main;
 import org.Backend.Project;
 
@@ -21,11 +20,6 @@ public class JoinProjectController implements Initializable {
     @FXML
     private ChoiceBox joinProjectProjectChooser;
 
-    @FXML
-    private Button joinProjectCancelButton;
-
-    @FXML
-    private Button joinProjectJoinButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {

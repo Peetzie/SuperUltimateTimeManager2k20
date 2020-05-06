@@ -14,33 +14,25 @@ import org.Backend.Main;
 
 public class LoginController{//controller for the login scene
 
-
     @FXML
-    private TextField loginScreenUsername;//input field for userid in interface
+    private TextField loginScreenUserID;//input field for userid in interface
 
     @FXML
     private PasswordField loginScreenPassword;//input field for password in interface
 
     @FXML
-    private Button loginScreenLoginButton;//button for sending a login attempt
+    private TextField test;//remove before version. used for debugging
 
     @FXML
-    private TextField test;
-
-    @FXML
-    private Button cmdbutton;
-
-    @FXML
-    void cmdbuttonhandler(ActionEvent event) {
+    void cmdbuttonhandler(ActionEvent event) {//used to send debugging commands
         System.out.println("Test");
         Main.command(test.getText());
         test.setText("");
     }
 
-
     @FXML
-    void loginButtonHandler(ActionEvent event) throws IOException {
-        Main.command("signin " + loginScreenUsername.getText() + " " + loginScreenPassword.getText());
+    void loginButtonHandler(ActionEvent event) throws IOException {//used to send login attempts and routes the user to the right screen
+        Main.command("signin " + loginScreenUserID.getText() + " " + loginScreenPassword.getText());
         if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
             Launcher.setRoot("adminScreen");
         }
@@ -48,13 +40,4 @@ public class LoginController{//controller for the login scene
             Launcher.setRoot("userScreen");
         }
     }
-
-
-
-
-
-
-
-
-
 }

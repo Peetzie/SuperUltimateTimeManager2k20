@@ -10,32 +10,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.Backend.Main;
 
-public class AdminController implements Initializable {
+public class AdminController implements Initializable {//controller for admin interface
     LoginController loginController;
 
     @FXML
     private Label adminCurrentUser;
 
     @FXML
-    private Button adminSignoutButton;
-
-    @FXML
-    private Button createNewProjectButton;
-    @FXML
-    private Button createNewUserButton;
-
-    @FXML
-    void createNewProjectButtonHandler(ActionEvent event) throws IOException {
+    void createNewProjectButtonHandler(ActionEvent event) throws IOException {//button takes admin to "create new project" scene
         Launcher.setRoot("createNewProjectScreen");
     }
 
     @FXML
-    void createNewUserButtonHandler(ActionEvent event) throws IOException {
+    void createNewUserButtonHandler(ActionEvent event) throws IOException {//button takes admin to "create new user" scene
         Launcher.setRoot("createNewUserScreen");
     }
 
     @FXML
-    void signoutButtonHandler(ActionEvent event) throws IOException {
+    void signoutButtonHandler(ActionEvent event) throws IOException {//log out user and opens the login scene
         Main.command("signout");
         Launcher.setRoot("loginScreen");
     }
@@ -43,7 +35,7 @@ public class AdminController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for admin interface
         Helper.setText(adminCurrentUser,Main.getCurrentUser()+"");
     }
 
