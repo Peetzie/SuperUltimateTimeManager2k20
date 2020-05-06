@@ -45,12 +45,12 @@ public class AssignHoursController implements Initializable {
     private Button assignHoursCancelButton;
 
     @FXML
-    void assignButtonHandler(ActionEvent event) throws ParseException {
+    void assignButtonHandler(ActionEvent event) throws ParseException, IOException {
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
         startDate = (date.getTime()/1000L);
         int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
-        Main.command("assignhours " + assignHoursChooseProject.getValue() + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText())*3600));
-
+        Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText())*3600));
+        Launcher.setRoot("userScreen");
     }
 
     @FXML
