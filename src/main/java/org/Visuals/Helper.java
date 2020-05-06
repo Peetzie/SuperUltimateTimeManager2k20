@@ -17,7 +17,7 @@ public class Helper {
         }
     }
 
-   static void setText(Label label, String text){
+   static void setText(Label label, String text) {
         label.setText(text);
     }
 
