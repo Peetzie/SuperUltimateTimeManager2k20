@@ -10,18 +10,14 @@ import javafx.scene.control.ChoiceBox;
 import org.Backend.Employee;
 import org.Backend.Main;
 import org.Backend.Project;
+import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LeaveProjectController implements Initializable {
-    /**
-     * Mangler backend funktion til at tage fra hvilken den indloggede employee har af tilknyttede projekter.
-     */
-    ObservableList<String> projectList = FXCollections.observableArrayList("Lav backend metode til ", "at få informationerne ", "fra hvilke projekter den loggede ind employee er assigned");
-
-
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
 
     @FXML
     private ChoiceBox leaveProjectChooseProject;
@@ -39,8 +35,9 @@ public class LeaveProjectController implements Initializable {
     }
 
     @FXML
-    void confirmButtonHandler(ActionEvent event) {
-
+    void confirmButtonHandler(ActionEvent event) throws IOException {
+        Main.command("leaveproject " + Main.getProjects().indexOf(leaveProjectChooseProject.getValue()));
+        Launcher.setRoot("userScreen");
     }
 
     @Override
