@@ -9,12 +9,12 @@ import java.util.concurrent.BlockingQueue;
 
 public class Main {//this is the central main function for running the program
     //variable initiation
-    private static ArrayList<Project> projects = new ArrayList<Project>();
-    private static ArrayList<Employee> employees = new ArrayList<Employee>();
-    private static Scanner sc = new Scanner(System.in);
-    private static int currentUser = -1;
-    private static BlockingQueue<InterfaceMessage> interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
-    private static boolean printProjectInformationOnProjectEmployeeRelations = true;
+    private static ArrayList<Project> projects;
+    private static ArrayList<Employee> employees;
+    private static Scanner sc;
+    private static int currentUser;
+    private static BlockingQueue<InterfaceMessage> interfaceMessages;
+    private static boolean printProjectInformationOnProjectEmployeeRelations;
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
@@ -35,6 +35,13 @@ public class Main {//this is the central main function for running the program
     }
 
     public static void setup(){
+        projects = new ArrayList<Project>();
+        employees = new ArrayList<Employee>();
+        sc = new Scanner(System.in);
+        currentUser = -1;
+        interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
+        printProjectInformationOnProjectEmployeeRelations = true;
+
         employees.add(new Employee("password","admin",true));
     }
 
