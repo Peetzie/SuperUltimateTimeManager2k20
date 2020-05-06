@@ -17,14 +17,6 @@ public class AdminController implements Initializable {
     private Label adminCurrentUser;
 
     @FXML
-    private Button adminSignoutButton;
-
-    @FXML
-    private Button createNewProjectButton;
-    @FXML
-    private Button createNewUserButton;
-
-    @FXML
     void createNewProjectButtonHandler(ActionEvent event) throws IOException {
         Launcher.setRoot("createNewProjectScreen");
     }

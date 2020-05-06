@@ -21,14 +21,10 @@ public class LoginController{//controller for the login scene
     @FXML
     private PasswordField loginScreenPassword;//input field for password in interface
 
-    @FXML
-    private Button loginScreenLoginButton;//button for sending a login attempt
 
     @FXML
     private TextField test;//remove before version. used for debugging
 
-    @FXML
-    private Button cmdbutton;
 
     @FXML
     void cmdbuttonhandler(ActionEvent event) {

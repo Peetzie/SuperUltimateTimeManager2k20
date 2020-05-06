@@ -38,11 +38,6 @@ public class AssignHoursController implements Initializable {
     @FXML
     private TextField assignHoursDuration;
 
-    @FXML
-    private Button assignHoursAssignButton;
-
-    @FXML
-    private Button assignHoursCancelButton;
 
     @FXML
     void assignButtonHandler(ActionEvent event) throws ParseException, IOException {

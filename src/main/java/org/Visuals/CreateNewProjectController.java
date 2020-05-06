@@ -32,16 +32,11 @@ public class CreateNewProjectController implements Initializable {
     private ChoiceBox createProjectProjectManager;
 
     @FXML
-    private Button createNewProjectCreateButton;
-
-    @FXML
     private TextField createProjectEstimatedHours;
 
     @FXML
     private DatePicker createProjectDate;
 
-    @FXML
-    private Button createNewProjectCancelButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {

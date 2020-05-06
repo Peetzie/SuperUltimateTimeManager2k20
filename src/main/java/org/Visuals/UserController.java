@@ -17,21 +17,7 @@ public class UserController implements Initializable {
     @FXML
     private Label userScreenCurrentUser;
 
-    @FXML
-    private Button userScreenLeaveProject;
-
-    @FXML
-    private Button userScreenJoinProject;
-
-    @FXML
-    private Button userScreenSignOutButton;
-
-    @FXML
-    private Button userScreenAssignHoursButton;
-
-    @FXML
-    private Button UserScrenEditHoursButton;
-
+   
     @FXML
     void assignHoursButtonHandler(ActionEvent event) throws IOException {
         Launcher.setRoot("assignHoursScreen");

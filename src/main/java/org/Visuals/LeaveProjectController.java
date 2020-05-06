@@ -22,11 +22,6 @@ public class LeaveProjectController implements Initializable {
     @FXML
     private ChoiceBox leaveProjectChooseProject;
 
-    @FXML
-    private Button leaveProjectConfirm;
-
-    @FXML
-    private Button leaveProjectCancelButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {

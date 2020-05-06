@@ -20,11 +20,6 @@ public class JoinProjectController implements Initializable {
     @FXML
     private ChoiceBox joinProjectProjectChooser;
 
-    @FXML
-    private Button joinProjectCancelButton;
-
-    @FXML
-    private Button joinProjectJoinButton;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
