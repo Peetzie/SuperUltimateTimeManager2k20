@@ -47,6 +47,15 @@ public class Project {//here we have the constructor for project with project lo
         return null;
     }
 
+    public boolean hasProjectManager(){
+        for(int i = 0; i < employeeRelations.size(); i++){
+            if (employeeRelations.get(i).isProjectManager()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     //getters and setters
     public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
