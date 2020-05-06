@@ -25,8 +25,8 @@ public class UserController implements Initializable {
 
 
     @FXML
-    void userScreenEditHoursButtonHandler(ActionEvent event){
-        System.out.println("Pressed edit hours button");
+    void userScreenEditHoursButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("editHoursScreen");
     }
 
     @FXML

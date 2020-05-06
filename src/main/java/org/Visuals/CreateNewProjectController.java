@@ -18,10 +18,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class CreateNewProjectController implements Initializable {
+public class CreateNewProjectController implements Initializable {//controller for create new project scene
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
     long deadline;
-
+    //ids for scene elements
     @FXML
     private TextField createProjectTitle;
 
@@ -37,14 +37,8 @@ public class CreateNewProjectController implements Initializable {
     @FXML
     private DatePicker createProjectDate;
 
-
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
-          Launcher.setRoot("adminScreen");
-    }
-
-    @FXML
-    void createButtonHandler(ActionEvent event) throws IOException, ParseException {
+    void createButtonHandler(ActionEvent event) throws IOException, ParseException {//button for sending a create project attempt and takes the admin back to admin interface
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
             deadline = (date.getTime() / 1000L);
             Main.command("newproject " + createProjectTitle.getText().replace(" ", "_") + " " + createProjectDescription.getText().replace(" ", "_") + " "
@@ -60,11 +54,13 @@ public class CreateNewProjectController implements Initializable {
             Launcher.setRoot("adminScreen");
         }
 
-
-
+    @FXML
+    void cancelButtonHandler(ActionEvent event) throws IOException {//takes admin back to admin interface without creating project
+        Launcher.setRoot("adminScreen");
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for create project interface
         createProjectProjectManager.setItems(userList);
     }
 

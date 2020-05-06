@@ -8,10 +8,10 @@ import org.Backend.Main;
 
 import java.io.IOException;
 
-public class CreateNewUserController {
+public class CreateNewUserController {//controller for create new user scene
     // aid for the checkbox
     private boolean CheckBoxValue = false;
-
+    //ids for scene elements
     @FXML
     private TextField createUserUsername;
 
@@ -21,15 +21,13 @@ public class CreateNewUserController {
     @FXML
     private PasswordField createUserPasswordrReentry;
 
-
     @FXML
-    void cancelbuttonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("adminScreen");
-
+    void createNewUserCheckBoxHandler(ActionEvent event) {//checkbox for admin privilegies
+        CheckBoxValue = !CheckBoxValue;
     }
 
     @FXML
-    void createButtonHandler(ActionEvent event) throws IOException {
+    void createButtonHandler(ActionEvent event) throws IOException {//button for sending a create user attempt and takes the admin back to admin interface
         if (checkPassword(createUserPassword,createUserPasswordrReentry)){
             if (CheckBoxValue){
                 Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText() + " admin");
@@ -48,11 +46,12 @@ public class CreateNewUserController {
     }
 
     @FXML
-    void createNewUserCheckBoxHandler(ActionEvent event) {
-        CheckBoxValue = !CheckBoxValue;
+    void cancelbuttonHandler(ActionEvent event) throws IOException {//takes admin back to admin interface without creating user
+        Launcher.setRoot("adminScreen");
+
     }
 
-    boolean checkPassword(PasswordField createUserPassword, PasswordField createUserPasswordrReentry){
+    boolean checkPassword(PasswordField createUserPassword, PasswordField createUserPasswordrReentry){//checks if password and reentry match
         if(createUserPassword.getText().equals(createUserPasswordrReentry.getText())){
             return true;
         } else{
