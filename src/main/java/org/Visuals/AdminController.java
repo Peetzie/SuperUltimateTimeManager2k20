@@ -40,14 +40,11 @@ public class AdminController implements Initializable {
         Launcher.setRoot("loginScreen");
     }
 
-    void setText(String text){
-        adminCurrentUser.setText(text);
-    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setText(Main.getCurrentUser()+"");
+        Helper.setText(adminCurrentUser,Main.getCurrentUser()+"");
     }
 
 
