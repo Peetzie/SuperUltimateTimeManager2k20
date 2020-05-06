@@ -16,10 +16,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class AssignHoursController implements Initializable {
+public class AssignHoursController implements Initializable {//controller for assign hours scene
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
     long startDate;
-
+    //ids for scene elements
     @FXML
     private Label assignHoursCurrentUser;
 
@@ -40,7 +40,7 @@ public class AssignHoursController implements Initializable {
 
 
     @FXML
-    void assignButtonHandler(ActionEvent event) throws ParseException, IOException {
+    void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending an assign hours attempt and takes the user back to main user interface
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
         startDate = (date.getTime()/1000L);
         int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
@@ -49,13 +49,13 @@ public class AssignHoursController implements Initializable {
     }
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without assigning hours
         Launcher.setRoot("userScreen");
     }
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for assign hours interface
         System.out.println(projectList);
         assignHoursChooseProject.setItems(projectList);
         Helper.setText(assignHoursCurrentUser,Main.getCurrentUser()+"");
