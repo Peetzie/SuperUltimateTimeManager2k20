@@ -16,7 +16,7 @@ public class LoginController{//controller for the login scene
 
 
     @FXML
-    private TextField loginScreenUsername;//input field for userid in interface
+    private TextField loginScreenUserID;//input field for userid in interface
 
     @FXML
     private PasswordField loginScreenPassword;//input field for password in interface
@@ -40,7 +40,7 @@ public class LoginController{//controller for the login scene
 
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {
-        Main.command("signin " + loginScreenUsername.getText() + " " + loginScreenPassword.getText());
+        Main.command("signin " + loginScreenUserID.getText() + " " + loginScreenPassword.getText());
         if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
             Launcher.setRoot("adminScreen");
         }
