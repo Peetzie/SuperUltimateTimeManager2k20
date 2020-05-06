@@ -19,7 +19,7 @@ public class Main {
         employees.add(new Employee("password","admin",true));
 
 
-        if (true){
+        if (false){
             Launcher launcher = new Launcher();
             launcher.launchThis();
         }
@@ -65,8 +65,14 @@ public class Main {
             case "newproject":
                 employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
                 break;
-            case "assignpm":
-                employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
+            case "newactivity":
+                employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
+                break;
+            case "assignactivity":
+                employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
+                break;
+            case "joinactivity":
+                employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
                 break;
             case "leaveproject":
                 employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
@@ -92,11 +98,14 @@ public class Main {
         System.out.println("signout");
         System.out.println("newemployee [password] [name] (admin)");
         System.out.println("newproject [name] [description] [estimated time] [deadline]");
+        System.out.println("newactivity [projact] [title] [description] [estimated time] [deadline]");
+        System.out.println("assignactivity [projact] [activity] [employee]");
+        System.out.println("joinactivity [projact] [activity]");
         System.out.println("assignpm [project] [employee]");
         System.out.println("leaveproject [project]");
         System.out.println("joinproject [project]");
-        System.out.println("assignhours [project] [description] [start time] [duration]");
-        System.out.println("edithours [project] [entry index] [description] [start time] [duration]");
+        System.out.println("assignhours [project]] [start time] [duration]");
+        System.out.println("edithours [project] [entry index] [start time] [duration]");
     }
 
     private static void signIn(int id, String password){
