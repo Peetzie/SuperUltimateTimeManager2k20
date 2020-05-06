@@ -35,6 +35,14 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
+            <ImageView fitHeight="127.0" fitWidth="115.0" layoutX="93.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@social-network.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
          </children>
       </AnchorPane>
       <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="25.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="46.0" prefWidth="139.0" text="Leave project">

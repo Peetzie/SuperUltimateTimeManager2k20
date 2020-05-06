@@ -17,7 +17,7 @@ public class UserController implements Initializable {
     @FXML
     private Label userScreenCurrentUser;
 
-   
+
     @FXML
     void assignHoursButtonHandler(ActionEvent event) throws IOException {
         Launcher.setRoot("assignHoursScreen");
