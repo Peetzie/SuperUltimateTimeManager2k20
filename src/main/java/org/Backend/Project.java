@@ -2,7 +2,8 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Project {
+public class Project {//here we have the constructor for project with project logic included
+    //initiation of variables
     private ArrayList<ProjectEmployeeRelation> employeeRelations = new ArrayList<ProjectEmployeeRelation>();
     private ArrayList<Activity> activities = new ArrayList<Activity>();
     private int status;
@@ -11,18 +12,14 @@ public class Project {
     private int estimatedTime;
     private long deadline;
 
-    public Project(String name, String description, int estimatedTime, long deadline){
+    public Project(String name, String description, int estimatedTime, long deadline){//initiatoin of the object "Project"
         this.name = name;
         this.description = description;
         this.estimatedTime = estimatedTime;
         this.deadline = deadline;
     }
 
-    public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
-        return employeeRelations;
-    }
-
-    public void setProjectManager(Employee employee){
+    public void setProjectManager(Employee employee){//sets the project manager of the project
         removeCurrentProjectManager();
 
         if (!Main.projectEmployeeRelationExist(this, employee)){
@@ -31,7 +28,7 @@ public class Project {
         Main.findProjectEmployeeRelation(this, employee).setProjectManager(true);
         System.out.println("Employee "+Main.getEmployees().indexOf(employee)+ " is now project manager for project "+Main.getProjects().indexOf(this));
     }
-    private void removeCurrentProjectManager(){
+    private void removeCurrentProjectManager(){//removes the project manager status
         for(int i = 0; i < employeeRelations.size(); i++){
             if (employeeRelations.get(i).isProjectManager()){
                 employeeRelations.get(i).setProjectManager(false);
@@ -41,7 +38,7 @@ public class Project {
         }
     }
 
-    public Employee getProjectManager(){
+    public Employee getProjectManager(){//returns the project manager for the project (fancy getter)
         for(int i = 0; i < employeeRelations.size(); i++){
             if (employeeRelations.get(i).isProjectManager()){
                 return employeeRelations.get(i).getEmployee();
@@ -51,6 +48,10 @@ public class Project {
     }
 
 
+    //getters and setters
+    public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
+        return employeeRelations;
+    }
 
     public ArrayList<Activity> getActivities() {
         return activities;

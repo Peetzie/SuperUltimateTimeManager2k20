@@ -7,7 +7,8 @@ import java.util.Scanner;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Main {
+public class Main {//this is the central main function for running the program
+    //variable initiation
     private static ArrayList<Project> projects = new ArrayList<Project>();
     private static ArrayList<Employee> employees = new ArrayList<Employee>();
     private static Scanner sc = new Scanner(System.in);
@@ -20,7 +21,7 @@ public class Main {
         employees.add(new Employee("password","admin",true));
 
 
-        if (true){
+        if (true){//for debugging change true to false to use console mode
             Launcher launcher = new Launcher();
             launcher.launchThis();
         }
@@ -33,7 +34,7 @@ public class Main {
 
     }
 
-    public static void command(String str){
+    public static void command(String str){//this function is in charge of taking commands/inputs from the interface
         System.out.println("> "+str);
 
         String[] input = str.split(" ");
@@ -44,7 +45,7 @@ public class Main {
         }
 
         try {
-            switch(input[0]){
+            switch(input[0]){//checks the first word to determine the type of input
                 case "signin":
                     signIn(Integer.parseInt(input[1]),input[2]);
                     break;
@@ -101,7 +102,7 @@ public class Main {
         }
     }
 
-    private static void printHelp(){
+    private static void printHelp(){//for console mode you can use this function to get a list of viable options
         System.out.println("signin [employee]");
         System.out.println("signout");
         System.out.println("newemployee [password] [name] (admin)");
@@ -116,7 +117,7 @@ public class Main {
         System.out.println("edithours [project] [entry index] [start time] [duration]");
     }
 
-    private static void signIn(int id, String password){
+    private static void signIn(int id, String password){//handles login inputs
         if (employees.size() <= id){
             System.out.println("Employee "+id+" don't exist");
         }
@@ -135,12 +136,12 @@ public class Main {
         }
     }
 
-    public static void signOut(){
+    public static void signOut(){//handles logout inputs
         currentUser = -1;
         System.out.println("Employee has signed out");
     }
 
-    static boolean projectEmployeeRelationExist(Project project, Employee employee){
+    static boolean projectEmployeeRelationExist(Project project, Employee employee){//checks if the employee is assigned to the project
         for(int i = 0; i < project.getEmployeeRelations().size(); i++){
             if (project.getEmployeeRelations().get(i).getEmployee().equals(employee)){
                 return true;
@@ -149,7 +150,7 @@ public class Main {
         return false;
     }
 
-    static ProjectEmployeeRelation findProjectEmployeeRelation(Project project, Employee employee){
+    static ProjectEmployeeRelation findProjectEmployeeRelation(Project project, Employee employee){//returns the specific relation or null
         for(int i = 0; i < project.getEmployeeRelations().size(); i++){
             if (project.getEmployeeRelations().get(i).getEmployee().equals(employee)){
                 return project.getEmployeeRelations().get(i);
@@ -158,6 +159,7 @@ public class Main {
         return null;
     }
 
+    //getters and setters
     public static ArrayList<Employee> getEmployees(){
         return employees;
     }
