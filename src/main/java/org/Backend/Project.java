@@ -47,7 +47,7 @@ public class Project {//here we have the constructor for project with project lo
         return null;
     }
 
-    public boolean hasProjectManager(){
+    public boolean hasProjectManager(){//checks if the project has a project manager
         for(int i = 0; i < employeeRelations.size(); i++){
             if (employeeRelations.get(i).isProjectManager()){
                 return true;

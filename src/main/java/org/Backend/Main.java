@@ -18,7 +18,7 @@ public class Main {//this is the central main function for running the program
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
-        employees.add(new Employee("password","admin",true));
+        setup();
 
 
         if (true){//for debugging change true to false to use console mode
@@ -32,6 +32,10 @@ public class Main {//this is the central main function for running the program
         }
 
 
+    }
+
+    public static void setup(){
+        employees.add(new Employee("password","admin",true));
     }
 
     public static void command(String str){//this function is in charge of taking commands/inputs from the interface
