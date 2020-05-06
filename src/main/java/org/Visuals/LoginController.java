@@ -12,17 +12,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.Backend.Main;
 
-public class LoginController{
+public class LoginController{//controller for the login scene
 
 
     @FXML
-    private TextField loginScreenUsername;
+    private TextField loginScreenUsername;//input field for userid in interface
 
     @FXML
-    private PasswordField loginScreenPassword;
+    private PasswordField loginScreenPassword;//input field for password in interface
 
     @FXML
-    private Button loginScreenLoginButton;
+    private Button loginScreenLoginButton;//button for sending a login attempt
 
     @FXML
     private TextField test;
