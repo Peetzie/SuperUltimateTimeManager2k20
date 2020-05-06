@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import org.Backend.Employee;
 import org.Backend.Main;
+import org.w3c.dom.Text;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -58,6 +59,8 @@ public class CreateNewProjectController implements Initializable {//controller f
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes admin back to admin interface without creating project
         Launcher.setRoot("adminScreen");
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for create project interface

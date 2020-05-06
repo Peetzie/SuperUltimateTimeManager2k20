@@ -10,9 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.Visuals.UserEditHoursController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserEditHoursController">
    <children>
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
@@ -65,12 +63,12 @@ fx:controller="org.Visuals.UserEditHoursController">
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="221.0" layoutY="335.0" mnemonicParsing="false" style="-fx-background-color: #C21807;" text="Cancel" textFill="WHITE">
+      <Button fx:id="userEditHoursCancelButton" layoutX="221.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="147.0" layoutY="335.0" mnemonicParsing="false" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
+      <Button fx:id="userEditHoursConfirmButton" layoutX="147.0" layoutY="335.0" mnemonicParsing="false" onAction="#userEditConfirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
