@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class Activity {
     private int deadline;
-    private int duration;
+    private int estimatedTime;
     private String title;
     private String description;
     private ArrayList<Employee> employees = new ArrayList<Employee>();
     private int status;
+
+    public Activity(String title, String description, int estimatedTime, int deadline){
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.estimatedTime = estimatedTime;
+    }
 
     public int getDeadline() {
         return deadline;
@@ -18,12 +25,12 @@ public class Activity {
         this.deadline = deadline;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getEstimatedTime() {
+        return estimatedTime;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setEstimatedTime(int duration) {
+        this.estimatedTime = duration;
     }
 
     public String getTitle() {

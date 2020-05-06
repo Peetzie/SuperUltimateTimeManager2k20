@@ -30,21 +30,38 @@ public class Employee {
 
 
     //ProjectManager
-    public void createActivity(){
-
-    }
-
-    public void editEmployeesHours(int project, int employee, int index, int startTime, int duration){
+    public void createActivity(int project, String title, String description, int deadline, int estimatedTime){
         if (admin || Main.projects.get(project).getProjectManager().equals(this)){
-            Main.employees.get(employee).editHours(project, index, startTime, duration);
+            Main.getProjects().get(project).getActivities().add(new Activity(title,description,deadline,estimatedTime));
+            System.out.println("Activity "+(Main.getProjects().get(project).getActivities().size()-1)+" has been created");
         }
         else{
             System.out.println("Only admin or project manager can do this");
         }
     }
 
-    public void assignActivity(){
+    public void editEmployeesHours(int project, int employee, int index, int startTime, int duration){
+        if (admin || Main.projects.get(project).getProjectManager().equals(this)){
+            Main.employees.get(employee).editHours(project, index, duration, startTime);
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+        }
+    }
 
+    public void assignActivity(int project, int activity, int employee){
+        if (admin || Main.projects.get(project).getProjectManager().equals(this) || Main.employees.indexOf(this) == employee){
+            if (Main.getProjects().get(project).getActivities().get(activity).getEmployees().contains(Main.employees.get(employee))){
+                System.out.println("Employee "+employee+" was already assigned to activity "+activity+" on project "+project+", so no harm done");
+            }
+            else{
+                Main.getProjects().get(project).getActivities().get(activity).getEmployees().add(Main.employees.get(employee));
+                System.out.println("Employee "+employee+" has been assigned to activity "+activity+" on project "+project);
+            }
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+        }
     }
 
     public void changeProjectStatus(int project, int newStatus){
@@ -92,10 +109,6 @@ public class Employee {
         System.out.println("Hours entry "+index+" for employee "+Main.employees.indexOf(this)+" on project "+project+" has been updated");
     }
 
-    public void startCollaboration(){
-
-    }
-
     //Employee
     public void joinProject(Project project){
         if (!Main.projectEmployeeRelationExist(project, this)){
@@ -103,6 +116,13 @@ public class Employee {
             project.getEmployeeRelations().add(projectRelations.get(projectRelations.size()-1));
             System.out.println("Employee "+Main.employees.indexOf(this)+" is now on project "+Main.projects.indexOf(project));
         }
+        else{
+            System.out.println("Employee "+Main.getEmployees().indexOf(this)+" was already on project "+project+", so no harm done");
+        }
+    }
+
+    public void joinActivity(int project, int activity){
+        assignActivity(project,activity,Main.getEmployees().indexOf(this));
     }
 
     //Admin
