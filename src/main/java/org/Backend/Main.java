@@ -13,6 +13,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
     static int currentUser = -1;
     static BlockingQueue<InterfaceMessage> interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
+    static boolean printProjectInformationOnProjectEmployeeRelations = true;
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
@@ -158,5 +159,13 @@ public class Main {
     }
     public static int getCurrentUser(){
         return currentUser;
+    }
+
+    public static boolean isPrintProjectInformationOnProjectEmployeeRelations() {
+        return printProjectInformationOnProjectEmployeeRelations;
+    }
+
+    public static void setPrintProjectInformationOnProjectEmployeeRelations(boolean printProjectInformationOnProjectEmployeeRelations) {
+        Main.printProjectInformationOnProjectEmployeeRelations = printProjectInformationOnProjectEmployeeRelations;
     }
 }
