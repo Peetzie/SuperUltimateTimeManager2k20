@@ -22,7 +22,7 @@ public class UserEditHoursController implements Initializable {
      * Færdiggør
      * bservableList<ProjectEmployeeRelation> hourList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations().get(Ma));
      */
-
+    // ADDED PIKPÆLS!
     @FXML
     private Label userEditHoursCurrentUser;
 
