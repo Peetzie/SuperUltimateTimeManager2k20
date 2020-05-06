@@ -32,5 +32,16 @@ public class ProjectEmployeeRelation {
     public Project getProject() {
         return project;
     }
+    
+    public String toString(){
+        if (Main.isPrintProjectInformationOnProjectEmployeeRelations()){
+            if(projectManager)
+                return project.toString();
+            return project.toString() + " (Project manager)";
+        }
+        if(projectManager)
+            return employee.toString() + " (Project manager)";
+        return employee.toString();
+    }
 }
 
