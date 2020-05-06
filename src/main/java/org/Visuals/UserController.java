@@ -45,7 +45,7 @@ public class UserController implements Initializable {
 
     @FXML
     void signOutHandler(ActionEvent event) throws IOException {
-        Main.signOut();
+        Main.command("signout");
         Launcher.setRoot("loginScreen");
     }
 
