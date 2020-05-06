@@ -159,10 +159,18 @@ public class Main {//this is the central main function for running the program
         return false;
     }
 
-    static ProjectEmployeeRelation findProjectEmployeeRelation(Project project, Employee employee){//returns the specific relation or null
+    public static ProjectEmployeeRelation findProjectEmployeeRelation(Project project, Employee employee){//returns the specific relation or null
         for(int i = 0; i < project.getEmployeeRelations().size(); i++){
             if (project.getEmployeeRelations().get(i).getEmployee().equals(employee)){
                 return project.getEmployeeRelations().get(i);
+            }
+        }
+        return null;
+    }
+    public static ProjectEmployeeRelation findProjectEmployeeRelation(int project, int employee){//returns the specific relation or null
+        for(int i = 0; i < getProjects().get(project).getEmployeeRelations().size(); i++){
+            if (getProjects().get(project).getEmployeeRelations().get(i).getEmployee().equals(employee)){
+                return getProjects().get(project).getEmployeeRelations().get(i);
             }
         }
         return null;
