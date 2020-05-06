@@ -38,64 +38,58 @@ public class Main {//this is the central main function for running the program
         employees.add(new Employee("password","admin",true));
     }
 
-    public static void command(String str){//this function is in charge of taking commands/inputs from the interface
+    public static boolean command(String str){//this function is in charge of taking commands/inputs from the interface
         System.out.println("> "+str);
 
         String[] input = str.split(" ");
 
         if(currentUser == -1 && !input[0].equals("signin") && !input[0].equals("help")){
             System.out.println("Sign in before doing anything else");
-            return;
+            return false;
         }
 
         try {
             switch(input[0]){//checks the first word to determine the type of input
                 case "signin":
-                    signIn(Integer.parseInt(input[1]),input[2]);
-                    break;
+                    return signIn(Integer.parseInt(input[1]),input[2]);
                 case "signout":
                     signOut();
-                    break;
+                    return true;
                 case "newemployee":
                     if(input.length > 3){
                         if (input[3].equals("admin")){
-                            employees.get(currentUser).createNewEmployee(input[1],input[2],true);
+                            return employees.get(currentUser).createNewEmployee(input[1],input[2],true);
                         }
                         else{
-                            employees.get(currentUser).createNewEmployee(input[1],input[2],false);
+                            return employees.get(currentUser).createNewEmployee(input[1],input[2],false);
                         }
                     }
                     else{
-                        employees.get(currentUser).createNewEmployee(input[1],input[2],false);
+                        return employees.get(currentUser).createNewEmployee(input[1],input[2],false);
                     }
-                    break;
                 case "newproject":
-                    employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
-                    break;
+                    return employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
                 case "newactivity":
-                    employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
-                    break;
+                    return employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
                 case "assignactivity":
-                    employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
-                    break;
+                    return employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
                 case "joinactivity":
                     employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
-                    break;
+                    return true;
                 case "leaveproject":
                     employees.get(currentUser).leaveProject(Integer.parseInt(input[1]));
-                    break;
+                    return true;
                 case "joinproject":
                     employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
-                    break;
+                    return true;
                 case "assignpm":
-                    employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
-                    break;
+                    return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "assignhours":
                     employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
-                    break;
+                    return true;
                 case "edithours":
                     employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
-                    break;
+                    return true;
                 case "help":
                     printHelp();
                     break;
@@ -103,7 +97,9 @@ public class Main {//this is the central main function for running the program
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
+            return false;
         }
+        return false;
     }
 
     private static void printHelp(){//for console mode you can use this function to get a list of viable options
@@ -121,7 +117,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("edithours [project] [entry index] [start time] [duration]");
     }
 
-    private static void signIn(int id, String password){//handles login inputs
+    private static boolean signIn(int id, String password){//handles login inputs
         if (employees.size() <= id){
             System.out.println("Employee "+id+" don't exist");
         }
@@ -134,9 +130,11 @@ public class Main {//this is the central main function for running the program
                 System.out.println("Signed in as "+id);
                 currentUser = id;
             }
+            return true;
         }
         else{
             System.out.println("Password was incorrect");
+            return false;
         }
     }
 

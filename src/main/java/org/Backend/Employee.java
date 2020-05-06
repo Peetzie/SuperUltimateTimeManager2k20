@@ -16,13 +16,15 @@ public class Employee {//here we have the constructor for employee with employee
     }
 
     //Project manager functions
-    public void createActivity(int project, String title, String description, int deadline, int estimatedTime){//checks if user is admin or project manager and allows admins or project manager to create activities
+    public boolean createActivity(int project, String title, String description, int deadline, int estimatedTime){//checks if user is admin or project manager and allows admins or project manager to create activities
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getProjects().get(project).getActivities().add(new Activity(title,description.replace("_"," "),deadline,estimatedTime));
             System.out.println("Activity "+(Main.getProjects().get(project).getActivities().size()-1)+" has been created");
+            return true;
         }
         else{
             System.out.println("Only admin or project manager can do this");
+            return false;
         }
     }
 
@@ -35,18 +37,21 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
 
-    public void assignActivity(int project, int activity, int employee){//checks if user is admin or project manager and allows admins or project manager to assign employees to a assignment if they are not already assigned
+    public boolean assignActivity(int project, int activity, int employee){//checks if user is admin or project manager and allows admins or project manager to assign employees to a assignment if they are not already assigned
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this) || Main.getEmployees().indexOf(this) == employee){
             if (Main.getProjects().get(project).getActivities().get(activity).getEmployees().contains(Main.getEmployees().get(employee))){
                 System.out.println("Employee "+employee+" was already assigned to activity "+activity+" on project "+project+", so no harm done");
+
             }
             else{
                 Main.getProjects().get(project).getActivities().get(activity).getEmployees().add(Main.getEmployees().get(employee));
                 System.out.println("Employee "+employee+" has been assigned to activity "+activity+" on project "+project);
             }
+            return true;
         }
         else{
             System.out.println("Only admin or project manager can do this");
+            return false;
         }
     }
 
@@ -114,7 +119,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
 
     //Admin functions
-    public void createNewEmployee(String password, String name, boolean admin){//allows an admin to create an employee
+    public boolean createNewEmployee(String password, String name, boolean admin){//allows an admin to create an employee
         if (this.admin){
             Main.getEmployees().add(new Employee(password, name, admin));
             if (admin){
@@ -123,40 +128,48 @@ public class Employee {//here we have the constructor for employee with employee
             else{
                 System.out.println("Employee " +(Main.getEmployees().size()-1)+" has been created");
             }
+            return true;
         }
         else{
             System.out.println("Only admin can do this");
+            return false;
         }
     }
 
-    public void createNewProject(String name, String description, int estimatedTime, long deadline){//allows an admin to create a project
+    public boolean createNewProject(String name, String description, int estimatedTime, long deadline){//allows an admin to create a project
         if (admin){
             Main.getProjects().add(new Project(name, description.replace("_"," "), estimatedTime, deadline));
             System.out.println("Project " +(Main.getProjects().size()-1)+" has been created");
+            return true;
         }
         else{
             System.out.println("Only admin can do this");
+            return false;
         }
     }
 
     //Admin and project manager functions
-    public void assignProjectManager(int project, int employee){//allows project managers to set new project manager and allows admins to set a project manager
+    public boolean assignProjectManager(int project, int employee){//allows project managers to set new project manager and allows admins to set a project manager
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             if (Main.getProjects().size() > project){
                 if (Main.getEmployees().size() > employee){
                     Main.getProjects().get(project).setProjectManager(Main.getEmployees().get(employee));
                     System.out.println("Employee "+employee+" has been assinged as project manager");
+                    return true;
                 }
                 else{
                     System.out.println("Employee "+employee+" don't exist");
+                    return false;
                 }
             }
             else{
                 System.out.println("Project "+project+" don't exist");
+                return false;
             }
         }
         else{
             System.out.println("Only admin or project manager can do this");
+            return false;
         }
     }
 
