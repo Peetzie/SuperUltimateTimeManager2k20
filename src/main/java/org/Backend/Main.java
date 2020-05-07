@@ -93,6 +93,8 @@ public class Main {//this is the central main function for running the program
                     return true;
                 case "assignpm":
                     return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                case "setstatus":
+                    return employees.get(currentUser).setProjectStatus(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "assignhours":
                     employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
                     return true;

@@ -189,12 +189,14 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
 
-    public void assignEmployeeToProject(int project, int employee){//allows admins and project managers to assign employees to a project
+    public boolean assignEmployeeToProject(int project, int employee){//allows admins and project managers to assign employees to a project
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getEmployees().get(employee).joinProject(Main.getProjects().get(project));
+            return true;
         }
         else{
             System.out.println("Only admin or project manager can do this");
+            return false;
         }
     }
 
@@ -208,13 +210,15 @@ public class Employee {//here we have the constructor for employee with employee
         return managerProjects;
     }
 
-    public void setProjectStatus(int project, int status){//allows admins and project managers to assign employees to a project
+    public boolean setProjectStatus(int project, int status){//allows admins and project managers to assign employees to a project
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getProjects().get(project).setStatus(status);
             System.out.println("Status for project "+project+" has been set to "+status);
+            return true;
         }
         else{
             System.out.println("Only admin or project manager can do this");
+            return false;
         }
     }
 
