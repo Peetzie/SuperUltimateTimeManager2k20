@@ -181,6 +181,10 @@ public class Main {//this is the central main function for running the program
 
     //getters and setters
     public static ArrayList<Employee> getEmployees(){
+        return employees;
+    }
+
+    public static ArrayList<Employee> getEmployeesReal(){
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
         for(int i = 0; i < employees.size(); i++){
             if(!employees.get(i).isRemoved()){
@@ -189,6 +193,7 @@ public class Main {//this is the central main function for running the program
         }
         return employeeList;
     }
+
     public static ArrayList<Project> getProjects(){
         return projects;
     }
