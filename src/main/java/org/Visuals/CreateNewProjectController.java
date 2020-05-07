@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CreateNewProjectController implements Initializable {//controller for create new project scene
-    ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
+    ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     long deadline;
     //ids for scene elements
     @FXML

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.adminRemoveEmployeeController">
+   <children>
+      <ChoiceBox fx:id="valgbox" layoutX="96.0" layoutY="218.0" prefWidth="150.0" />
+      <Button layoutX="82.0" layoutY="91.0" mnemonicParsing="false" onAction="#ConfirmButtonHandler" text="Button" />
+      <Button layoutX="324.0" layoutY="310.0" mnemonicParsing="false" onAction="#exit" text="Button" />
+   </children>
+</AnchorPane>
