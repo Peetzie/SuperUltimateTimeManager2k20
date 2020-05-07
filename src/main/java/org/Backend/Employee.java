@@ -1,5 +1,6 @@
 package org.Backend;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Employee {//here we have the constructor for employee with employee logic included
@@ -180,6 +181,16 @@ public class Employee {//here we have the constructor for employee with employee
         else{
             System.out.println("Only admin or project manager can do this");
         }
+    }
+
+    public ArrayList<ProjectEmployeeRelation> getManagerProjects(){
+        ArrayList<ProjectEmployeeRelation> managerProjects = new ArrayList<>();
+        for(int i = 0; i < projectRelations.size(); i++){
+            if (projectRelations.get(i).isProjectManager()) {
+                managerProjects.add(projectRelations.get(i));
+            }
+        }
+        return managerProjects;
     }
 
     //getters and setters
