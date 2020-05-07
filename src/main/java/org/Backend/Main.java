@@ -181,7 +181,7 @@ public class Main {//this is the central main function for running the program
         return null;
     }
 
-    public ArrayList<Project> getProjectByStatus(int lower, int upper){
+    public static ArrayList<Project> getProjectByStatus(int lower, int upper){
         ArrayList<Project> projectsList = new ArrayList<>();
         for(int i = 0; i < projects.size(); i++){
             if(projects.get(i).getStatus() >= lower && projects.get(i).getStatus() <= upper){
