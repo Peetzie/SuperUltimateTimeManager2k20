@@ -41,6 +41,12 @@ public class AdminController implements Initializable {//controller for admin in
         Launcher.setRoot("adminAssignProjectManager");
     }
 
+    @FXML
+    void adminRemoveEmployeeButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("adminRemoveEmployee");
+
+    }
+
 
 
     @Override

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
  ***/
 
 public class adminAssignProjectManagerController implements Initializable {
-    ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
+    ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
 
     @FXML

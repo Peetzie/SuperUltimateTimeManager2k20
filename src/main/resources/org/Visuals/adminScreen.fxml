@@ -42,7 +42,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="70.0" layoutY="305.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="4.Funktion" textFill="WHITE">
+      <Button layoutX="70.0" layoutY="305.0" mnemonicParsing="false" onAction="#adminRemoveEmployeeButtonHandler" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove employe" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
