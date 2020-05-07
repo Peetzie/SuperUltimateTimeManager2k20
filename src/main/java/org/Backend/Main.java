@@ -179,6 +179,16 @@ public class Main {//this is the central main function for running the program
         return null;
     }
 
+    public ArrayList<Project> getProjectByStatus(int lower, int upper){
+        ArrayList<Project> projectsList = new ArrayList<>();
+        for(int i = 0; i < projects.size(); i++){
+            if(projects.get(i).getStatus() >= lower && projects.get(i).getStatus() <= upper){
+                projectsList.add(projects.get(i));
+            }
+        }
+        return projectsList;
+    }
+
     //getters and setters
     public static ArrayList<Employee> getEmployees(){
         return employees;
