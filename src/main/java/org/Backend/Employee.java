@@ -9,6 +9,7 @@ public class Employee {//here we have the constructor for employee with employee
     private boolean admin;
     private String password;
     private String name;
+    private boolean removed = false;
 
     public Employee(String password, String name, boolean admin){//initiatoin of the object "Employee"
         this.password = password;
@@ -155,7 +156,7 @@ public class Employee {//here we have the constructor for employee with employee
                 Main.getEmployees().get(employee).projectRelations.get(0).getProject().getEmployeeRelations().remove(projectRelations.get(0));
                 Main.getEmployees().get(employee).projectRelations.remove(0);
             }
-            Main.getEmployees().remove(employee);
+            Main.getEmployees().get(employee).setRemoved(true);
             System.out.println("Employee "+employee+" has been removed");
             return true;
         } else {
@@ -242,6 +243,14 @@ public class Employee {//here we have the constructor for employee with employee
             return getName() + " (" + Main.getEmployees().indexOf(this) + ") [admin]";
         }
         return getName() + " (" + Main.getEmployees().indexOf(this) + ")";
+    }
+
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
+    }
+
+    public boolean isRemoved() {
+        return removed;
     }
 }
 

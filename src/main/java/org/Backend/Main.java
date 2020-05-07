@@ -131,7 +131,7 @@ public class Main {//this is the central main function for running the program
         if (employees.size() <= id){
             System.out.println("Employee "+id+" don't exist");
         }
-        if (password.equals(employees.get(id).getPassword())){
+        if (password.equals(employees.get(id).getPassword()) && !employees.get(id).isRemoved()){
             if(employees.get(id).isAdmin()){
                 System.out.println("Signed in as "+id+" (Admin)");
                 currentUser = id;
@@ -181,7 +181,13 @@ public class Main {//this is the central main function for running the program
 
     //getters and setters
     public static ArrayList<Employee> getEmployees(){
-        return employees;
+        ArrayList<Employee> employeeList = new ArrayList<>();
+        for(int i = 0; i < getEmployees().size(); i++){
+            if(!getEmployees().get(i).isRemoved()){
+                employeeList.add(getEmployees().get((i)));
+            }
+        }
+        return employeeList;
     }
     public static ArrayList<Project> getProjects(){
         return projects;
