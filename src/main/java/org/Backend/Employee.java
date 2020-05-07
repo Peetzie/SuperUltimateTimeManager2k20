@@ -202,7 +202,7 @@ public class Employee {//here we have the constructor for employee with employee
         this.admin = admin;
     }
 
-    public ArrayList<ProjectEmployeeRelation> getprojectRelations() {
+    public ArrayList<ProjectEmployeeRelation> getProjectRelations() {
         return projectRelations;
     }
 

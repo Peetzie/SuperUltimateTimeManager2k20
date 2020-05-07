@@ -9,13 +9,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import org.Backend.Main;
 import org.Backend.Project;
+import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProjectManagerController implements Initializable {
-    ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
 
     @FXML
     private Label pmCurrentUser;

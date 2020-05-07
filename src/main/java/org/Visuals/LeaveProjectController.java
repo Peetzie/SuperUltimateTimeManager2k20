@@ -5,11 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import org.Backend.Employee;
 import org.Backend.Main;
-import org.Backend.Project;
 import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
@@ -17,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LeaveProjectController implements Initializable {//controller for leave project interface
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     //id for scene elements
     @FXML
     private ChoiceBox leaveProjectChooseProject;

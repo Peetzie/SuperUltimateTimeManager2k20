@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AssignHoursController implements Initializable {//controller for assign hours scene
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     long startDate;
     //ids for scene elements
     @FXML

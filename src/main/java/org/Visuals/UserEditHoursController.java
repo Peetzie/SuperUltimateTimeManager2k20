@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import org.Backend.Hour;
 import org.Backend.Main;
 import org.Backend.ProjectEmployeeRelation;
@@ -20,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UserEditHoursController implements Initializable {
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     @FXML
     private ChoiceBox userEditHoursSelectProject;
 
