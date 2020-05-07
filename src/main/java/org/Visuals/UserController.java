@@ -16,7 +16,6 @@ public class UserController implements Initializable {//controller for user scen
     @FXML
     private Label userScreenCurrentUser;
 
-
     @FXML
     void assignHoursButtonHandler(ActionEvent event) throws IOException {//takes user to assign hours scene
         Launcher.setRoot("assignHoursScreen");
@@ -44,8 +43,18 @@ public class UserController implements Initializable {//controller for user scen
         Launcher.setRoot("leaveProjectScreen");
     }
 
+
+    @FXML
+    void userScreenProjectManagerButtonHandler(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for user interface
         Helper.setText(userScreenCurrentUser,Main.getCurrentUser()+"");
     }
+
+
+
+
 }

@@ -33,11 +33,6 @@ public class LoginController{//controller for the login scene
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {//used to send login attempts and routes the user to the right screen
         Main.command("signin " + loginScreenUserID.getText() + " " + loginScreenPassword.getText());
-        if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
-            Launcher.setRoot("adminScreen");
-        }
-        else {
-            Launcher.setRoot("userScreen");
-        }
+        Launcher.setRoot("loginScreenMode");
     }
 }
