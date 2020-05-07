@@ -9,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import org.Backend.Employee;
 import org.Backend.Main;
+import org.Backend.Project;
 import org.Backend.ProjectEmployeeRelation;
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class adminAssignProjectManagerController implements Initializable {
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployees());
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getprojectRelations());
+    ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
 
     @FXML
     private Label adminAssignPMCurrentUser;
@@ -29,11 +30,12 @@ public class adminAssignProjectManagerController implements Initializable {
     private ChoiceBox adminAssignProjectManagerSelectEmployee;
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> adminAssignProjectManagerSelectProject;
+    private ChoiceBox adminAssignProjectManagerSelectProject;
 
     @FXML
     void assignButtonHandler(ActionEvent event) {
-        Main.command("assignpm " + Main.getProjects().indexOf(adminAssignProjectManagerSelectProject.getValue().getProject()) + " " + Main.getEmployees().indexOf(adminAssignProjectManagerSelectEmployee.getValue()));
+        Main.command("assignpm " + Main.getProjects().indexOf(adminAssignProjectManagerSelectProject.getValue()) + " "
+                + Main.getEmployees().indexOf(adminAssignProjectManagerSelectEmployee.getValue()));
 
     }
 
@@ -44,6 +46,7 @@ public class adminAssignProjectManagerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Helper.setText(adminAssignPMCurrentUser,Main.getCurrentUser()+"");
         adminAssignProjectManagerSelectEmployee.setItems(userList);
         adminAssignProjectManagerSelectProject.setItems(projectList);
 

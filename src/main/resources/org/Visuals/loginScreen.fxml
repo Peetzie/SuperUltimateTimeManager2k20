@@ -43,7 +43,5 @@
             <Image url="@interface.png" />
          </image>
       </ImageView>
-      <TextField fx:id="test" layoutX="68.0" layoutY="339.0" promptText="skrald" />
-      <Button fx:id="cmdbutton" layoutX="234.0" layoutY="339.0" mnemonicParsing="false" onAction="#cmdbuttonhandler" text="Button" />
    </children>
 </AnchorPane>

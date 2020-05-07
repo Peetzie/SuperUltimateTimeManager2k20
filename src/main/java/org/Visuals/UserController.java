@@ -45,8 +45,8 @@ public class UserController implements Initializable {//controller for user scen
 
 
     @FXML
-    void userScreenProjectManagerButtonHandler(ActionEvent event) {
-
+    void userScreenProjectManagerButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("projectManagerScreen");
     }
 
     @Override

@@ -45,27 +45,27 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="25.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="46.0" prefWidth="139.0" text="Leave project">
+      <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="8.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="63.0" prefWidth="150.0" text="Leave project">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenJoinProject" layoutX="75.0" layoutY="97.0" mnemonicParsing="false" onAction="#userScreenJoinProjectHandler" prefHeight="46.0" prefWidth="139.0" text="Join project">
+      <Button fx:id="userScreenJoinProject" layoutX="75.0" layoutY="85.0" mnemonicParsing="false" onAction="#userScreenJoinProjectHandler" prefHeight="63.0" prefWidth="150.0" text="Join project">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenAssignHoursButton" layoutX="75.0" layoutY="167.0" mnemonicParsing="false" onAction="#assignHoursButtonHandler" prefHeight="46.0" prefWidth="139.0" text="Assign hours">
+      <Button fx:id="userScreenAssignHoursButton" layoutX="75.0" layoutY="162.0" mnemonicParsing="false" onAction="#assignHoursButtonHandler" prefHeight="63.0" prefWidth="150.0" text="Assign hours">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScrenEditHoursButton" layoutX="75.0" layoutY="236.0" mnemonicParsing="false" onAction="#userScreenEditHoursButtonHandler" prefHeight="46.0" prefWidth="139.0" text="Edit hours">
+      <Button fx:id="userScrenEditHoursButton" layoutX="75.0" layoutY="239.0" mnemonicParsing="false" onAction="#userScreenEditHoursButtonHandler" prefHeight="63.0" prefWidth="150.0" text="Edit hours">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenProjectManagerButton" layoutX="75.0" layoutY="300.0" mnemonicParsing="false" onAction="#userScreenProjectManagerButtonHandler" prefHeight="77.0" prefWidth="152.0" text="Projectmanager options" wrapText="true">
+      <Button fx:id="userScreenProjectManagerButton" layoutX="75.0" layoutY="316.0" mnemonicParsing="false" onAction="#userScreenProjectManagerButtonHandler" prefHeight="63.0" prefWidth="150.0" text="Projectmanager options" wrapText="true">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

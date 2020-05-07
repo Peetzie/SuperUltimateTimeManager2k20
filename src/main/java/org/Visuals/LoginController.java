@@ -21,16 +21,6 @@ public class LoginController{//controller for the login scene
     private PasswordField loginScreenPassword;//input field for password in interface
 
     @FXML
-    private TextField test;//remove before version. used for debugging
-
-    @FXML
-    void cmdbuttonhandler(ActionEvent event) {//used to send debugging commands
-        System.out.println("Test");
-        Main.command(test.getText());
-        test.setText("");
-    }
-
-    @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {//used to send login attempts and routes the user to the right screen
         Main.command("signin " + loginScreenUserID.getText() + " " + loginScreenPassword.getText());
         if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()){
