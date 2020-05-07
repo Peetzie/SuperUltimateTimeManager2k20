@@ -181,10 +181,10 @@ public class Main {//this is the central main function for running the program
 
     //getters and setters
     public static ArrayList<Employee> getEmployees(){
-        ArrayList<Employee> employeeList = new ArrayList<>();
-        for(int i = 0; i < getEmployees().size(); i++){
-            if(!getEmployees().get(i).isRemoved()){
-                employeeList.add(getEmployees().get((i)));
+        ArrayList<Employee> employeeList = new ArrayList<Employee>();
+        for(int i = 0; i < employees.size(); i++){
+            if(!employees.get(i).isRemoved()){
+                employeeList.add(employees.get(i));
             }
         }
         return employeeList;
