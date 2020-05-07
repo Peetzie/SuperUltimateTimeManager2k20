@@ -149,6 +149,20 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
 
+    public boolean removeEmployee(int employee){
+        if (admin) {
+            while(Main.getEmployees().get(employee).projectRelations.size() > 0){
+                Main.getEmployees().get(employee).projectRelations.get(0).getProject().getEmployeeRelations().remove(projectRelations.get(0));
+                Main.getEmployees().get(employee).projectRelations.remove(0);
+            }
+            Main.getEmployees().remove(employee);
+            System.out.println("Employee "+employee+" has been removed");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //Admin and project manager functions
     public boolean assignProjectManager(int project, int employee){//allows project managers to set new project manager and allows admins to set a project manager
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){

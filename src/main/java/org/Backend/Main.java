@@ -78,6 +78,8 @@ public class Main {//this is the central main function for running the program
                     return employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
                 case "newactivity":
                     return employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
+                case "removeemployee":
+                    return employees.get(currentUser).removeEmployee(Integer.parseInt(input[1]));
                 case "assignactivity":
                     return employees.get(currentUser).assignActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]), Integer.parseInt(input[3]));
                 case "joinactivity":
@@ -115,6 +117,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("newemployee [password] [name] (admin)");
         System.out.println("newproject [name] [description] [estimated time] [deadline]");
         System.out.println("newactivity [projact] [title] [description] [estimated time] [deadline]");
+        System.out.println("removeemployee [employee]");
         System.out.println("assignactivity [projact] [activity] [employee]");
         System.out.println("joinactivity [projact] [activity]");
         System.out.println("assignpm [project] [employee]");
