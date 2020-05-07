@@ -5,10 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import org.Backend.Employee;
 import org.Backend.Main;
-import org.Backend.Project;
 import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
@@ -17,6 +18,9 @@ import java.util.ResourceBundle;
 
 public class ProjectManagerController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress", "Finished");
+    ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
@@ -25,16 +29,16 @@ public class ProjectManagerController implements Initializable {
     private ChoiceBox pmSelectProject;
 
     @FXML
-    private ChoiceBox<?> pmSetProjectStatus;
+    private ChoiceBox pmSetProjectStatus;
 
     @FXML
-    private ChoiceBox<?> pmNewProjectManager;
+    private ChoiceBox pmNewProjectManager;
 
     @FXML
-    private ChoiceBox<?> pmAssignEmployeeToProject;
+    private ChoiceBox pmAssignEmployeeToProject;
 
     @FXML
-    private ChoiceBox<?> pmOtherOptions;
+    private ChoiceBox pmOtherOptions;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
@@ -44,14 +48,27 @@ public class ProjectManagerController implements Initializable {
     @FXML
     void confirmButtonHandler(ActionEvent event) {
 
+    }
+    @FXML
+    void hyperLinkHandler(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("The projectmanager page is used by small changes, one can select the project that's currently being changed options in, in the top. \n " +
+                "Next up the user can change individual settings such as setting project status without using the other functions. \n " +
+                "For more advanced options check the 'other settings' drop down menu. ");
+        alert.setTitle("How - to Project Manager");
+        alert.showAndWait();
 
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Helper.setText(pmCurrentUser, Main.getCurrentUser()+"");
         pmSelectProject.setItems(projectList);
+        pmSetProjectStatus.setItems(projectStatusList);
+        pmNewProjectManager.setItems(employeeList);
+        pmAssignEmployeeToProject.setItems(employeeList);
+        pmOtherOptions.setItems(optionslist);
+
 
 
 
