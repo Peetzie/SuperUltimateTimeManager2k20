@@ -10,6 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.Backend.Main;
 
+/***
+ * Delete a user
+ *
+ */
 public class AdminController implements Initializable {//controller for admin interface
     LoginController loginController;
 
@@ -30,6 +34,11 @@ public class AdminController implements Initializable {//controller for admin in
     void signoutButtonHandler(ActionEvent event) throws IOException {//log out user and opens the login scene
         Main.command("signout");
         Launcher.setRoot("loginScreen");
+    }
+
+    @FXML
+    void assignPMButtonHandler(ActionEvent event) throws IOException{
+        Launcher.setRoot("adminAssignProjectManager");
     }
 
 

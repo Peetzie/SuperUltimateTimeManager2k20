@@ -47,7 +47,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="70.0" layoutY="215.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="3. Funktion" textFill="WHITE">
+      <Button layoutX="70.0" layoutY="215.0" mnemonicParsing="false" onAction="#assignPMButtonHandler" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Assign project manager" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
