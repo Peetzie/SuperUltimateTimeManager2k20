@@ -153,14 +153,20 @@ public class Employee {//here we have the constructor for employee with employee
 
     public boolean removeEmployee(int employee){
         if (admin) {
-            while(Main.getEmployees().get(employee).projectRelations.size() > 0){
-                Main.getEmployees().get(employee).projectRelations.get(0).getProject().getEmployeeRelations().remove(projectRelations.get(0));
-                Main.getEmployees().get(employee).projectRelations.remove(0);
+            if (!this.equals(Main.getEmployees().get(employee))) {
+                while(Main.getEmployees().get(employee).projectRelations.size() > 0){
+                    Main.getEmployees().get(employee).projectRelations.get(0).getProject().getEmployeeRelations().remove(projectRelations.get(0));
+                    Main.getEmployees().get(employee).projectRelations.remove(0);
+                }
+                Main.getEmployees().get(employee).setRemoved(true);
+                System.out.println("Employee "+employee+" has been removed");
+                return true;
+            } else {
+                System.out.println("Removeing one self is not possible");
+                return false;
             }
-            Main.getEmployees().get(employee).setRemoved(true);
-            System.out.println("Employee "+employee+" has been removed");
-            return true;
         } else {
+            System.out.println("Only admin can do this");
             return false;
         }
     }

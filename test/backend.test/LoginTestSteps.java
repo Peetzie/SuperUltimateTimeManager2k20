@@ -1,15 +1,12 @@
 package backend.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.Backend.Main;
 
+import static org.junit.Assert.*;
 
 
 public class LoginTestSteps {
@@ -17,7 +14,7 @@ public class LoginTestSteps {
     private String password;
 
     public LoginTestSteps() {
-        Main.setup();
+        Main.setup(this);
     }
 
     @Given("that the employee is not logged in")
@@ -37,7 +34,7 @@ public class LoginTestSteps {
 
     @Then("the employee is logged in")
     public void theEmployeeIsLoggedIn() throws Exception {
-        assertTrue(Main.getCurrentUser() == 0);
+        assertEquals(0, Main.getCurrentUser());
     }
 
     @Then("the employee login fails")
@@ -47,7 +44,12 @@ public class LoginTestSteps {
 
     @Then("the employee is not logged in")
     public void theEmployeeIsNotLoggedIn() throws Exception {
-        assertTrue(Main.getCurrentUser() == -1);
+        assertEquals(Main.getCurrentUser(), -1);
+    }
+
+    @Then("the employee logout suceeds")
+    public void theEmployeeLogoutSuceeds() throws Exception {
+        assertTrue(Main.command("signout"));
     }
 
 
