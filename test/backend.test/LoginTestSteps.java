@@ -17,7 +17,7 @@ public class LoginTestSteps {
     private String password;
 
     public LoginTestSteps() {
-        Main.setup();
+        Main.setup(this);
     }
 
     @Given("that the employee is not logged in")

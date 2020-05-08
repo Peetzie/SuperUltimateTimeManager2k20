@@ -15,6 +15,7 @@ public class Main {//this is the central main function for running the program
     private static int currentUser;
     private static BlockingQueue<InterfaceMessage> interfaceMessages;
     private static boolean printProjectInformationOnProjectEmployeeRelations;
+    private static int setupCounter = 0;
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
@@ -43,6 +44,12 @@ public class Main {//this is the central main function for running the program
         printProjectInformationOnProjectEmployeeRelations = true;
 
         employees.add(new Employee("password","admin",true));
+        setupCounter++;
+        System.out.println("Setup done ("+setupCounter+")");
+    }
+    public static void setup(Object caller){
+        System.out.println("Setup called from "+caller.getClass().getSimpleName());
+        setup();
     }
 
     public static boolean command(String str){//this function is in charge of taking commands/inputs from the interface

@@ -1,5 +1,5 @@
-Feature: Employee Login
-Description: The employee logs into the library system and also logs out
+Feature: Employee login
+Description: The employee logs into the system and also logs out
 Actor: employee
 
 Scenario: employee can log in
