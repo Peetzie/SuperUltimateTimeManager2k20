@@ -7,9 +7,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!--employee scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="27.0" layoutY="175.0" text="Current user:" textFill="WHITE">
@@ -70,6 +71,7 @@
             </Label>
          </children>
       </AnchorPane>
+      <!--left side pane (buttons and controls)-->
       <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="8.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="63.0" prefWidth="150.0" text="Leave project">
          <font>
             <Font name="System Bold" size="16.0" />

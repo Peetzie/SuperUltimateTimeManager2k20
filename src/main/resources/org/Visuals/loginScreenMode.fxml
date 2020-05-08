@@ -4,9 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!--login mode scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.loginScreenModeController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="16.0" layoutY="147.0" text="Welcome user:" textFill="WHITE">
@@ -19,7 +20,9 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <!--left side pane (buttons and controls)-->
       <ChoiceBox fx:id="loginOptions" layoutX="76.0" layoutY="152.0" prefWidth="150.0" />
       <Label layoutX="76.0" layoutY="53.0" prefHeight="77.0" prefWidth="161.0" text="Please choose between running the program as adminstrator or as a user" wrapText="true">
          <font>

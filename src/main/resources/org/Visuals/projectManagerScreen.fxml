@@ -9,9 +9,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!--project Manager scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.ProjectManagerController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="46.0" layoutY="139.0" text="Project manager options" textFill="WHITE">
@@ -44,6 +45,7 @@
             </Hyperlink>
          </children>
       </AnchorPane>
+      <!--left side pane (buttons and controls)-->
       <ChoiceBox fx:id="pmSelectProject" layoutX="112.0" layoutY="29.0" prefWidth="150.0" />
       <Label layoutX="22.0" layoutY="33.0" text="Select project">
          <font>
