@@ -1,4 +1,4 @@
-Feature: Employee
+Feature: Remove employee
   Description: Employees creates new employees
   Actor: employee
 
