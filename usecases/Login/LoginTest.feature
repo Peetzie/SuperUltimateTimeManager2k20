@@ -1,6 +1,4 @@
 Feature: Employee login
-Description: The employee logs into the system and also logs out
-Actor: employee
 
 Scenario: employee can log in
   Given that the employee is not logged in
