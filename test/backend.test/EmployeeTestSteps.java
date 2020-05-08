@@ -10,8 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.Backend.Main;
 
-public class CreateAndRemoveEmployeeTestSteps {
-    public CreateAndRemoveEmployeeTestSteps(){
+public class EmployeeTestSteps {
+    public EmployeeTestSteps(){
         Main.setup(this);
     }
     @Given("that the admin is not logged in")
