@@ -13,6 +13,7 @@ public class ActivityTestSteps {
     public ActivityTestSteps(){
         Main.setup(this);
         Main.command("signin 0 password");
+        Main.command("newemployee  [name] (admin)")
     }
 
     @Given("that the current user is a project bound employee")

@@ -1,6 +1,4 @@
 Feature: user removes activity
-  Description: user removes activity
-  Actor: admin/project manager/project bound employee
 
 Scenario: admin removes an activity
   Given that the current user is a admin

@@ -1,6 +1,4 @@
 Feature: user assigns activity
-  Description: user assigns activity
-  Actor: admin/project manager/project bound employee
 
 Scenario: admin assigns activity to project bound employee
   Given that the current user is a admin

@@ -1,6 +1,4 @@
 Feature: user join activity
-  Description: user join activity
-  Actor: project manager/project bound employee/empoyee
 
 Scenario: project manager join activity
   Given that the current user is a project manager

@@ -125,10 +125,10 @@ public class Main {//this is the central main function for running the program
         System.out.println("signout");
         System.out.println("newemployee [password] [name] (admin)");
         System.out.println("newproject [name] [description] [estimated time] [deadline]");
-        System.out.println("newactivity [projact] [title] [description] [estimated time] [deadline]");
+        System.out.println("newactivity [project] [title] [description] [estimated time] [deadline]");
         System.out.println("removeemployee [employee]");
-        System.out.println("assignactivity [projact] [activity] [employee]");
-        System.out.println("joinactivity [projact] [activity]");
+        System.out.println("assignactivity [project] [activity] [employee]");
+        System.out.println("joinactivity [project] [activity]");
         System.out.println("assignpm [project] [employee]");
         System.out.println("leaveproject [project]");
         System.out.println("joinproject [project]");
