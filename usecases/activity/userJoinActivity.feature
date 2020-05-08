@@ -3,16 +3,13 @@ Feature: user join activity
   Actor: project manager/project bound employee/empoyee
 
 Scenario: project manager join activity
-  Given that the employee is logged in
-  And is project manager
+  Given that the current user is a project manager
   Then employee joined activity
 
 Scenario: admin join activity
-  Given that the employee is logged in
-  And is project bound employee
+  Given that the current user is a project bound employee
   Then employee joined activity
 
 Scenario: admin join activity
-  Given that the employee is logged in
-  And is employee
+  Given that the current user is a employee
   Then employee didnt join activity
