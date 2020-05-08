@@ -1,6 +1,4 @@
 Feature: Remove employee
-  Description: Employees creates new employees
-  Actor: employee
 
   Scenario: admin removes employee
     Given that the admin is logged in
