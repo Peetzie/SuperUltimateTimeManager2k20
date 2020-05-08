@@ -1,5 +1,7 @@
 package org.Visuals;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,16 +19,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProjectManagerController implements Initializable {
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
-    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress", "Finished");
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
+            get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress",
+            "Finished");
     ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
-    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours for other \n project bound employee");
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours" +
+            " for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
 
     @FXML
-    private ChoiceBox pmSelectProject;
+    private ChoiceBox<ProjectEmployeeRelation> pmSelectProject;
 
     @FXML
     private ChoiceBox pmSetProjectStatus;
@@ -42,18 +47,31 @@ public class ProjectManagerController implements Initializable {
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-       Launcher.setRoot("userScreen");
+        Launcher.setRoot("userScreen");
     }
 
     @FXML
-    void confirmButtonHandler(ActionEvent event) {
-
+    void confirmButtonHandler(ActionEvent event) throws IOException {
+        if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("Not begun yet")) {
+            Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 0);
+        } else if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("In progress")) {
+            Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 1);
+        } else if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("Finished")) {
+            Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 2);
+        } else if (!pmSetProjectStatus.getValue().equals("") && !pmNewProjectManager.getValue().equals("")) {
+            Main.command("assignpm " + Main.getProjects().indexOf(pmNewProjectManager.getValue()) + " "
+                    + Main.getEmployees().indexOf(pmNewProjectManager.getValue()));
+        }
     }
+
+
     @FXML
     void hyperLinkHandler(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("The projectmanager page is used by small changes, one can select the project that's currently being changed options in, in the top. \n " +
-                "Next up the user can change individual settings such as setting project status without using the other functions. \n " +
+        alert.setContentText("The projectmanager page is used by small changes, one can select the project that's " +
+                "currently being changed options in, in the top. \n " +
+                "Next up the user can change individual settings such as setting project status without using the" +
+                " other functions. \n " +
                 "For more advanced options check the 'other settings' drop down menu. ");
         alert.setTitle("How - to Project Manager");
         alert.showAndWait();
@@ -68,6 +86,20 @@ public class ProjectManagerController implements Initializable {
         pmNewProjectManager.setItems(employeeList);
         pmAssignEmployeeToProject.setItems(employeeList);
         pmOtherOptions.setItems(optionslist);
+        pmOtherOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observableValue, Object o, Object t1) {
+                if (pmOtherOptions.getValue().equals("Create Activities")){
+                    try {
+                        Launcher.setRoot("pmCreateActivity");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else{
+                    System.out.println("edit workhours");
+                }
+            }
+        });
 
 
 
