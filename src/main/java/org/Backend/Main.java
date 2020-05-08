@@ -165,7 +165,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("Employee has signed out");
     }
 
-    static boolean projectEmployeeRelationExist(Project project, Employee employee){//checks if the employee is assigned to the project
+    public static boolean projectEmployeeRelationExist(Project project, Employee employee){//checks if the employee is assigned to the project
         for(int i = 0; i < project.getEmployeeRelations().size(); i++){
             if (project.getEmployeeRelations().get(i).getEmployee().equals(employee)){
                 return true;
@@ -174,7 +174,7 @@ public class Main {//this is the central main function for running the program
         return false;
     }
 
-    static boolean projectEmployeeRelationExist(int project, int employee){//checks if the employee is assigned to the project
+    public static boolean projectEmployeeRelationExist(int project, int employee){//checks if the employee is assigned to the project
         for(int i = 0; i < getProjects().get(project).getEmployeeRelations().size(); i++){
             if (getProjects().get(project).getEmployeeRelations().get(i).getEmployee().equals(employee)){
                 return true;
