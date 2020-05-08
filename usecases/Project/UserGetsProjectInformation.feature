@@ -1,20 +1,21 @@
-Feature: Employee login
+Feature: user gets project information
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee is logged in
+  Scenario: Admin gets project information
+    Given that current user is admin
+    And a project exists
+    Then user gets the project information
 
-  Scenario: employee has the wrong password
-    Given that the employee is not logged in
-    And the password is "wrongpassword"
-    Then the employee login fails
-    And the employee is not logged in
+  Scenario: Project manager gets project information
+    Given that current user is a project manager
+    And a project exists
+    Then user gets the project information
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee logout suceeds
-    And the employee is not logged in
+  Scenario: Project bound gets project information
+    Given that the current user is a project bound employee
+    And a project exists
+    Then user gets the project information
+
+  Scenario: Employee gets project information
+    Given that the current user is an employee
+    And a project exists
+    Then user gets the project information

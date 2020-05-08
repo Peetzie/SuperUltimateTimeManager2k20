@@ -1,20 +1,19 @@
-Feature: Employee login
+Feature: user assigns new employee to project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee is logged in
+Scenario: Admin assigns new employee to project
+    Given that current user is admin
+    And a project exists
+    And a new employee exist
+    Then user assigns a new employee to the project
 
-  Scenario: employee has the wrong password
-    Given that the employee is not logged in
-    And the password is "wrongpassword"
-    Then the employee login fails
-    And the employee is not logged in
+  Scenario: projectmanager assigns new employee to project
+    Given that current user is project manager
+    And a project exists
+    And a new employee exist
+    Then user assigns a new employee to the project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee logout suceeds
-    And the employee is not logged in
+  Scenario: Projectbound employee assigns new employee to project
+    Given that the current user is a project bound employee
+    And a project exists
+    And a new employee exist
+    Then user fails to assign a new employee to the project

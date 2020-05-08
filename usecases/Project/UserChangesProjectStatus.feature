@@ -1,20 +1,16 @@
-Feature: Employee login
+Feature: user changes project status
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee is logged in
+Scenario: Admin changes project status
+  Given that current user is admin
+  And a project exists
+  Then user changes the status of the project
 
-  Scenario: employee has the wrong password
-    Given that the employee is not logged in
-    And the password is "wrongpassword"
-    Then the employee login fails
-    And the employee is not logged in
+Scenario: Project manager changes project status
+  Given that current user is a project manager
+  And a project exists
+  Then user changes the status of the project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee logout suceeds
-    And the employee is not logged in
+Scenario: Project bound emploee changes project status
+  Given that the current user is a project bound employee
+  And a project exists
+  Then user fails to change the status of the project

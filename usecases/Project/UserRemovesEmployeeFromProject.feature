@@ -1,20 +1,17 @@
-Feature: Employee login
+Feature: user removes employee from project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee is logged in
+Scenario: Admin removes employee from project
+  Given that current user is an admin
+  And a project with atleast one employee exists
+  Then user removes employee from project
 
-  Scenario: employee has the wrong password
-    Given that the employee is not logged in
-    And the password is "wrongpassword"
-    Then the employee login fails
-    And the employee is not logged in
+Scenario: Project manager removes employee from project
+  Given that current user is a project manager
+  And a project with atleast one employee exists
+  Then user removes employee from project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee logout suceeds
-    And the employee is not logged in
+Scenario: Project bound employee removes employee from project
+  Given that the current user is a project bound employee
+  And a project with atleast one employee exists
+  Then user removes employee from project
+

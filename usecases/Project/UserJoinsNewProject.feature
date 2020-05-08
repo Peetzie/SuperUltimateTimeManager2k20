@@ -1,20 +1,11 @@
-Feature: Employee login
+Feature: user joins new project
 
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee is logged in
+  Scenario: Admin joins new project
+    Given current user is admin
+    And another project exists
+    Then user joins project
 
-  Scenario: employee has the wrong password
-    Given that the employee is not logged in
-    And the password is "wrongpassword"
-    Then the employee login fails
-    And the employee is not logged in
-
-  Scenario: employee can log in
-    Given that the employee is not logged in
-    And the password is "password"
-    Then the employee login suceeds
-    And the employee logout suceeds
-    And the employee is not logged in
+  Scenario: Employee joins a project
+    Given current user is employee
+    And a project exists
+    Then user joins project

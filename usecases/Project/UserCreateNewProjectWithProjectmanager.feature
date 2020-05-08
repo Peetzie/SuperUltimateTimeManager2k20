@@ -1,9 +1,7 @@
 Feature: user creates new project with a project manager
 Description: Users of various level creates a new project
 
-
-
-Scenario: Admin creates new project
+Scenario: Admin creates new project with Projectmanager
 Given Current user is Admin
 And another Employee exists
 Then user creates new project
