@@ -1,7 +1,7 @@
 Feature: user assigns activity
 
 Scenario: admin assigns activity to project bound employee
-  Given that the current user is a admin
+  Given that the current user is an admin
   Then activity is assigned to project bound employee
 
 Scenario: project manager assigns activity to project bound employee

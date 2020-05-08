@@ -1,7 +1,7 @@
 Feature: user sets deadline for activity
 
 Scenario: admin sets deadline for activity
-  Given that the current user is a admin
+  Given that the current user is an admin
   Then deadline is added
 
 Scenario: project manager sets deadline for activity

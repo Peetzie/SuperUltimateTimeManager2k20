@@ -1,7 +1,7 @@
 Feature: user removes activity
 
 Scenario: admin removes an activity
-  Given that the current user is a admin
+  Given that the current user is an admin
   Then activity is removed
 
 Scenario: project manager removes an activity

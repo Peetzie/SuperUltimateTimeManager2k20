@@ -9,5 +9,5 @@ Scenario: admin join activity
   Then employee joined activity
 
 Scenario: admin join activity
-  Given that the current user is a employee
+  Given that the current user is an employee
   Then employee didnt join activity
