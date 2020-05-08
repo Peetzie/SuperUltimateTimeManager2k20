@@ -13,12 +13,17 @@ public class ActivityTestSteps {
     public ActivityTestSteps(){
         Main.setup(this);
         Main.command("signin 0 password");
-        Main.command("newemployee  [name] (admin)")
+
+        Main.command("newemployee password testPM");
+        Main.command("newemployee password testPBE");
+        Main.command("newemployee password testE");
+
+        Main.command("newproject testProject test 10 10");
+        Main.command("assignpm testProject testPM");
     }
 
     @Given("that the current user is a project bound employee")
     public void thatTheEmployeeIsLoggedIn() throws Exception {
-        assertTrue();
     }
 
 }
