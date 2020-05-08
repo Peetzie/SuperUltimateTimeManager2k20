@@ -135,7 +135,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("assignpm [project] [employee]");
         System.out.println("leaveproject [project]");
         System.out.println("joinproject [project]");
-        System.out.println("assignhours [project]] [start time] [duration]");
+        System.out.println("assignhours [project] [start time] [duration]");
         System.out.println("edithours [project] [entry index] [start time] [duration]");
     }
 

@@ -1,5 +1,6 @@
 package backend.test;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,7 +31,12 @@ public class ActivityTestSteps {
     @Given("that the current user is a project bound employee")
     public void thatTheEmployeeIsLoggedIn() throws Exception {
         Main.command("signin 2 password");
-
+        assertTrue(Main.projectEmployeeRelationExist(0, 2));
     }
 
+
+    @And("the user assigns hours")
+    public void theUserAssignsHours() {
+        Main.command("assignhours testProject 10 10");
+    }
 }
