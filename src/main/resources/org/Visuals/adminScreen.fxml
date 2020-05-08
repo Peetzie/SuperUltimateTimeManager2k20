@@ -7,9 +7,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!--Admin scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AdminController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <ImageView fitHeight="137.0" fitWidth="137.0" layoutX="82.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
@@ -42,6 +43,7 @@
             </Button>
          </children>
       </AnchorPane>
+      <!--left side pane (buttons)-->
       <Button layoutX="70.0" layoutY="305.0" mnemonicParsing="false" onAction="#adminRemoveEmployeeButtonHandler" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove employe" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />

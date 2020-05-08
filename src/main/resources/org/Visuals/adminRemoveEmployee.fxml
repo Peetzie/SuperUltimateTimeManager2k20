@@ -2,12 +2,49 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
+<!--employee deletion scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.adminRemoveEmployeeController">
    <children>
-      <ChoiceBox fx:id="valgbox" layoutX="96.0" layoutY="218.0" prefWidth="150.0" />
-      <Button layoutX="82.0" layoutY="91.0" mnemonicParsing="false" onAction="#ConfirmButtonHandler" text="Button" />
-      <Button layoutX="324.0" layoutY="310.0" mnemonicParsing="false" onAction="#exit" text="Button" />
+      <!--right side pane (graphics)-->
+      <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <Label layoutX="63.0" layoutY="200.0" text="Remove Employee" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="134.0" fitWidth="143.0" layoutX="83.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@RemoveUser.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <!--left side pane (buttons and controls)-->
+      <ChoiceBox fx:id="valgbox" layoutX="128.0" layoutY="119.0" prefWidth="150.0" />
+      <Button layoutX="86.0" layoutY="228.0" mnemonicParsing="false" onAction="#ConfirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="168.0" layoutY="228.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #C21807;" text="Button" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="20.0" layoutY="104.0" prefHeight="54.0" prefWidth="108.0" text="Choose an employee to remove" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
