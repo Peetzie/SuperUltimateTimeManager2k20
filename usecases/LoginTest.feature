@@ -13,3 +13,10 @@ Scenario: employee has the wrong password
   And the password is "wrongpassword"
   Then the employee login fails
   And the employee is not logged in
+
+Scenario: employee can log in
+  Given that the employee is not logged in
+  And the password is "password"
+  Then the employee login suceeds
+  And the employee logout suceeds
+  And the employee is not logged in
