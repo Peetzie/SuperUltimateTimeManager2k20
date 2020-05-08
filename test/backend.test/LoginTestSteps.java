@@ -12,11 +12,11 @@ import org.Backend.Main;
 
 
 
-public class LoginTests {
+public class LoginTestSteps {
 
     private String password;
 
-    public LoginTests() {
+    public LoginTestSteps() {
         Main.setup();
     }
 
