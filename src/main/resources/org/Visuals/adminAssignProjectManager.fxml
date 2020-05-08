@@ -8,10 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
+<!--Admin project manager creation scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
 fx:controller="org.Visuals.adminAssignProjectManagerController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="40.0" layoutY="173.0" text="Current user:" textFill="WHITE">
@@ -31,6 +32,7 @@ fx:controller="org.Visuals.adminAssignProjectManagerController">
             </ImageView>
          </children>
       </AnchorPane>
+      <!--left side pane (buttons and controls)-->
       <ChoiceBox fx:id="adminAssignProjectManagerSelectEmployee" layoutX="118.0" layoutY="118.0" prefWidth="150.0" />
       <Label layoutX="46.0" layoutY="107.0" prefHeight="48.0" prefWidth="59.0" text="Select employee" wrapText="true">
          <font>
