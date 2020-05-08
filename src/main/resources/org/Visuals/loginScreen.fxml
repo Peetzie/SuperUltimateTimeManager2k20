@@ -9,9 +9,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
+<!--login scene-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.LoginController">
    <children>
+      <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="56.0" layoutY="185.0" text="Time Manager 2K20" textFill="WHITE">
@@ -31,6 +32,7 @@
             </Text>
          </children>
       </AnchorPane>
+      <!--left side pane (buttons and controls)-->
       <TextField fx:id="loginScreenUserID" layoutX="67.0" layoutY="168.0" promptText="Enter user ID" />
       <PasswordField fx:id="loginScreenPassword" layoutX="67.0" layoutY="217.0" promptText="Enter password" />
       <Button fx:id="loginScreenLoginButton" layoutX="109.0" layoutY="280.0" mnemonicParsing="false" onAction="#loginButtonHandler" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE">
