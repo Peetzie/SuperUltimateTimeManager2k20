@@ -200,6 +200,7 @@ public class Employee {//here we have the constructor for employee with employee
     public boolean assignEmployeeToProject(int project, int employee){//allows admins and project managers to assign employees to a project
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getEmployees().get(employee).joinProject(Main.getProjects().get(project));
+            System.out.println("Employee "+employee+" is now on project "+project);
             return true;
         }
         else{

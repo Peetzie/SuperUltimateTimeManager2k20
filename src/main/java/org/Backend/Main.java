@@ -83,6 +83,8 @@ public class Main {//this is the central main function for running the program
                     }
                 case "newproject":
                     return employees.get(currentUser).createNewProject(input[1],input[2],Integer.parseInt(input[3]), Long.parseLong(input[4]));
+                case "assignemployee":
+                    return employees.get(currentUser).assignEmployeeToProject(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
                 case "newactivity":
                     return employees.get(currentUser).createActivity(Integer.parseInt(input[1]),input[2], input[3], Integer.parseInt(input[4]), Integer.parseInt(input[5]));
                 case "removeemployee":
