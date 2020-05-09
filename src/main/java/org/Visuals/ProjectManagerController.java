@@ -21,11 +21,9 @@ import java.util.ResourceBundle;
 public class    ProjectManagerController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
-    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress",
-            "Finished");
+    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
     ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
-    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours" +
-            " for other \n project bound employee");
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours" +" for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
@@ -52,25 +50,16 @@ public class    ProjectManagerController implements Initializable {
 
     @FXML
     void confirmButtonHandler(ActionEvent event) throws IOException {
-        System.out.println("First: " + pmSelectProject.getValue() != null);
-        System.out.println(pmSetProjectStatus.getValue());
-        System.out.println(Main.getEmployees().indexOf(pmNewProjectManager.getValue()));
-        System.out.println(Main.getProjects().indexOf(pmSelectProject.getValue().getProject()));
-
-
         if (pmSelectProject.getValue() !=null && ("Not begun yet").equals(pmSetProjectStatus.getValue())) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 0);
         } else if (pmSelectProject.getValue() !=null && ("In progress").equals(pmSetProjectStatus.getValue())) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 1);
         } else if (pmSelectProject.getValue() !=null && ("Finished").equals(pmSetProjectStatus.getValue())) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 2);
-        } else if (pmSelectProject.getValue() !=null && pmNewProjectManager != null) {
-            Main.command("assignpm " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
-                    + Main.getEmployees().indexOf(pmNewProjectManager.getValue()));
-        } else if (pmSelectProject.getValue() != null && pmNewProjectManager != null){
-            Main.command("assignemployee " +
-                    Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) +
-                    " " + Main.getEmployees().indexOf(pmAssignEmployeeToProject.getValue()));
+        } if (pmSelectProject.getValue() != null && pmAssignEmployeeToProject.getValue() != null){
+            Main.command("assignemployee " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + Main.getEmployees().indexOf(pmAssignEmployeeToProject.getValue()));
+        } if (pmSelectProject.getValue() !=null && pmNewProjectManager.getValue() != null) {
+            Main.command("assignpm " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + Main.getEmployees().indexOf(pmNewProjectManager.getValue()));
         }
     }
 
