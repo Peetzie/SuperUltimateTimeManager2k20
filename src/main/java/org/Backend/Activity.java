@@ -70,4 +70,8 @@ public class Activity { //This class is the constructor for creating activities
     public void setRemoved(boolean removed) {
         this.removed = removed;
     }
+
+    public String toString(){
+        return title;
+    }
 }

@@ -113,6 +113,8 @@ public class Main {//this is the central main function for running the program
                     return employees.get(currentUser).setActivityDeadline(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
                 case "setdeadline":
                     return employees.get(currentUser).setDeadline(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                case "removeproject":
+                    return employees.get(currentUser).removeProject(Integer.parseInt(input[1]));
                 case "setstatus":
                     return employees.get(currentUser).setProjectStatus(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "setactivitystatus":
@@ -128,6 +130,9 @@ public class Main {//this is the central main function for running the program
                     return true;
                 case "editemployeehours":
                     employees.get(currentUser).editEmployeesHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]),Integer.parseInt(input[5]));
+                    return true;
+                case "getprojectinfo":
+                    projects.get(Integer.parseInt(input[1])).printInformation();
                     return true;
                 case "help":
                     printHelp();
@@ -152,6 +157,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("setdeadline [project] [deadline]");
         System.out.println("setactivitydeadline [project] [activity] [deadline]");
         System.out.println("removeemployee [employee]");
+        System.out.println("removeproject [project]");
         System.out.println("assignactivity [project] [activity] [employee]");
         System.out.println("joinactivity [project] [activity]");
         System.out.println("assignpm [project] [employee]");
@@ -163,6 +169,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("assignemployeehours [project] [employee] [start time] [duration]");
         System.out.println("edithours [project] [entry index] [start time] [duration]");
         System.out.println("editemployeehours [project] [employee] [entry index] [start time] [duration]");
+        System.out.println("getprojectinfo [project]");
     }
 
     private static boolean signIn(int id, String password){//handles login inputs

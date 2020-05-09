@@ -20,7 +20,7 @@ public class Employee {//here we have the constructor for employee with employee
     //Project manager functions
     //checks if user is admin or project manager and allows admins or project manager to create activities
     public boolean createActivity(int project, String title, String description, int deadline, int estimatedTime){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).getActivities().add(new Activity(title,description.replace("_"," "),deadline,estimatedTime));
             System.out.println("Activity "+(Main.getProjects().get(project).getActivities().size()-1)+" has been created");
             return true;
@@ -32,7 +32,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
     //checks if user is admin or project manager and allows admins or project manager to edit hours
     public void editEmployeesHours(int project, int employee, int index, int startTime, int duration){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getEmployees().get(employee).editHours(project, index, duration, startTime);
         }
         else{
@@ -40,7 +40,7 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
     public void assignEmployeesHours(int project, int employee, int startTime, int duration){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getEmployees().get(employee).assignHours(project,startTime,duration);
         }
         else{
@@ -48,7 +48,7 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
     public boolean setDeadline(int project, int deadline){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).setDeadline(deadline);
             System.out.println("Deadline for project "+project+" set to "+deadline);
             return true;
@@ -58,7 +58,7 @@ public class Employee {//here we have the constructor for employee with employee
             return false;
         }
     }public boolean setActivityDeadline(int project, int activity, int deadline){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).getActivities().get(activity).setDeadline(deadline);
             System.out.println("Deadline for project "+project+" set to "+deadline);
             return true;
@@ -69,7 +69,7 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
     public boolean removeActivity(int project, int activity){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).getActivities().get(activity).setRemoved(true);
             Main.getProjects().get(project).getActivities().get(activity).getEmployees().clear();
             return true;
@@ -81,7 +81,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
     //checks if user is admin or project manager and allows admins or project manager to assign employees to a assignment if they are not already assigned
     public boolean assignActivity(int project, int activity, int employee){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this) || Main.getEmployees().indexOf(this) == employee){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager()) || Main.getEmployees().indexOf(this) == employee){
             if (Main.getProjects().get(project).getActivities().get(activity).getEmployees().contains(Main.getEmployees().get(employee))){
                 System.out.println("Employee "+employee+" was already assigned to activity "+activity+" on project "+project+", so no harm done");
 
@@ -104,7 +104,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
     //allows an project bound employee to leave a project and checks if they are the project manager and notifies the employee that the project now has no project manager
     public void leaveProject(int project, int employee){
-        if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this) || admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this) || admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             if (Main.getProjects().get(project).hasProjectManager()) {
                 if (Main.getProjects().get(project).getProjectManager().equals(Main.getEmployees().get(employee))){
                     System.out.println("Project " + project + " no longer have a project manager");
@@ -219,7 +219,7 @@ public class Employee {//here we have the constructor for employee with employee
     //Admin and project manager functions
     //allows project managers to set new project manager and allows admins to set a project manager
     public boolean assignProjectManager(int project, int employee){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             if (Main.getProjects().size() > project){
                 if (Main.getEmployees().size() > employee){
                     Main.getProjects().get(project).setProjectManager(Main.getEmployees().get(employee));
@@ -243,7 +243,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
 
     public boolean assignEmployeeToProject(int project, int employee){//allows admins and project managers to assign employees to a project
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getEmployees().get(employee).joinProject(Main.getProjects().get(project));
             System.out.println("Employee "+employee+" is now on project "+project);
             return true;
@@ -265,7 +265,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
 
     public boolean setProjectStatus(int project, int status){//allows admins and project managers to assign employees to a project
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).setStatus(status);
             System.out.println("Status for project "+project+" has been set to "+status);
             return true;
@@ -277,7 +277,7 @@ public class Employee {//here we have the constructor for employee with employee
     }
 
     public boolean setActivityStatus(int project, int activity, int status){//allows admins and project managers to assign employees to a project
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+        if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).getActivities().get(activity).setStatus(status);
             System.out.println("Status for activity "+activity+" on project "+project+" has been set to "+status);
             return true;

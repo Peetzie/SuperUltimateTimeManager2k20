@@ -58,6 +58,37 @@ public class Project {//here we have the constructor for project with project lo
     }
 
 
+    public void printInformation(){
+        System.out.println("________________"+name+"________________");
+        System.out.println("Description: "+description);
+        System.out.println("Status: "+status);
+        System.out.println("Deadline: "+deadline);
+        System.out.println("Estimated Time: "+estimatedTime);
+        System.out.println("Removed: "+removed);
+        System.out.println("Activities:");
+        for(int i = 0; i < activities.size(); i++){
+            System.out.println("    "+activities.get(i));
+            System.out.println("        Description: "+activities.get(i).getDescription());
+            System.out.println("        Status: "+activities.get(i).getDescription());
+            System.out.println("        Deadline: "+activities.get(i).getDeadline());
+            System.out.println("        Estimated Time: "+activities.get(i).getEstimatedTime());
+            System.out.println("        Removed: "+activities.get(i).isRemoved());
+            System.out.println("        Employees:");
+            for(int e = 0; e < activities.get(i).getEmployees().size(); e++){
+                System.out.println("            "+activities.get(i).getEmployees().get(e));
+            }
+        }
+        System.out.println("Employees:");
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+        for (int i = 0; i < employeeRelations.size(); i++){
+            System.out.println("    "+employeeRelations.get(i));
+            System.out.println("        Hours:");
+            for(int e = 0; e < employeeRelations.get(i).getHours().size(); e++){
+                System.out.println("            "+employeeRelations.get(i).getHours().get(e));
+            }
+        }
+    }
+
     //getters and setters
     public ArrayList<ProjectEmployeeRelation> getEmployeeRelations() {
         return employeeRelations;
