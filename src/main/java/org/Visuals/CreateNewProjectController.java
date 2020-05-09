@@ -40,6 +40,8 @@ public class CreateNewProjectController implements Initializable {//controller f
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException, ParseException {//button for sending a create project attempt and takes the admin back to admin interface
+        try {
+            int estimatedHours = Integer.parseInt(createProjectEstimatedHours.getText()) * 3600;
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
             deadline = (date.getTime() / 1000L);
             Main.command("newproject " + createProjectTitle.getText().replace(" ", "_") + " " + createProjectDescription.getText().replace(" ", "_") + " "
@@ -53,6 +55,12 @@ public class CreateNewProjectController implements Initializable {//controller f
                 alert.showAndWait();
             }
             Launcher.setRoot("adminScreen");
+        } catch (NumberFormatException e){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error createing new project");
+            alert.setContentText("Please make sure that the estimated hours are intered in numbers only.");
+            alert.showAndWait();
+        }
         }
 
     @FXML

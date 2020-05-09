@@ -10,9 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.Backend.Employee;
 import org.Backend.Main;
 
 public class LoginController{//controller for the login scene
+    Employee employee;
 
     @FXML
     private TextField loginScreenUserID;//input field for userid in interface
