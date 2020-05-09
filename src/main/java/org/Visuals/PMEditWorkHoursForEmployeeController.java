@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PMEditWorkHoursForEmployeeController implements Initializable {
+    ProjectEmployeeRelation projectEmployeeRelation;
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<ProjectEmployeeRelation> employees;
@@ -44,7 +45,13 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
 
     @FXML
     void applyButtonHandler(ActionEvent event) {
-
+        if (Helper.legalInput(pmEnterHours,pmEnterMinutes)){
+            int startTime = Integer.parseInt(pmEnterHours.getText()) * 3600 + Integer.parseInt(pmEnterMinutes.getText()) * 60;
+            Main.command("editemployeehours " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
+            + Main.getEmployees().indexOf(pmSelectEmployee.getValue()) + " " +
+                    projectEmployeeRelation.getHours().indexOf(pmPrevEnteredHours.getValue()) + " " +
+                    startTime + " " + Math.round(Float.parseFloat(pmEnterDuration.getText())));
+        }
     }
 
     @FXML
@@ -55,7 +62,7 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
         pmSelectProject.setItems(projectList);
         pmSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
