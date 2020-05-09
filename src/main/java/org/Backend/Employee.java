@@ -49,6 +49,16 @@ public class Employee {//here we have the constructor for employee with employee
             System.out.println("Only admin or project manager can do this");
             return false;
         }
+    }public boolean setActivityDeadline(int project, int activity, int deadline){
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getProjects().get(project).getActivities().get(activity).setDeadline(deadline);
+            System.out.println("Deadline for project "+project+" set to "+deadline);
+            return true;
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+            return false;
+        }
     }
     public boolean removeActivity(int project, int activity){
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
