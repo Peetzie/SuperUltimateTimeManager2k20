@@ -208,12 +208,7 @@ public class Main {//this is the central main function for running the program
     }
 
     public static boolean projectEmployeeRelationExist(int project, int employee){//checks if the employee is assigned to the project
-        for(int i = 0; i < getProjects().get(project).getEmployeeRelations().size(); i++){
-            if (getProjects().get(project).getEmployeeRelations().get(i).getEmployee().equals(getEmployees().get(employee))){
-                return true;
-            }
-        }
-        return false;
+        return projectEmployeeRelationExist(projects.get(project), employees.get(employee));
     }
 
     public static ProjectEmployeeRelation findProjectEmployeeRelation(Project project, Employee employee){//returns the specific relation or null
@@ -225,12 +220,7 @@ public class Main {//this is the central main function for running the program
         return null;
     }
     public static ProjectEmployeeRelation findProjectEmployeeRelation(int project, int employee){//returns the specific relation or null
-        for(int i = 0; i < getProjects().get(project).getEmployeeRelations().size(); i++){
-            if (getProjects().get(project).getEmployeeRelations().get(i).getEmployee().equals(getEmployees().get(employee))){
-                return getProjects().get(project).getEmployeeRelations().get(i);
-            }
-        }
-        return null;
+        return findProjectEmployeeRelation(projects.get(project), employees.get(employee));
     }
 
     public static ArrayList<Project> getProjectByStatus(int lower, int upper){
