@@ -17,7 +17,7 @@ Feature: user gets project information
   Scenario: Project bound gets project information
     Given that the current user is a project bound employee
     And a project exists
-    Then user gets the project information
+    Then user attempts to gets the project information
     Then user gets information
 
   Scenario: Employee gets project information
