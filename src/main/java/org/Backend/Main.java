@@ -137,6 +137,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("newactivity [project] [title] [description] [estimated time] [deadline]");
         System.out.println("removeactivity [project] [activity]");
         System.out.println("setdeadline [project] [deadline]");
+        System.out.println("setactivitydeadline [project] [activity] [deadline]");
         System.out.println("removeemployee [employee]");
         System.out.println("assignactivity [project] [activity] [employee]");
         System.out.println("joinactivity [project] [activity]");
