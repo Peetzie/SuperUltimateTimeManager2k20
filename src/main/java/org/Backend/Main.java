@@ -103,7 +103,7 @@ public class Main {//this is the central main function for running the program
                 case "assignpm":
                     return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "removeactivity":
-                    return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                    return employees.get(currentUser).removeActivity(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "setdeadline":
                     return employees.get(currentUser).setDeadline(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "setstatus":

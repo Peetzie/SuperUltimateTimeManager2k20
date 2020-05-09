@@ -50,7 +50,7 @@ public class Employee {//here we have the constructor for employee with employee
             return false;
         }
     }
-    public boolean removeActovity(int project, int activity){
+    public boolean removeActivity(int project, int activity){
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getProjects().get(project).getActivities().get(activity).setRemoved(true);
             Main.getProjects().get(project).getActivities().get(activity).getEmployees().clear();
