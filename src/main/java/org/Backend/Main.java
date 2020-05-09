@@ -95,7 +95,7 @@ public class Main {//this is the central main function for running the program
                     employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
                     return true;
                 case "leaveproject":
-                    if(input.length > 2){
+                    if(input.length <= 2){
                         employees.get(currentUser).leaveProject(Integer.parseInt(input[1]),currentUser);
                     }
                     else{
