@@ -21,3 +21,4 @@ Scenario: project bound employee assigns new project manager to project
   And another employee exists
   And user attempts to assign a new project manager to the project
   Then new project manager not is assigned to the project
+
