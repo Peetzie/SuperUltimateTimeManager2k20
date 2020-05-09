@@ -39,6 +39,15 @@ public class Employee {//here we have the constructor for employee with employee
             System.out.println("Only admin or project manager can do this");
         }
     }
+    public void removeActovity(int project, int activity){
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getProjects().get(project).getActivities().get(activity).setRemoved(true);
+            Main.getProjects().get(project).getActivities().get(activity).getEmployees().clear();
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+        }
+    }
     //checks if user is admin or project manager and allows admins or project manager to assign employees to a assignment if they are not already assigned
     public boolean assignActivity(int project, int activity, int employee){
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this) || Main.getEmployees().indexOf(this) == employee){

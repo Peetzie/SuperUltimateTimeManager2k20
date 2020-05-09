@@ -66,6 +66,16 @@ public class Project {//here we have the constructor for project with project lo
         return activities;
     }
 
+    public ArrayList<Activity> getActivitiesReal() {
+        ArrayList<Activity> activityList = new ArrayList<Activity>();
+        for(int i = 0; i < activities.size(); i++){
+            if(!activities.get(i).isRemoved()){
+                activities.add(activities.get(i));
+            }
+        }
+        return activityList;
+    }
+
     public int getStatus() {
         return status;
     }

@@ -10,6 +10,7 @@ public class Activity { //This class is the constructor for creating activities
     private String description;
     private ArrayList<Employee> employees = new ArrayList<Employee>();
     private int status;
+    private boolean removed = false;
 
     public Activity(String title, String description, int estimatedTime, int deadline){//initiatoin of the object "Activity"
         this.title = title;
@@ -60,5 +61,13 @@ public class Activity { //This class is the constructor for creating activities
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public boolean isRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 }
