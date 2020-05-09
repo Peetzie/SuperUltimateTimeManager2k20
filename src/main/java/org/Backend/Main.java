@@ -102,6 +102,10 @@ public class Main {//this is the central main function for running the program
                     return true;
                 case "assignpm":
                     return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                case "removeactivity":
+                    return employees.get(currentUser).assignProjectManager(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                case "setdeadline":
+                    return employees.get(currentUser).setDeadline(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "setstatus":
                     return employees.get(currentUser).setProjectStatus(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "assignhours":
@@ -129,6 +133,8 @@ public class Main {//this is the central main function for running the program
         System.out.println("newproject [name] [description] [estimated time] [deadline]");
         System.out.println("assignemployee [project] [employee]");
         System.out.println("newactivity [project] [title] [description] [estimated time] [deadline]");
+        System.out.println("removeactivity [project] [activity]");
+        System.out.println("setdeadline [project] [deadline]");
         System.out.println("removeemployee [employee]");
         System.out.println("assignactivity [project] [activity] [employee]");
         System.out.println("joinactivity [project] [activity]");
@@ -146,12 +152,11 @@ public class Main {//this is the central main function for running the program
         if (password.equals(employees.get(id).getPassword()) && !employees.get(id).isRemoved()){
             if(employees.get(id).isAdmin()){
                 System.out.println("Signed in as "+id+" (Admin)");
-                currentUser = id;
             }
             else    {
                 System.out.println("Signed in as "+id);
-                currentUser = id;
             }
+            currentUser = id;
             return true;
         }
         else{
