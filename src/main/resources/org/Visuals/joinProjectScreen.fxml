@@ -10,8 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 <!--employee join project scene-->
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.Visuals.JoinProjectController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.JoinProjectController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
@@ -23,7 +23,7 @@ fx:controller="org.Visuals.JoinProjectController">
             </Label>
             <ImageView fitHeight="125.0" fitWidth="128.0" layoutX="93.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@business.png" />
+                  <Image url="@joinProject.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
