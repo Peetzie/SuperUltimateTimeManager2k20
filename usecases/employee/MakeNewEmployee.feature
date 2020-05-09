@@ -1,4 +1,4 @@
-Feature: Create employee
+Feature: create employee
 
 Scenario: admin make new employee
   Given that the admin is logged in

@@ -1,4 +1,4 @@
-Feature: Employee login
+Feature: employee login
 
 Scenario: employee can log in
   Given that the employee is not logged in

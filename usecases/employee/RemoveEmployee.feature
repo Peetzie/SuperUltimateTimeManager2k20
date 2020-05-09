@@ -1,4 +1,4 @@
-Feature: Remove employee
+Feature: remove employee
 
 Scenario: admin removes employee
   Given that the admin is logged in

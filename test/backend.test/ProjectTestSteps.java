@@ -58,8 +58,8 @@ public class ProjectTestSteps {
         assertEquals(false,Main.projectEmployeeRelationExist(0,3));
     }
 
-    @And("a project exists with a projectmanager")
-    public void aProjectExistsWithAProjectmanager() {
+    @And("a project exists with a project manager")
+    public void aProjectExistsWithAProjectManager() {
         assertEquals(true,Main.getProjects().get(0).hasProjectManager());
     }
 
@@ -83,7 +83,7 @@ public class ProjectTestSteps {
         assertNotEquals(Main.getEmployees().get(2),Main.getProjects().get(0).getProjectManager());
     }
 
-    @And("an unmanaged Project Exists")
+    @And("an unmanaged project Exists")
     public void anUnmanagedProjectExists() {
         int current = Main.getCurrentUser();
         Main.command("signout");
@@ -94,7 +94,7 @@ public class ProjectTestSteps {
         Main.command("signin "+current+" password");
     }
 
-    @And("another Employee exists")
+    @And("another employee exists")
     public void anotherEmployeeExists() {
         assertNotEquals(1,Main.getEmployees().size());
     }
