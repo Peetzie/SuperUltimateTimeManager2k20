@@ -1,12 +1,12 @@
 Feature: user changes project status
 
 Scenario: Admin changes project status
-  Given that current user is admin
+  Given that the current user is an admin
   And a project exists
   Then user changes the status of the project
 
 Scenario: Project manager changes project status
-  Given that current user is a project manager
+  Given that the current user is a project manager
   And a project exists
   Then user changes the status of the project
 

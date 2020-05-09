@@ -1,12 +1,12 @@
 Feature: user leaves project
 
 Scenario: Admin leaves project
-  Given current user is admin
+  Given that the current user is an admin
   And user is assigned to a project
   Then user leaves project
 
 Scenario: Project Manager leaves project
-  Given current user is a project manager
+  Given that the current user is a project manager
   And user is assigned to a project
   Then user leaves project
 

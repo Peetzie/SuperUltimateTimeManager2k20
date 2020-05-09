@@ -1,11 +1,11 @@
 Feature: user joins new project
 
   Scenario: Admin joins new project
-    Given current user is admin
+    Given that the current user is an admin
     And another project exists
     Then user joins project
 
   Scenario: Employee joins a project
-    Given current user is employee
+    Given that the current user is an employee
     And a project exists
     Then user joins project
