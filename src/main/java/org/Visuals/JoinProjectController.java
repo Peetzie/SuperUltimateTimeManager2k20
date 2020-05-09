@@ -23,12 +23,12 @@ public class JoinProjectController implements Initializable {//controller for jo
     @FXML
     void joinButtonHandler(ActionEvent event) throws IOException {//button for joining a project and returns the to the user interface
         Main.command("joinproject " +  Main.getProjects().indexOf(joinProjectProjectChooser.getValue()));
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without joining project
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @Override

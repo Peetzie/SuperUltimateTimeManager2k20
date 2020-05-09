@@ -23,7 +23,7 @@
             </Label>
             <ImageView fitHeight="109.0" fitWidth="121.0" layoutX="96.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assignhours.png" />
+                  <Image url="@../Icons/assignhours.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

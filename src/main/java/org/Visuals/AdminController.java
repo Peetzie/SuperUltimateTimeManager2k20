@@ -22,12 +22,12 @@ public class AdminController implements Initializable {//controller for admin in
 
     @FXML
     void createNewProjectButtonHandler(ActionEvent event) throws IOException {//button takes admin to "create new project" scene
-        Launcher.setRoot("createNewProjectScreen");
+        Launcher.setRoot("Admin/createNewProjectScreen");
     }
 
     @FXML
     void createNewUserButtonHandler(ActionEvent event) throws IOException {//button takes admin to "create new user" scene
-        Launcher.setRoot("createNewUserScreen");
+        Launcher.setRoot("Admin/createNewUserScreen");
     }
 
     @FXML
@@ -38,12 +38,12 @@ public class AdminController implements Initializable {//controller for admin in
 
     @FXML
     void assignPMButtonHandler(ActionEvent event) throws IOException{
-        Launcher.setRoot("adminAssignProjectManager");
+        Launcher.setRoot("Admin/adminAssignProjectManager");
     }
 
     @FXML
     void adminRemoveEmployeeButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("adminRemoveEmployee");
+        Launcher.setRoot("Admin/adminRemoveEmployee");
 
     }
 

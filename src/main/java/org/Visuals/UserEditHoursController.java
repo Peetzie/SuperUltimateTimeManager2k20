@@ -42,7 +42,7 @@ public class UserEditHoursController implements Initializable {
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @FXML

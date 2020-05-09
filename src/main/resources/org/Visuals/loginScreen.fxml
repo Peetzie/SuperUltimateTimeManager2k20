@@ -42,7 +42,7 @@
       </Button>
       <ImageView fitHeight="112.0" fitWidth="149.0" layoutX="86.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@interface.png" />
+            <Image url="@Icons/interface.png" />
          </image>
       </ImageView>
    </children>

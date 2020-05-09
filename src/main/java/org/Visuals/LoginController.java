@@ -35,7 +35,7 @@ public class LoginController {//controller for the login scene
             if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()) {
                 Launcher.setRoot("loginScreenMode");
             } else {
-                Launcher.setRoot("userScreen");
+                Launcher.setRoot("User/userScreen");
             }
         }
     }

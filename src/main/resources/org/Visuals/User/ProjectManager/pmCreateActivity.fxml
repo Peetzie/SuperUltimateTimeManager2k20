@@ -25,7 +25,7 @@ fx:controller="org.Visuals.PMCreateActivityController">
             </Label>
             <ImageView fitHeight="111.0" fitWidth="114.0" layoutX="95.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@activity.png" />
+                  <Image url="@../../Icons/activity.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

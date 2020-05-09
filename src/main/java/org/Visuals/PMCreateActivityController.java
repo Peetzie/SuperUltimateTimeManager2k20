@@ -38,7 +38,7 @@ public class PMCreateActivityController implements Initializable {
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("projectManagerScreen");
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
     @FXML
@@ -49,7 +49,7 @@ public class PMCreateActivityController implements Initializable {
             Main.command("newactivity" + Main.getProjects().indexOf(chooseProject.getValue().getProject()) + " " +
                     activityTitle.getText() + " " + activityDescription.getText() + " " +  Integer.parseInt(activityTime
                     .getText()) * 60 + " " + deadline);
-            Launcher.setRoot("projectManagerScreen");
+            Launcher.setRoot("User/ProjectManager/projectManagerScreen");
         } catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error creating new activity");

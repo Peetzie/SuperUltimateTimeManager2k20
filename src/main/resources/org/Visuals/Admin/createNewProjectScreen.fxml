@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="118.0" fitWidth="125.0" layoutX="91.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@folder.png" />
+                  <Image url="@../Icons/folder.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

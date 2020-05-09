@@ -24,12 +24,12 @@ public class LeaveProjectController implements Initializable {//controller for l
         String string1 = leaveProjectChooseProject.getValue().toString().split(" ")[1];
         string1 = string1.substring(1,string1.length()-1);
         Main.command("leaveproject " + string1);
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without leaving the project
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @Override

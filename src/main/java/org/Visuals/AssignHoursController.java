@@ -46,7 +46,7 @@ public class AssignHoursController implements Initializable {//controller for as
             startDate = (date.getTime()/1000L);
             int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
             Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText())*3600));
-            Launcher.setRoot("userScreen");
+            Launcher.setRoot("User/userScreen");
         } catch (NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error assigning hours");
@@ -57,7 +57,7 @@ public class AssignHoursController implements Initializable {//controller for as
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without assigning hours
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
 

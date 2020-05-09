@@ -23,7 +23,7 @@
             </Label>
             <ImageView fitHeight="125.0" fitWidth="128.0" layoutX="93.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@joinProject.png" />
+                  <Image url="@../Icons/joinProject.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

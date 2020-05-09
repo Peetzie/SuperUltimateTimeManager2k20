@@ -47,7 +47,7 @@ public class    ProjectManagerController implements Initializable {
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
     @FXML
@@ -91,7 +91,7 @@ public class    ProjectManagerController implements Initializable {
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 if (pmOtherOptions.getValue().equals("Create Activities")){
                     try {
-                        Launcher.setRoot("pmCreateActivity");
+                        Launcher.setRoot("User/ProjectManager/pmCreateActivity");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
