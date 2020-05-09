@@ -11,6 +11,7 @@ public class Project {//here we have the constructor for project with project lo
     private String description;
     private int estimatedTime;
     private long deadline;
+    private boolean removed = false;
 
     public Project(String name, String description, int estimatedTime, long deadline){//initiatoin of the object "Project"
         this.name = name;
@@ -118,5 +119,13 @@ public class Project {//here we have the constructor for project with project lo
 
     public void setDeadline(long deadline) {
         this.deadline = deadline;
+    }
+
+    public boolean isRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 }

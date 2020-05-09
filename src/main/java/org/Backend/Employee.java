@@ -103,18 +103,18 @@ public class Employee {//here we have the constructor for employee with employee
 
     }
     //allows an project bound employee to leave a project and checks if they are the project manager and notifies the employee that the project now has no project manager
-    public void leaveProject(int project){
-        if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this)){
+    public void leaveProject(int project, int employee){
+        if(Main.projectEmployeeRelationExist(Main.getProjects().get(project),this) || admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             if (Main.getProjects().get(project).hasProjectManager()) {
-                if (Main.getProjects().get(project).getProjectManager().equals(this)){
+                if (Main.getProjects().get(project).getProjectManager().equals(Main.getEmployees().get(employee))){
                     System.out.println("Project " + project + " no longer have a project manager");
                 }
             }
-            for(int i = 0; i < projectRelations.size(); i++){
-                if(projectRelations.get(i).getProject().equals(Main.getProjects().get(project))){
-                    projectRelations.get(i).getProject().getEmployeeRelations().remove(projectRelations.get(i));
-                    projectRelations.remove(projectRelations.get(i));
-                    System.out.println("Employee "+Main.getEmployees().indexOf(this)+" has been removed from project "+project);
+            for(int i = 0; i < Main.getEmployees().get(employee).getProjectRelations().size(); i++){
+                if(Main.getEmployees().get(employee).getProjectRelations().get(i).getProject().equals(Main.getProjects().get(project))){
+                    Main.getEmployees().get(employee).getProjectRelations().get(i).getProject().getEmployeeRelations().remove(Main.getEmployees().get(employee).getProjectRelations().get(i));
+                    Main.getEmployees().get(employee).getProjectRelations().remove(Main.getEmployees().get(employee).getProjectRelations().get(i));
+                    System.out.println("Employee "+employee+" has been removed from project "+project);
                 }
             }
         }
@@ -184,9 +184,9 @@ public class Employee {//here we have the constructor for employee with employee
     public boolean removeEmployee(int employee){
         if (admin) {
             if (!this.equals(Main.getEmployees().get(employee))) {
-                while(Main.getEmployees().get(employee).projectRelations.size() > 0){
-                    Main.getEmployees().get(employee).projectRelations.get(0).getProject().getEmployeeRelations().remove(projectRelations.get(0));
-                    Main.getEmployees().get(employee).projectRelations.remove(0);
+                while(Main.getEmployees().get(employee).getProjectRelations().size() > 0){
+                    Main.getEmployees().get(employee).getProjectRelations().get(0).getProject().getEmployeeRelations().remove(Main.getEmployees().get(employee).getProjectRelations().get(0));
+                    Main.getEmployees().get(employee).getProjectRelations().remove(0);
                 }
                 Main.getEmployees().get(employee).setRemoved(true);
                 System.out.println("Employee "+employee+" has been removed");
@@ -195,6 +195,21 @@ public class Employee {//here we have the constructor for employee with employee
                 System.out.println("Removeing one self is not possible");
                 return false;
             }
+        } else {
+            System.out.println("Only admin can do this");
+            return false;
+        }
+    }
+
+    public boolean removeProject(int project){
+        if (admin) {
+            while(Main.getProjects().get(project).getEmployeeRelations().size() > 0){
+                Main.getProjects().get(project).getEmployeeRelations().get(0).getEmployee().getProjectRelations().remove(Main.getProjects().get(project).getEmployeeRelations().get(0));
+                Main.getProjects().get(project).getEmployeeRelations().remove(0);
+            }
+            Main.getProjects().get(project).setRemoved(true);
+            System.out.println("Project "+project+" has been removed");
+            return true;
         } else {
             System.out.println("Only admin can do this");
             return false;

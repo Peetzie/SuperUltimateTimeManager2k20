@@ -32,8 +32,8 @@ public class Hour {//This class is the constructor for creating an hour object u
     }
 
     public String toString(){
-        Date start = new Date(startTime*1000L);
-        Date end = new Date((startTime+duration)*1000L);
+        Date start = new Date(startTime*1000);
+        Date end = new Date((startTime+duration)*1000);
         SimpleDateFormat jdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
         jdf.setTimeZone(TimeZone.getTimeZone("GMT+1"));
         String java_date = jdf.format(start);
