@@ -1,5 +1,9 @@
 package org.Backend;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class Hour {//This class is the constructor for creating an hour object used for reporting work hours
     //variable initiation
     private int startTime;
@@ -24,6 +28,14 @@ public class Hour {//This class is the constructor for creating an hour object u
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public String toString(){
+        Date start = new Date(startTime*1000L);
+        Date end = new Date((startTime+duration)*1000L);
+        SimpleDateFormat jdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        jdf.setTimeZone(TimeZone.getTimeZone("GMT+1"));
+        return jdf.format(start+" - "+end+" ("+((float)duration/3600)+")");
     }
 }
 
