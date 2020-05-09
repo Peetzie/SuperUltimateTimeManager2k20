@@ -110,6 +110,8 @@ public class Main {//this is the central main function for running the program
                     return employees.get(currentUser).setDeadline(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
                 case "setstatus":
                     return employees.get(currentUser).setProjectStatus(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                case "setactivitystatus":
+                    return employees.get(currentUser).setActivityStatus(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
                 case "assignhours":
                     employees.get(currentUser).assignHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
                     return true;
@@ -149,6 +151,8 @@ public class Main {//this is the central main function for running the program
         System.out.println("joinactivity [project] [activity]");
         System.out.println("assignpm [project] [employee]");
         System.out.println("leaveproject [project]");
+        System.out.println("setstatus [project] [status]");
+        System.out.println("setactivitystatus [project] [activity] [status]");
         System.out.println("joinproject [project]");
         System.out.println("assignhours [project] [start time] [duration]");
         System.out.println("assignemployeehours [project] [employee] [start time] [duration]");

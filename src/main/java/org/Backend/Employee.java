@@ -261,6 +261,18 @@ public class Employee {//here we have the constructor for employee with employee
         }
     }
 
+    public boolean setActivityStatus(int project, int activity, int status){//allows admins and project managers to assign employees to a project
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getProjects().get(project).getActivities().get(activity).setStatus(status);
+            System.out.println("Status for activity "+activity+" on project "+project+" has been set to "+status);
+            return true;
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+            return false;
+        }
+    }
+
     //getters and setters
     public boolean isAdmin() {
         return admin;
