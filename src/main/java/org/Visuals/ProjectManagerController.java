@@ -52,14 +52,14 @@ public class    ProjectManagerController implements Initializable {
 
     @FXML
     void confirmButtonHandler(ActionEvent event) throws IOException {
-        if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("Not begun yet")) {
+        if (pmSelectProject.getValue() !=null && pmSetProjectStatus.getValue().equals("Not begun yet")) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 0);
-        } else if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("In progress")) {
+        } else if (pmSelectProject.getValue() !=null && pmSetProjectStatus.getValue().equals("In progress")) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 1);
-        } else if (!pmSelectProject.getValue().equals("") && pmSetProjectStatus.getValue().equals("Finished")) {
+        } else if (pmSelectProject.getValue() !=null && pmSetProjectStatus.getValue().equals("Finished")) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 2);
-        } else if (!pmSetProjectStatus.getValue().equals("") && !pmNewProjectManager.getValue().equals("")) {
-            Main.command("assignpm " + Main.getProjects().indexOf(pmNewProjectManager.getValue()) + " "
+        } else if (pmSelectProject.getValue() !=null && !pmNewProjectManager.getValue().equals("")) {
+            Main.command("assignpm " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
                     + Main.getEmployees().indexOf(pmNewProjectManager.getValue()));
         }
     }

@@ -9,7 +9,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--employee edit hours scene-->
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserEditHoursController">
    <children>
       <!--right side pane (graphics)-->
@@ -37,29 +39,24 @@
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
       <ChoiceBox fx:id="userEditHoursSelectProject" layoutX="124.0" layoutY="58.0" prefWidth="150.0" />
-      <Label layoutX="26.0" layoutY="62.0" text="Select project">
+      <Label layoutX="17.0" layoutY="64.0" text="Select project">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <TextField fx:id="userEditHoursNewHour" layoutX="125.0" layoutY="205.0" promptText="Enter new start hour" />
-      <Label layoutX="10.0" layoutY="200.0" text="Start hour (new)">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="44.0" layoutY="215.0" text="(24 hours) ">
+      <Label layoutX="16.0" layoutY="202.0" prefHeight="34.0" prefWidth="81.0" text="Start hour (new) (24 hour)" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <TextField fx:id="userEditHourNewMinutes" layoutX="125.0" layoutY="248.0" promptText="Enter new start minute" />
-      <Label layoutX="8.0" layoutY="252.0" text="Start hour (new) ">
+      <Label layoutX="16.0" layoutY="245.0" prefHeight="34.0" prefWidth="81.0" text="Start minute (new) " wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="userEditHoursNewMinutes" layoutX="125.0" layoutY="290.0" promptText="Duration in minutes" />
+      <TextField fx:id="userEditHoursNewDurationTime" layoutX="125.0" layoutY="290.0" promptText="Duration in minutes" />
       <Label layoutX="16.0" layoutY="294.0" text="Enter duration">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -76,7 +73,7 @@
          </font>
       </Button>
       <ChoiceBox fx:id="userEditHoursSelectPreviousEnteredHours" layoutX="124.0" layoutY="125.0" prefWidth="150.0" />
-      <Label layoutX="8.0" layoutY="110.0" prefHeight="55.0" prefWidth="97.0" text="Select previously entered hours" wrapText="true">
+      <Label layoutX="16.0" layoutY="111.0" prefHeight="55.0" prefWidth="97.0" text="Select previously entered hours" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
