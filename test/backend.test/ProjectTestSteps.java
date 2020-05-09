@@ -85,7 +85,13 @@ public class ProjectTestSteps {
 
     @And("an unmanaged Project Exists")
     public void anUnmanagedProjectExists() {
-        assertEquals(false,Main.getProjects().get(1).hasProjectManager());
+        int current = Main.getCurrentUser();
+        Main.command("signout");
+        Main.command("signin 0 password");
+        Main.command("newproject testProject1 test 10 10");
+        assertEquals(2,Main.getProjects().size());
+        Main.command("signout");
+        Main.command("signin "+current+" password");
     }
 
     @And("another Employee exists")
@@ -93,8 +99,8 @@ public class ProjectTestSteps {
         assertNotEquals(1,Main.getEmployees().size());
     }
 
-    @And("user attempts to assign a new projectmanager to the unmanaged project")
-    public void userAttemptsToAssignANewProjectmanagerToTheUnmanagedProject() {
+    @And("user attempts to assign a new project manager to the unmanaged project")
+    public void userAttemptsToAssignANewProjectManagerToTheUnmanagedProject() {
         Main.command("assignpm 1 2");
     }
 
@@ -126,7 +132,9 @@ public class ProjectTestSteps {
     @And("user attempts to create new project, with a project manager")
     public void userAttemptsToCreateNewProjectWithAProjectManager() {
         Main.command("newproject testProject1 test 10 10");
-        Main.command("assignpm 1 3");
+        if (Main.getProjects().size() == 2) {
+            Main.command("assignpm 1 3");
+        }
     }
 
     @Then("current project is created and has a project manager")
@@ -134,9 +142,9 @@ public class ProjectTestSteps {
         assertEquals(true,Main.getProjects().get(1).hasProjectManager());
     }
 
-    @Then("current project is not created and does not project manager")
+    @Then("current project is not created")
     public void currentProjectIsNotCreatedAndDoesNotProjectManager() {
-        assertEquals(2,Main.getProjects().size());
+        assertEquals(false,Main.getProjects().contains(1));
     }
 
     @And("user attempts to create new project")
@@ -149,7 +157,7 @@ public class ProjectTestSteps {
         assertEquals(false, Main.getProjects().get(1).hasProjectManager());
     }
 
-    @Then("New project is not created and has no project manager")
+    @Then("New project is not created")
     public void newProjectIsNotCreatedAndHasNoProjectManager() {
         assertEquals(1,Main.getProjects().size());
     }
