@@ -1,12 +1,12 @@
 Feature: user deletes project
 
 Scenario: Admin deletes project
-  Given that current user is admin
+  Given that the current user is an admin
   And a project exists
   Then user deletes the project
 
 Scenario: Project manager deletes project
-  Given that current user is a project manager
+  Given that the current user is a project manager
   And a project exists
   Then user fails to delete the project
 
