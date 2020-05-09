@@ -6,10 +6,8 @@ Scenario: admin make new employee
   And a new employee exist
 
 Scenario: employee make new employee
-  Given that the admin is logged in
-  Then admin created new employee
-  And a new employee exist
-  And new employee signs in
+  Given that the employee is not signed in
+  Then the employee signs in
   And employee created new employee fails
 
 Scenario: admin make new admin
@@ -18,8 +16,6 @@ Scenario: admin make new admin
   And a new admin exist
 
 Scenario: employee make new admin
-  Given that the admin is logged in
-  Then admin created new employee
-  And a new employee exist
-  And new employee signs in
+  Given that the employee is not signed in
+  Then the employee signs in
   And employee created new admin fails
