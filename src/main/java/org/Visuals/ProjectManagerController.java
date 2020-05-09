@@ -95,7 +95,11 @@ public class    ProjectManagerController implements Initializable {
                         e.printStackTrace();
                     }
                 } else{
-                    System.out.println("edit workhours");
+                    try {
+                        Launcher.setRoot("User/ProjectManager/pmEditWorkHoursForEmployee");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
