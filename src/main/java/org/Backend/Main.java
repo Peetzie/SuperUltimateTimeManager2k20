@@ -116,6 +116,9 @@ public class Main {//this is the central main function for running the program
                 case "edithours":
                     employees.get(currentUser).editHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]));
                     return true;
+                case "editemployeehours":
+                    employees.get(currentUser).editEmployeesHours(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]),Integer.parseInt(input[4]),Integer.parseInt(input[5]));
+                    return true;
                 case "help":
                     printHelp();
                     break;
@@ -146,6 +149,7 @@ public class Main {//this is the central main function for running the program
         System.out.println("joinproject [project]");
         System.out.println("assignhours [project] [start time] [duration]");
         System.out.println("edithours [project] [entry index] [start time] [duration]");
+        System.out.println("editemployeehours [project] [employee] [entry index] [start time] [duration]");
     }
 
     private static boolean signIn(int id, String password){//handles login inputs
