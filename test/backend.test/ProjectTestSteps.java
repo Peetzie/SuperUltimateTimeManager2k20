@@ -11,21 +11,7 @@ import static org.junit.Assert.*;
 public class ProjectTestSteps {
 
     public ProjectTestSteps(){
-        Main.setup(this);
-        Main.command("signin 0 password");                      //admin login
 
-        Main.command("newemployee password testPM");            //id:1
-        Main.command("newemployee password testPBE");           //id:2
-        Main.command("newemployee password testE");             //id:3
-        Main.command("newemployee password testPBE2");          //id:4
-
-        Main.command("newproject testProject test 10 10");      //id:0
-        Main.command("assignpm 0 1");                           //pm asigned
-        Main.command("assignemployee 0 2");                     //pbe assigned
-        Main.command("assignemployee 0 4");                     //pbe assigned
-        Main.command("newactivity 0 testActivity test 10 10");  //id:0
-
-        Main.command("signout");
     }
 
     //@Given("that the current user is an admin")
@@ -57,127 +43,199 @@ public class ProjectTestSteps {
         assertEquals(3,Main.getCurrentUser());
     }
 
-
-
-    @And("another Employee exists")
-    public void anotherEmployeeExists() {
-        assertTrue(Main.getEmployees().size() > 2);
+    @And("user attempts to assign a new employee to the project")
+    public void userAttemptsToAssignANewEmployeeToTheProject() {
+        Main.command("assignemployee 0 3");
     }
 
-
-    @Then("user joins project")
-    public void userJoinsProject() {
-        //Main.command("join")
-        //assertTrue();
+    @Then("new employee is bound to the project")
+    public void newEmployeeIsBoundToTheProject() {
+        assertEquals(true,Main.projectEmployeeRelationExist(0,3));
     }
 
-    @And("user is assigned to a project")
-    public void userIsAssignedToAProject() {
-    }
-
-    @Then("user leaves project")
-    public void userLeavesProject() {
-    }
-
-    @Then("user removes employee from project")
-    public void userRemovesEmployeeFromProject() {
-
-    }
-
-
-    @And("a project exists")
-    public void aProjectExists() {
-    }
-
-    @And("another project exists")
-    public void anotherProjectExists() {
-    }
-
-    @And("a project with atleast one employee exists")
-    public void aProjectWithAtleastOneEmployeeExists() {
+    @Then("new employee is not bound to the project")
+    public void newEmployeeIsNotBoundToTheProject() {
+        assertEquals(false,Main.projectEmployeeRelationExist(0,3));
     }
 
     @And("a project exists with a projectmanager")
     public void aProjectExistsWithAProjectmanager() {
+        assertEquals(true,Main.getProjects().get(0).hasProjectManager());
+    }
+
+    @And("user attempts to assign a new project manager to the project")
+    public void userAttemptsToAssignANewProjectManagerToTheProject() {
+        Main.command("assignpm 0 2");
+    }
+
+    @Then("new project manager is assigned to the project")
+    public void newProjectManagerIsAssignedToTheProject() {
+        assertEquals(Main.getEmployees().get(2),Main.getProjects().get(0).getProjectManager());
+    }
+
+    @And("current user is no longer project manager for the project")
+    public void currentUserIsNoLongerProjectManagerForTheProject() {
+        assertNotEquals(Main.getCurrentUser(),Main.getProjects().get(0).getProjectManager());
+    }
+
+    @Then("new project manager not is assigned to the project")
+    public void newProjectManagerNotIsAssignedToTheProject() {
+        assertNotEquals(Main.getEmployees().get(2),Main.getProjects().get(0).getProjectManager());
     }
 
     @And("an unmanaged Project Exists")
     public void anUnmanagedProjectExists() {
-    }
-
-
-    @Then("user gets the project information")
-    public void userGetsTheProjectInformation() {
-    }
-
-    @And("current project has no project manager")
-    public void projectHasNoProjectManager() {
-    }
-
-
-    @Then("user assigns a new employee to the project")
-    public void userAssignsANewEmployeeToTheProject() {
-    }
-
-    @Then("user fails to assign a new employee to the project")
-    public void userFailsToAssignANewEmployeeToTheProject() {
-    }
-
-
-    @Then("user assigns a new project manager to the project")
-    public void userAssignsANewProjectManagerToTheProject() {
-    }
-
-    @Then("user fails to assign a new project manager to the project")
-    public void userFailsToAssignANewProjectManagerToTheProject() {
-
-    }
-
-
-    @Then("user creates new project")
-    public void userCreatesNewProject() {
-        assertEquals(2,Main.getProjects().size());
-    }
-
-    @Then("user fails to create new project")
-    public void userFailsToCreateNewProject() {
-        assertEquals(1,Main.getProjects().size());
-    }
-
-    @Then("current user assigns a new projectmanager to the unmanaged project")
-    public void currentUserAssignsANewProjectmanagerToTheUnmanagedProject() {
-        assertEquals(true,Main.getProjects().get(1).hasProjectManager());
-    }
-
-    @Then("current user fails to assigns a new projectmanager to the unmanaged project")
-    public void currentUserFailsToAssignsANewProjectmanagerToTheUnmanagedProject() {
         assertEquals(false,Main.getProjects().get(1).hasProjectManager());
     }
 
-    @And("current user assigns a new projectmanager to new project")
-    public void userAssignsProjectToNewProject() {
-        assertEquals(Main.getEmployees().get(4),Main.getProjects().get(0).getProjectManager());
+    @And("another Employee exists")
+    public void anotherEmployeeExists() {
+        assertNotEquals(1,Main.getEmployees().size());
     }
 
-
-    @Then("user changes the status of the project")
-    public void userChangesTheStatusOfTheProject() {
-        assertEquals(Main.getEmployees().get(1),Main.getProjects().get(0).getStatus());
+    @And("user attempts to assign a new projectmanager to the unmanaged project")
+    public void userAttemptsToAssignANewProjectmanagerToTheUnmanagedProject() {
+        Main.command("assignpm 1 2");
     }
 
-    @Then("user fails to change the status of the project")
-    public void userFailsToChangeTheStatusOfTheProject() {
+    @Then("A new project manager is assigned to the project")
+    public void aNewProjectManagerIsAssignedToTheProject() {
+        assertEquals(true,Main.getProjects().get(1).hasProjectManager());
+    }
+
+    @Then("A new project manager is not assigned to the project")
+    public void aNewProjectManagerIsNotAssignedToTheProject() {
+        assertEquals(false,Main.getProjects().get(1).hasProjectManager());
+    }
+
+    @And("user attempts to change the status of the project")
+    public void userAttemptsToChangeTheStatusOfTheProject() {
+        Main.command("setstatus 0 1");
+    }
+
+    @Then("the status of the project is changed")
+    public void theStatusOfTheProjectIsChanged() {
+        assertEquals(1,Main.getProjects().get(0).getStatus());
+    }
+
+    @Then("the status of the project is not changed")
+    public void theStatusOfTheProjectIsNotChanged() {
         assertEquals(0,Main.getProjects().get(0).getStatus());
     }
 
-    @Then("user deletes the project")
-    public void userDeletesTheProject() {
-        assertEquals(0,Main.getProjects().size());
+    @And("user attempts to create new project, with a project manager")
+    public void userAttemptsToCreateNewProjectWithAProjectManager() {
+        Main.command("newproject testProject1 test 10 10");
+        Main.command("assignpm 1 3");
     }
 
-    @Then("user fails to delete the project")
-    public void userFailsToDeleteTheProject() {
+    @Then("current project is created and has a project manager")
+    public void currentProjectIsCreatedAndHasAProjectManager() {
+        assertEquals(true,Main.getProjects().get(1).hasProjectManager());
+    }
+
+    @Then("current project is not created and does not project manager")
+    public void currentProjectIsNotCreatedAndDoesNotProjectManager() {
+        assertEquals(2,Main.getProjects().size());
+    }
+
+    @And("user attempts to create new project")
+    public void userAttemptsToCreateNewProject() {
+        Main.command("newproject testProject1 test 10 10");
+    }
+
+    @Then("New project is created and has no project manager")
+    public void newProjectIsCreatedAndHasNoProjectManager() {
+        assertEquals(false, Main.getProjects().get(1).hasProjectManager());
+    }
+
+    @Then("New project is not created and has no project manager")
+    public void newProjectIsNotCreatedAndHasNoProjectManager() {
         assertEquals(1,Main.getProjects().size());
+    }
+
+    @And("a project exists")
+    public void aProjectExists() {
+        assertNotEquals(0,Main.getProjects().size());
+    }
+
+    @And("user attempts to delete the project")
+    public void userAttemptsToDeleteTheProject() {
+    }
+
+    @Then("project is marked as removed")
+    public void projectIsMarkedAsRemoved() {
+    }
+
+    @And("user attempts to get the project information")
+    public void userAttemptsToGetTheProjectInformation() {
+
+    }
+
+    @Then("user gets information")
+    public void userGetsInformation() {
+    }
+
+    @Then("user attempts to gets the project information")
+    public void userAttemptsToGetsTheProjectInformation() {
+    }
+
+    @Then("user does not get information")
+    public void userDoesNotGetInformation() {
+    }
+
+    @And("another project exists")
+    public void anotherProjectExists() {
+        int current = Main.getCurrentUser();
+        Main.command("signout");
+        Main.command("signin 0 password");
+        Main.command("newproject testProject1 test 10 10");
+        assertEquals(2,Main.getProjects().size());
+        Main.command("signout");
+        Main.command("signin "+current+" password");
+    }
+
+    @And("user attempts to joins project")
+    public void userAttemptsToJoinsProject() {
+        Main.command("joinproject 1");
+    }
+
+    @Then("user has joined project")
+    public void userHasJoinedProject() {
+        assertEquals(true,Main.projectEmployeeRelationExist(1, Main.getCurrentUser()));
+    }
+
+    @And("user is assigned to a project")
+    public void userIsAssignedToAProject() {
+        assertEquals(true,Main.projectEmployeeRelationExist(0, Main.getCurrentUser()));
+
+    }
+
+    @And("user attempts to leaves project")
+    public void userAttemptsToLeavesProject() {
+        Main.command("leaveproject 0");
+    }
+
+    @Then("user has left project")
+    public void userHasLeftProject() {
+        assertEquals(false,Main.projectEmployeeRelationExist(0, Main.getCurrentUser()));
+    }
+
+    @And("a project with atleast one employee exists")
+    public void aProjectWithAtleastOneEmployeeExists() {
+        assertNotEquals(0,Main.getProjects().get(0).getEmployeeRelations().size());
+    }
+
+    @And("user attempts to removes employee from project")
+    public void userAttemptsToRemovesEmployeeFromProject() {
+    }
+
+    @Then("employee is removed")
+    public void employeeIsRemoved() {
+    }
+
+    @Then("employee is not removed")
+    public void employeeIsNotRemoved() {
     }
 
 

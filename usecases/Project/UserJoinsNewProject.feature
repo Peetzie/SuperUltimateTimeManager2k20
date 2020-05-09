@@ -8,6 +8,6 @@ Feature: user joins new project
 
   Scenario: Employee joins a project
     Given that the current user is an employee
-    And a project exists
+    And another project exists
     And user attempts to joins project
     Then user has joined project
