@@ -57,7 +57,7 @@ public class CreateNewProjectController implements Initializable {//controller f
                 alert.setContentText("Creating project with out a project manager");
                 alert.showAndWait();
             }
-            Launcher.setRoot("adminScreen");
+            Launcher.setRoot("Admin/adminScreen");
         } catch (NumberFormatException e){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error createing new project");
@@ -69,7 +69,7 @@ public class CreateNewProjectController implements Initializable {//controller f
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes admin back to admin interface without creating project
-        Launcher.setRoot("adminScreen");
+        Launcher.setRoot("Admin/adminScreen");
     }
 
 

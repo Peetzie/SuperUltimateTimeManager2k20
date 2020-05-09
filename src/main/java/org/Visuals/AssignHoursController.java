@@ -41,16 +41,23 @@ public class AssignHoursController implements Initializable {//controller for as
 
     @FXML
     void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending an assign hours attempt and takes the user back to main user interface
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
-        startDate = (date.getTime()/1000L);
-        int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
-        Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText())*3600));
-        Launcher.setRoot("userScreen");
+        try{
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
+            startDate = (date.getTime()/1000L);
+            int startTime = Integer.parseInt(assignHoursAssignStartHour.getText())  * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
+            Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText())*3600));
+            Launcher.setRoot("User/userScreen");
+        } catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error assigning hours");
+            alert.setContentText("Please enter numbers only");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes user back to user interface without assigning hours
-        Launcher.setRoot("userScreen");
+        Launcher.setRoot("User/userScreen");
     }
 
 

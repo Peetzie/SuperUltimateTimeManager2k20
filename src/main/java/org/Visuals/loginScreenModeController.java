@@ -34,13 +34,13 @@ public class loginScreenModeController implements Initializable {
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 if (loginOptions.getValue().equals("Adminstrator mode")){
                     try {
-                        Launcher.setRoot("adminScreen");
+                        Launcher.setRoot("Admin/adminScreen");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else{
                     try {
-                        Launcher.setRoot("userScreen");
+                        Launcher.setRoot("User/userScreen");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

@@ -29,12 +29,12 @@ public class adminRemoveEmployeeController implements Initializable {
     @FXML
     void ConfirmButtonHandler(ActionEvent event) throws IOException {
         Main.command("removeemployee " + Main.getEmployees().indexOf(valgbox.getValue()));
-        Launcher.setRoot("adminScreen");
+        Launcher.setRoot("Admin/adminScreen");
     }
 
     @FXML
     void exit(ActionEvent event) throws IOException {
-        Launcher.setRoot("adminScreen");
+        Launcher.setRoot("Admin/adminScreen");
     }
 
     @Override

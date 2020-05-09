@@ -58,18 +58,17 @@ public class ProjectTestSteps {
     }
 
 
-    @And("an employee exists who isnt a projectmanager")
-    public void anEmployeeExistsWhoIsntAProjectmanager() {
-
-    }
 
     @And("another Employee exists")
     public void anotherEmployeeExists() {
+        assertTrue(Main.getEmployees().size() > 2);
     }
 
 
     @Then("user joins project")
     public void userJoinsProject() {
+        //Main.command("join")
+        //assertTrue();
     }
 
     @And("user is assigned to a project")
@@ -163,7 +162,7 @@ public class ProjectTestSteps {
 
     @Then("user changes the status of the project")
     public void userChangesTheStatusOfTheProject() {
-        assertEquals(Main.getEmployees(1),Main.getProjects().get(0).getStatus());
+        assertEquals(Main.getEmployees().get(1),Main.getProjects().get(0).getStatus());
     }
 
     @Then("user fails to change the status of the project")

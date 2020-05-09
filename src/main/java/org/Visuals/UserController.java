@@ -31,13 +31,13 @@ public class UserController implements Initializable {//controller for user scen
 
     @FXML
     void assignHoursButtonHandler(ActionEvent event) throws IOException {//takes user to assign hours scene
-        Launcher.setRoot("assignHoursScreen");
+        Launcher.setRoot("User/assignHoursScreen");
     }
 
 
     @FXML
     void userScreenEditHoursButtonHandler(ActionEvent event) throws IOException {//takes user to edit hours scene
-        Launcher.setRoot("editHoursScreen");
+        Launcher.setRoot("User/editHoursScreen");
     }
 
     @FXML
@@ -48,18 +48,23 @@ public class UserController implements Initializable {//controller for user scen
 
     @FXML
     void userScreenJoinProjectHandler(ActionEvent event) throws IOException {//takes user to join project scene
-        Launcher.setRoot("joinProjectScreen");
+        Launcher.setRoot("User/joinProjectScreen");
     }
 
     @FXML
     void userScreenLeaveProjectHandler(ActionEvent event) throws IOException {//takes user to leave project scene
-        Launcher.setRoot("leaveProjectScreen");
+        Launcher.setRoot("User/leaveProjectScreen");
     }
 
 
     @FXML
     void userScreenProjectManagerButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("projectManagerScreen");
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
+    }
+
+    @FXML
+    void startCollaborationButtonHandler(ActionEvent event) {
+        System.out.println("clicked start collaboration");
     }
 
     @Override

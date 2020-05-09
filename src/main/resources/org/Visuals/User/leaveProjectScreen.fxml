@@ -23,7 +23,7 @@
             </Label>
             <ImageView fitHeight="130.0" fitWidth="129.0" layoutX="86.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@abandonProject.png" />
+                  <Image url="@../Icons/abandonProject.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

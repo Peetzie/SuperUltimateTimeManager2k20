@@ -21,7 +21,7 @@
             </Label>
             <ImageView fitHeight="134.0" fitWidth="143.0" layoutX="83.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RemoveUser.png" />
+                  <Image url="@../Icons/RemoveUser.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />

@@ -41,7 +41,7 @@ public class adminAssignProjectManagerController implements Initializable {
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("adminScreen");
+        Launcher.setRoot("Admin/adminScreen");
     }
 
     @Override

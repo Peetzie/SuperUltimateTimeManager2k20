@@ -31,10 +31,10 @@ public class CreateNewUserController {//controller for create new user scene
         if (checkPassword(createUserPassword,createUserPasswordrReentry)){
             if (CheckBoxValue){
                 Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText() + " admin");
-                Launcher.setRoot("adminScreen");
+                Launcher.setRoot("Admin/adminScreen");
             } else{
                 Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText());
-                Launcher.setRoot("adminScreen");
+                Launcher.setRoot("Admin/adminScreen");
             }
         } else{
             Alert.AlertType alertAlertType;
@@ -47,7 +47,7 @@ public class CreateNewUserController {//controller for create new user scene
 
     @FXML
     void cancelbuttonHandler(ActionEvent event) throws IOException {//takes admin back to admin interface without creating user
-        Launcher.setRoot("adminScreen");
+        Launcher.setRoot("Admin/adminScreen");
 
     }
 

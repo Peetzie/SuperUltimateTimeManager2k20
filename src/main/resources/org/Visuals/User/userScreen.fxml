@@ -7,7 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--employee scene-->
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserController">
    <children>
       <!--right side pane (graphics)-->
@@ -35,7 +37,7 @@
             </Button>
             <ImageView fitHeight="127.0" fitWidth="115.0" layoutX="93.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@social-network.png" />
+                  <Image url="@../Icons/social-network.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
