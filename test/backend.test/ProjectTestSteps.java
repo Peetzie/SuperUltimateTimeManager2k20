@@ -11,17 +11,19 @@ import static org.junit.Assert.*;
 public class ProjectTestSteps {
 
     public ProjectTestSteps(){
-        Main.command("signin 0 password");
+        Main.setup(this);
+        Main.command("signin 0 password");                      //admin login
 
-        Main.command("newemployee password testPM");    //id:1
-        Main.command("newemployee password testPBE");   //id:2
-        Main.command("newemployee password testE");     //id:3
+        Main.command("newemployee password testPM");            //id:1
+        Main.command("newemployee password testPBE");           //id:2
+        Main.command("newemployee password testE");             //id:3
+        Main.command("newemployee password testPBE2");
 
-        Main.command("newproject testProjectWPM test 10 10");
-        Main.command("newproject testProjectWOPM test 10 10");
-        Main.command("assignpm 0 1");
-        Main.command("assignemployee 0 2");
-
+        Main.command("newproject testProject test 10 10");      //id:0
+        Main.command("assignpm 0 1");                           //pm asigned
+        Main.command("assignemployee 0 2");                     //pbe assigned
+        Main.command("assignemployee 0 4");                     //pbe assigned
+        Main.command("newactivity 0 testActivity test 10 10");  //id:0
 
         Main.command("signout");
     }
@@ -80,6 +82,7 @@ public class ProjectTestSteps {
 
     @Then("user removes employee from project")
     public void userRemovesEmployeeFromProject() {
+
     }
 
 
