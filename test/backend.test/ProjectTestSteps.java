@@ -61,11 +61,14 @@ public class ProjectTestSteps {
 
     @And("another Employee exists")
     public void anotherEmployeeExists() {
+        assertTrue(Main.getEmployees().size() > 2);
     }
 
 
     @Then("user joins project")
     public void userJoinsProject() {
+        //Main.command("join")
+        //assertTrue();
     }
 
     @And("user is assigned to a project")
