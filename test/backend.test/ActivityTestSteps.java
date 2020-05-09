@@ -3,14 +3,7 @@ package backend.test;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.Backend.Activity;
 import org.Backend.Main;
-import org.Backend.Project;
-import org.junit.Assert;
-
-import java.util.Objects;
-
 import static org.junit.Assert.*;
 
 public class ActivityTestSteps {
@@ -32,15 +25,10 @@ public class ActivityTestSteps {
         Main.command("signout");
     }
 
-    @Given("that the current user is a project bound employee")
-    public void thatTheEmployeeIsLoggedIn() throws Exception {
-        Main.command("signin 2 password");
-        assertEquals(true,Main.projectEmployeeRelationExist(0,2));
-    }
-
     @Given("that the current user is an admin")
     public void thatTheCurrentUserIsAnAdmin() {
         Main.command("signin 0 password");
+        assertEquals(0,Main.getCurrentUser());
     }
 
     @Given("that the current user is a project manager")
@@ -50,9 +38,17 @@ public class ActivityTestSteps {
         assertEquals(Main.getEmployees().get(1),Main.getProjects().get(0).getProjectManager());
     }
 
+    @Given("that the current user is a project bound employee")
+    public void thatTheEmployeeIsLoggedIn() throws Exception {
+        Main.command("signin 2 password");
+        assertEquals(2,Main.getCurrentUser());
+        assertEquals(true,Main.projectEmployeeRelationExist(0,2));
+    }
+
     @Given("that the current user is an employee")
     public void thatTheCurrentUserIsAnEmployee() {
         Main.command("signin 3 password");
+        assertEquals(3,Main.getCurrentUser());
     }
 
     @And("the user assigns hours")
@@ -152,7 +148,4 @@ public class ActivityTestSteps {
     public void deadlineIsNotAdded() {
         assertEquals(10,Main.getProjects().get(0).getActivities().get(0).getDeadline());
     }
-
-
-
 }
