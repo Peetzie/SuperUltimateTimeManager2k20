@@ -24,9 +24,6 @@
                </font>
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@business-and-finance.png" />
-               </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
                </effect>
