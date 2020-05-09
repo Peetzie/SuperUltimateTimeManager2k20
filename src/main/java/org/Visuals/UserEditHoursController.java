@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class UserEditHoursController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
+
     @FXML
     private ChoiceBox userEditHoursSelectProject;
 
@@ -45,8 +47,16 @@ public class UserEditHoursController implements Initializable {
 
     @FXML
     void userEditConfirmButtonHandler(ActionEvent event) {
-        Main.command("edithours " + userEditHoursSelectProject.getValue() + "[ENTRY INDEX]" + startTime(userEditHoursNewHour,userEditHourNewMinutes) +
-                " " + Integer.parseInt(userEditHoursNewDuration.getText()) * 60 );
+        try {
+            Main.command("edithours " + userEditHoursSelectProject.getValue() + "[ENTRY INDEX]" + startTime(userEditHoursNewHour,userEditHourNewMinutes) +
+                    " " + Integer.parseInt(userEditHoursNewDuration.getText()) * 60 );
+
+        } catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error editing hours");
+            alert.setContentText("Please check input for corret format. In inserting time, please enter numbers only");
+            alert.showAndWait();
+        }
     }
 
     String startTime(TextField userEditHoursNewHour, TextField userEditHoursNewMinutes){

@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ProjectManagerController implements Initializable {
+public class    ProjectManagerController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress",
