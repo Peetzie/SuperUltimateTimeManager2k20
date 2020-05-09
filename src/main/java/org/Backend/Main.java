@@ -150,6 +150,7 @@ public class Main {//this is the central main function for running the program
     private static boolean signIn(int id, String password){//handles login inputs
         if (employees.size() <= id){
             System.out.println("Employee "+id+" don't exist");
+            return false;
         }
         if (password.equals(employees.get(id).getPassword()) && !employees.get(id).isRemoved()){
             if(employees.get(id).isAdmin()){
