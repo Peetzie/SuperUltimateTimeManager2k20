@@ -39,6 +39,14 @@ public class Employee {//here we have the constructor for employee with employee
             System.out.println("Only admin or project manager can do this");
         }
     }
+    public void assignEmployeesHours(int project, int employee, int startTime, int duration){
+        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
+            Main.getEmployees().get(employee).assignHours(project,startTime,duration);
+        }
+        else{
+            System.out.println("Only admin or project manager can do this");
+        }
+    }
     public boolean setDeadline(int project, int deadline){
         if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
             Main.getProjects().get(project).setDeadline(deadline);
@@ -87,16 +95,6 @@ public class Employee {//here we have the constructor for employee with employee
         else{
             System.out.println("Only admin or project manager can do this");
             return false;
-        }
-    }
-    //checks if user is admin or project manager and allows admins or project manager to change project status
-    public void changeProjectStatus(int project, int newStatus){
-        if (admin || Main.getProjects().get(project).getProjectManager().equals(this)){
-            Main.getProjects().get(project).setStatus(newStatus);
-            System.out.println("Status set to "+newStatus+" for project "+project);
-        }
-        else{
-            System.out.println("Only admin or project manager can do this");
         }
     }
 
