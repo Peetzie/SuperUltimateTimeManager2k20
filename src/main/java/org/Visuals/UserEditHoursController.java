@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class UserEditHoursController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
+    ProjectEmployeeRelation projectEmployeeRelation;
 
     @FXML
     private ChoiceBox userEditHoursSelectProject;
@@ -35,7 +36,7 @@ public class UserEditHoursController implements Initializable {
     private TextField userEditHourNewMinutes;
 
     @FXML
-    private TextField userEditHoursNewDuration;
+    private TextField userEditHoursNewDurationTime;
 
     @FXML
     private ChoiceBox userEditHoursSelectPreviousEnteredHours;
@@ -47,14 +48,21 @@ public class UserEditHoursController implements Initializable {
 
     @FXML
     void userEditConfirmButtonHandler(ActionEvent event) {
-        try {
-            Main.command("edithours " + userEditHoursSelectProject.getValue() + "[ENTRY INDEX]" + startTime(userEditHoursNewHour,userEditHourNewMinutes) +
-                    " " + Integer.parseInt(userEditHoursNewDuration.getText()) * 60 );
-
-        } catch (NumberFormatException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error editing hours");
-            alert.setContentText("Please check input for corret format. In inserting time, please enter numbers only");
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error editing hours");
+        if (Helper.legalInput(userEditHoursNewHour, userEditHourNewMinutes)) {
+            try {
+                Main.command("edithours " + Main.getProjects().indexOf(((ProjectEmployeeRelation)userEditHoursSelectProject.getValue()).getProject()) + " " +
+                        projectEmployeeRelation.getHours().indexOf(userEditHoursSelectPreviousEnteredHours.getValue())
+                        + " " + startTime(userEditHoursNewHour, userEditHourNewMinutes) +
+                        " " + (Integer.parseInt(userEditHoursNewDurationTime.getText()) * 60));
+                Launcher.setRoot("User/userScreen");
+            } catch (NumberFormatException | IOException e) {
+                alert.setContentText("Please check input for corret format. In inserting time, please enter numbers only");
+                alert.showAndWait();
+            }
+        } else {
+            alert.setContentText("Please enter a maximum of 23 hours and 59 minutes in the hour and minutes fields");
             alert.showAndWait();
         }
     }
@@ -74,6 +82,7 @@ public class UserEditHoursController implements Initializable {
                 System.out.println(userEditHoursSelectProject.getValue());
                 ObservableList<Hour> hourList = FXCollections.observableArrayList(((ProjectEmployeeRelation) userEditHoursSelectProject.getValue()).getHours());
                 userEditHoursSelectPreviousEnteredHours.setItems(hourList);
+                projectEmployeeRelation = (ProjectEmployeeRelation) t1;
             }
         });
     }
