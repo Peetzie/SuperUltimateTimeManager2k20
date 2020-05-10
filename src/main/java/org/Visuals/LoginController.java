@@ -30,7 +30,7 @@ public class LoginController {//controller for the login scene
             alert.setTitle("Error logging in");
             alert.setContentText("Invalid login credentials");
             alert.showAndWait();
-        } else {
+        } else { // Login sucessfull checks whether user has admin previliges and asks for scene if so.
             Main.command("signin " + loginScreenUserID.getText() + " " + loginScreenPassword.getText());
             if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()) {
                 Launcher.setRoot("loginScreenMode");

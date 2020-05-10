@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class loginScreenModeController implements Initializable {
+public class loginScreenModeController implements Initializable {//secondary screen for admin login | user login
     ObservableList<String> options = FXCollections.observableArrayList("Adminstrator mode","User mode");
     @FXML
     private Label welcomeUserLabel;
@@ -25,11 +25,11 @@ public class loginScreenModeController implements Initializable {
     private ChoiceBox<String> loginOptions;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {// Start up initialize values of drop down
         loginOptions.setItems(options);
         Helper.setText(welcomeUserLabel, Main.getCurrentUser()+"");
 
-        loginOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        loginOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {// Change scene depending on what mode is selected
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 if (loginOptions.getValue().equals("Adminstrator mode")){

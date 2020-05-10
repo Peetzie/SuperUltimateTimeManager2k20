@@ -37,17 +37,17 @@ public class AdminController implements Initializable {//controller for admin in
     }
 
     @FXML
-    void assignPMButtonHandler(ActionEvent event) throws IOException{
+    void assignPMButtonHandler(ActionEvent event) throws IOException{//button takes admin to "assign project manager" scene
         Launcher.setRoot("Admin/adminAssignProjectManager");
     }
 
     @FXML
-    void adminRemoveEmployeeButtonHandler(ActionEvent event) throws IOException {
+    void adminRemoveEmployeeButtonHandler(ActionEvent event) throws IOException {//button takes admin to "remove employee" scene
         Launcher.setRoot("Admin/adminRemoveEmployee");
     }
 
     @FXML
-    void removeProjectButtonHandler(ActionEvent event) throws IOException {
+    void removeProjectButtonHandler(ActionEvent event) throws IOException {//button takes admin to "remove project" scene
         Launcher.setRoot("Admin/adminRemoveProject");
     }
 

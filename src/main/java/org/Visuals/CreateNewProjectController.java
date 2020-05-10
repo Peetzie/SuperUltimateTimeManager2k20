@@ -51,14 +51,14 @@ public class CreateNewProjectController implements Initializable {//controller f
                     + Math.round(Float.parseFloat(createProjectEstimatedHours.getText()) * 3600) + " " + deadline);
             if (createProjectProjectManager.getValue() != null) {
                 Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
-            } else {
+            } else { // error messages for information with out a project manager.
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Alert!");
                 alert.setContentText("Creating project with out a project manager");
                 alert.showAndWait();
             }
             Launcher.setRoot("Admin/adminScreen");
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e){ // error message for wrong use of input.
             Helper.illegalInputAlert("Error creating new project");
         }
         }

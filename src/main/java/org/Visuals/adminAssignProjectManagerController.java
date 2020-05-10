@@ -15,11 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/***
- * get project list with projects that have not yet been given a project manager.
- ***/
 
-public class adminAssignProjectManagerController implements Initializable {
+public class adminAssignProjectManagerController implements Initializable { // Controller for assigning project manager
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
 
@@ -33,19 +30,20 @@ public class adminAssignProjectManagerController implements Initializable {
     private ChoiceBox adminAssignProjectManagerSelectProject;
 
     @FXML
-    void assignButtonHandler(ActionEvent event) {
+    void assignButtonHandler(ActionEvent event) { // connects to backend and assignes pm of the selected values of the drop down menus.
         Main.command("assignpm " + Main.getProjects().indexOf(adminAssignProjectManagerSelectProject.getValue()) + " "
                 + Main.getEmployees().indexOf(adminAssignProjectManagerSelectEmployee.getValue()));
 
     }
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//Takes the user back to the admin screen.
         Launcher.setRoot("Admin/adminScreen");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // initiializing values for drop downs ans scene is loaded.
         Helper.setText(adminAssignPMCurrentUser,Main.getCurrentUser()+"");
         adminAssignProjectManagerSelectEmployee.setItems(userList);
         adminAssignProjectManagerSelectProject.setItems(projectList);

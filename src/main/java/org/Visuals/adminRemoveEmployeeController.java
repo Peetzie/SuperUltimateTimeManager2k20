@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminRemoveEmployeeController implements Initializable {
+public class adminRemoveEmployeeController implements Initializable { // Remove employee scene controller
     ObservableList<Employee> employees = FXCollections.observableArrayList(Main.getEmployeesReal());
 
 
@@ -27,13 +27,13 @@ public class adminRemoveEmployeeController implements Initializable {
     private ChoiceBox valgbox;
 
     @FXML
-    void ConfirmButtonHandler(ActionEvent event) throws IOException {
+    void ConfirmButtonHandler(ActionEvent event) throws IOException {// Connects backend to the confirm button
         Main.command("removeemployee " + Main.getEmployees().indexOf(valgbox.getValue()));
         Launcher.setRoot("Admin/adminScreen");
     }
 
     @FXML
-    void exit(ActionEvent event) throws IOException {
+    void exit(ActionEvent event) throws IOException {// Scene change to adminscreen again, on exit button
         Launcher.setRoot("Admin/adminScreen");
     }
 

@@ -36,7 +36,7 @@ public class CreateNewUserController {//controller for create new user scene
                 Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText());
                 Launcher.setRoot("Admin/adminScreen");
             }
-        } else{
+        } else{ // error if passwords are not identical
             Alert.AlertType alertAlertType;
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error create new user");

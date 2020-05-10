@@ -18,7 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ProjectManagerController implements Initializable {
+public class ProjectManagerController implements Initializable {// Controler for the project manager with different options
+    // Init obersable lists for the dropdowns in the original screen.
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
@@ -44,12 +45,12 @@ public class ProjectManagerController implements Initializable {
     private ChoiceBox pmOtherOptions;
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//Takes the user back to the user screen.
         Launcher.setRoot("User/userScreen");
     }
 
     @FXML
-    void confirmButtonHandler(ActionEvent event) throws IOException {
+    void confirmButtonHandler(ActionEvent event) throws IOException {// Confirm, adds changes depending on what values selected in the front manager controller screen. (Status change/ assign employee / and assign project manager
         if (pmSelectProject.getValue() !=null && ("Not begun yet").equals(pmSetProjectStatus.getValue())) {
             Main.command("setstatus " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " " + 0);
         } else if (pmSelectProject.getValue() !=null && ("In progress").equals(pmSetProjectStatus.getValue())) {
@@ -65,7 +66,7 @@ public class ProjectManagerController implements Initializable {
 
 
     @FXML
-    void hyperLinkHandler(ActionEvent event) {
+    void hyperLinkHandler(ActionEvent event) { // Helper for the user manager screen, for the user.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("The projectmanager page is used by small changes, one can select the project that's " +
                 "currently being changed options in, in the top. \n " +
@@ -78,14 +79,14 @@ public class ProjectManagerController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {// Init the different drop downs menus and adding items for use in them
         Helper.setText(pmCurrentUser, Main.getCurrentUser()+"");
         pmSelectProject.setItems(projectList);
         pmSetProjectStatus.setItems(projectStatusList);
         pmNewProjectManager.setItems(employeeList);
         pmAssignEmployeeToProject.setItems(employeeList);
         pmOtherOptions.setItems(optionslist);
-        pmOtherOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        pmOtherOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // For the other options, then depending what selected in the drop down, then change winows
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 if (pmOtherOptions.getValue().equals("Create Activities")){
