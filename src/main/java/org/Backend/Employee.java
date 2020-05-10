@@ -1,9 +1,8 @@
 package org.Backend;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Employee extends Actor{//here we have the constructor for employee with employee logic included
+public class Employee extends Entity {//here we have the constructor for employee with employee logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> projectRelations = new ArrayList<ProjectEmployeeRelation>();
     private boolean admin;
@@ -98,9 +97,6 @@ public class Employee extends Actor{//here we have the constructor for employee 
     }
 
     //Project bound employee functions
-    public void getProjectInformation(){
-
-    }
     //allows an project bound employee to leave a project and checks if they are the project manager and notifies the employee that the project now has no project manager
     public void leaveProject(int project, int employee){
         if(this.equals(Main.getEmployees().get(employee)) || admin || this.equals(Main.getProjects().get(project).getProjectManager())){
