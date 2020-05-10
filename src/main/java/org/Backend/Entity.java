@@ -1,6 +1,6 @@
 package org.Backend;
 
-public class Actor {
+public class Entity {
     private String name;
     private boolean removed;
 
