@@ -33,12 +33,12 @@
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
       <ChoiceBox fx:id="removeProject" layoutX="128.0" layoutY="119.0" prefWidth="150.0" />
-      <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#ConfirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
+      <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="228.0" layoutY="200.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #C21807;" text="Cancel" textFill="WHITE">
+      <Button layoutX="228.0" layoutY="200.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
