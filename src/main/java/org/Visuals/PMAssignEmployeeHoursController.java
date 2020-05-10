@@ -1,16 +1,32 @@
 package org.Visuals;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.Backend.Employee;
+import org.Backend.Main;
+import org.Backend.ProjectEmployeeRelation;
 
-public class PMAssignEmployeeHoursController {
-    @FXML
-    private ChoiceBox<?> pmChooseProject;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PMAssignEmployeeHoursController implements Initializable {
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<ProjectEmployeeRelation> employees;
+
 
     @FXML
-    private ChoiceBox<?> pmChooseEmployee;
+    private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
+
+    @FXML
+    private ChoiceBox<Employee> pmChooseEmployee;
 
     @FXML
     private TextField startTimehours;
@@ -22,12 +38,25 @@ public class PMAssignEmployeeHoursController {
     private TextField duration;
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) {
-
+    void cancelButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
     @FXML
     void confirmButtonHandler(ActionEvent event) {
+        int startTime = Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60;
+        Main.command("assignemployeehours "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getEmployees().indexOf(pmChooseEmployee.getValue())+" "+startTime+" "+Math.round(Float.parseFloat(duration.getText())));
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        pmChooseProject.setItems(projectList);
+        pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observableValue, Object o, Object t1) {
+                employees = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getEmployeeRelations());
+                pmChooseProject.setItems(employees);
+            }
+        });
     }
 }
