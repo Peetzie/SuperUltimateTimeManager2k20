@@ -14,7 +14,7 @@ public class ActivityTestSteps {
         Main.command("newemployee password testPM");            //id:1
         Main.command("newemployee password testPBE");           //id:2
         Main.command("newemployee password testE");             //id:3
-        Main.command("newemployee password testPBE2");
+        Main.command("newemployee password testPBE2");          //id:4
 
         Main.command("newproject testProject test 10 10");      //id:0
         Main.command("assignpm 0 1");                           //pm asigned
@@ -129,7 +129,7 @@ public class ActivityTestSteps {
 
     @Then("activity is removed")
     public void activityIsRemoved() {
-        System.out.println(Main.getProjects().get(0).getActivities().get(0).isRemoved());
+
         assertTrue(Main.getProjects().get(0).getActivities().get(0).isRemoved());
 
     }
