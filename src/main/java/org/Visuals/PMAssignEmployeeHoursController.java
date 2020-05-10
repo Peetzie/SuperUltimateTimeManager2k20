@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import org.Backend.Employee;
 import org.Backend.Main;
 import org.Backend.ProjectEmployeeRelation;
 
@@ -26,7 +25,7 @@ public class PMAssignEmployeeHoursController implements Initializable {
     private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
 
     @FXML
-    private ChoiceBox<Employee> pmChooseEmployee;
+    private ChoiceBox<ProjectEmployeeRelation> pmChooseEmployee;
 
     @FXML
     private TextField startTimehours;
@@ -55,7 +54,7 @@ public class PMAssignEmployeeHoursController implements Initializable {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 employees = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getEmployeeRelations());
-                pmChooseProject.setItems(employees);
+                pmChooseEmployee.setItems(employees);
             }
         });
     }

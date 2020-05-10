@@ -121,6 +121,7 @@ public class ProjectManagerController implements Initializable {
                     }
                 } else if(pmOtherOptions.getValue().equals("Assign employee hours")){
                     try {
+                        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
                         Launcher.setRoot("User/ProjectManager/pmAssignEmployeeHours");
                     } catch (IOException e) {
                         e.printStackTrace();
