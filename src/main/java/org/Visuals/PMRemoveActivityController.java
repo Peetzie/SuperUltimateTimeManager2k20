@@ -18,8 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PMRemoveActivityController implements Initializable {
-    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
-            get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<Activity> activityList;
 
 
