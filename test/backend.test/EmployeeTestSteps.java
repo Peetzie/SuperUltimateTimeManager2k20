@@ -32,20 +32,14 @@ public class EmployeeTestSteps {
         assertTrue(Main.getEmployees().size() > 3);
     }
 
-    @Then("employee command fails with {string}")
-    public void commandFails(String command) throws Exception {
-        assertFalse(Main.command(command));
-    }
+
 
     @Then("admin created new employee")
     public void adminCreatedNewEmployee() throws Exception {
         assertTrue(Main.command("newemployee pass user"));
     }
 
-    @Then("new employee signs in")
-    public void newEmployeeSignsIn() throws Exception {
-        assertTrue(Main.command("signin 1 pass"));
-    }
+
 
     @Then("employee created new employee fails")
     public void employeeCreatedNewEmployeeFails() throws Exception {

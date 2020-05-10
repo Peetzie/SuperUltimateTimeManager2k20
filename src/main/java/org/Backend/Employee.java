@@ -98,9 +98,6 @@ public class Employee extends Actor{//here we have the constructor for employee 
     }
 
     //Project bound employee functions
-    public void getProjectInformation(){
-
-    }
     //allows an project bound employee to leave a project and checks if they are the project manager and notifies the employee that the project now has no project manager
     public void leaveProject(int project, int employee){
         if(this.equals(Main.getEmployees().get(employee)) || admin || this.equals(Main.getProjects().get(project).getProjectManager())){

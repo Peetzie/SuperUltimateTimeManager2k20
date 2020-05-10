@@ -14,34 +14,7 @@ public class ProjectTestSteps {
 
     }
 
-    //@Given("that the current user is an admin")
-    public void thatTheCurrentUserIsAnAdmin() throws Exception {
-        assertEquals(-1,Main.getCurrentUser());
-        Main.command("signin 0 password");
-        assertEquals(0,Main.getCurrentUser());
-    }
 
-
-    //@Given("that the current user is a project manager")
-    public void thatTheCurrentUserIsAProjectManager() {
-        assertEquals(-1,Main.getCurrentUser());
-        Main.command("signin 1 password");
-        assertEquals(1,Main.getCurrentUser());
-    }
-
-    //@Given("current user is Project bound Employee")
-    public void currentUserIsProjectBoundEmployee() {
-        assertEquals(-1,Main.getCurrentUser());
-        Main.command("signin 2 password");
-        assertEquals(2,Main.getCurrentUser());
-    }
-
-    //@Given("that the current user is an employee")
-    public void thatTheCurrentUserIsAnEmployee() {
-        assertEquals(-1,Main.getCurrentUser());
-        Main.command("signin 3 password");
-        assertEquals(3,Main.getCurrentUser());
-    }
 
     @And("user attempts to assign a new employee to the project")
     public void userAttemptsToAssignANewEmployeeToTheProject() {
