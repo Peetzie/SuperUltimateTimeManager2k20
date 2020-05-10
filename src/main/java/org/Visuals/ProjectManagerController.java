@@ -113,6 +113,18 @@ public class ProjectManagerController implements Initializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                } else if(pmOtherOptions.getValue().equals("Set activity status")){
+                    try {
+                        Launcher.setRoot("User/ProjectManager/pmSetActivityStatus");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if(pmOtherOptions.getValue().equals("Assign employee hours")){
+                    try {
+                        Launcher.setRoot("User/ProjectManager/pmAssignEmployeeHours");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
