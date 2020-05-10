@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class    ProjectManagerController implements Initializable {
+public class ProjectManagerController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
     ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
-    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities", "Edit workhours" +" for other \n project bound employee");
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities","Remove activity" ,"Edit workhours" +" for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
@@ -94,9 +94,15 @@ public class    ProjectManagerController implements Initializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                } else{
+                }else if (pmOtherOptions.getValue().equals("Edit workhours" +" for other \n project bound employee")){
                     try {
                         Launcher.setRoot("User/ProjectManager/pmEditWorkHoursForEmployee");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (pmOtherOptions.getValue().equals("Remove activity")){
+                    try {
+                        Launcher.setRoot("User/ProjectManager/pmRemoveActivity");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
