@@ -2,18 +2,16 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Activity { //This class is the constructor for creating activities
+public class Activity extends Actor{ //This class is the constructor for creating activities
     //variable initiation
     private int deadline;
     private int estimatedTime;
-    private String title;
     private String description;
     private ArrayList<Employee> employees = new ArrayList<Employee>();
     private int status;
-    private boolean removed = false;
 
-    public Activity(String title, String description, int estimatedTime, int deadline){//initiatoin of the object "Activity"
-        this.title = title;
+    public Activity(String name, String description, int estimatedTime, int deadline){//initiatoin of the object "Activity"
+        setName(name);
         this.description = description;
         this.deadline = deadline;
         this.estimatedTime = estimatedTime;
@@ -33,14 +31,6 @@ public class Activity { //This class is the constructor for creating activities
 
     public void setEstimatedTime(int duration) {
         this.estimatedTime = duration;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
@@ -63,15 +53,7 @@ public class Activity { //This class is the constructor for creating activities
         this.status = status;
     }
 
-    public boolean isRemoved() {
-        return removed;
-    }
-
-    public void setRemoved(boolean removed) {
-        this.removed = removed;
-    }
-
     public String toString(){
-        return title;
+        return getName();
     }
 }
