@@ -234,15 +234,7 @@ public class ProjectTestSteps {
         assertNotEquals(0,Main.getProjects().get(0).getEmployeeRelations().size());
     }
 
-    @Then("employee is removed")
-    public void employeeIsRemoved() {
-        assertTrue(Main.getEmployees().get(3).isRemoved());
-    }
 
-    @Then("employee is not removed")
-    public void employeeIsNotRemoved() {
-        assertFalse(Main.getEmployees().get(3).isRemoved());
-    }
 
     @And("user attempts to set deadline")
     public void userAttemptsToSetDeadline() {
@@ -320,12 +312,20 @@ public class ProjectTestSteps {
         Main.command("signin "+current+" password");
     }
 
-    @And("user attempts to removes employee")
+    @And("user attempts to remove employee")
     public void userAttemptsToRemovesEmployee() {
-        Main.command("removeemployee 3");
+        Main.command("removeemployee 4");
     }
 
+    @Then("employee is removed")
+    public void employeeIsRemoved() {
+        assertTrue(Main.getEmployees().get(4).isRemoved());
+    }
 
+    @Then("employee is not removed")
+    public void employeeIsNotRemoved() {
+        assertFalse(Main.getEmployees().get(4).isRemoved());
+    }
 
     @And("user attempts to removes employee from project")
     public void userAttemptsToRemovesEmployeeFromProject() {

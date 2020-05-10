@@ -46,7 +46,7 @@ public class PMAssignEmployeeHoursController implements Initializable {
         int startTime = Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60;
         Main.command("assignemployeehours "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getEmployees().indexOf(pmChooseEmployee.getValue())+" "+startTime+" "+Math.round(Float.parseFloat(duration.getText())));
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pmChooseProject.setItems(projectList);
