@@ -16,7 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class PMCreateActivityController implements Initializable {
+public class
+PMCreateActivityController implements Initializable {
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     long deadline;
