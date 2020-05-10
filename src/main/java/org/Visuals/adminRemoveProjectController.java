@@ -20,13 +20,13 @@ public class adminRemoveProjectController implements Initializable {
     private ChoiceBox<Project> removeProject;
 
     @FXML
-    void ConfirmButtonHandler(ActionEvent event) throws IOException {
+    void confirmButtonHandler(ActionEvent event) throws IOException {
         Main.command("removeproject "+Main.getProjects().indexOf(removeProject.getValue()));
         Launcher.setRoot("Admin/adminScreen");
     }
 
     @FXML
-    void exit(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {
         Launcher.setRoot("Admin/adminScreen");
     }
 
