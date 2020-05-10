@@ -19,7 +19,7 @@ public class Helper {//class for functions used in a lot of files
             return true;
         }
     }
-
+    // General error messages
     static Alert illegalTimeInputAlert(String title){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -35,7 +35,7 @@ public class Helper {//class for functions used in a lot of files
         alert.showAndWait();
         return  alert;
     }
-
+    // set text method for current user in the different scenes.
    static void setText(Label label, String text) {//simplifies the setText function
         label.setText(text);
     }

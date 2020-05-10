@@ -18,7 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PMEditWorkHoursForEmployeeController implements Initializable {
+public class PMEditWorkHoursForEmployeeController implements Initializable {// Project manager workhours editing of assigned employee
+    // Init dropdowns
     ProjectEmployeeRelation projectEmployeeRelation;
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
@@ -44,7 +45,7 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
     private TextField pmEnterDuration;
 
     @FXML
-    void applyButtonHandler(ActionEvent event) {
+    void applyButtonHandler(ActionEvent event) {//Connects selected values to backend, with Main.command. Uses UNIX time. If wrong input give error messasges.
             if (Helper.legalInput(pmEnterHours, pmEnterMinutes)) {
                 try {
                     int startTime = Integer.parseInt(pmEnterHours.getText()) * 3600 + Integer.parseInt(pmEnterMinutes.getText()) * 60;
@@ -62,15 +63,15 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
     }
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//Takes the user back to the previous screen
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
 
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {// Initialize methods for dropdowns so they have options
         pmSelectProject.setItems(projectList);
-        pmSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        pmSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {// Depending on project selected, get assigned employees.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                  Main.setPrintProjectInformationOnProjectEmployeeRelations(false);

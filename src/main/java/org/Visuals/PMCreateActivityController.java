@@ -17,7 +17,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class
-PMCreateActivityController implements Initializable {
+PMCreateActivityController implements Initializable { // create activity controller of the project managers
+    // Dropdown selecting.
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     long deadline;
@@ -38,7 +39,7 @@ PMCreateActivityController implements Initializable {
     private TextField activityTime;
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//cancel button changes scenes
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 

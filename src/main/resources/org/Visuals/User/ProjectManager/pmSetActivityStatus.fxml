@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!-- Set activity status (project manager)  setup file for the UI -->
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.PMSetActivityStatusController">
    <children>
       <ChoiceBox fx:id="pmChooseProject" layoutX="123.0" layoutY="69.0" prefWidth="150.0" />

@@ -34,6 +34,7 @@ public class LeaveProjectController implements Initializable {//controller for l
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for leave project interface
+
         leaveProjectChooseProject.setItems(projectList);
     }
 }

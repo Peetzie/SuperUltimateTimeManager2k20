@@ -19,7 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserEditHoursController implements Initializable {
+public class UserEditHoursController implements Initializable {// controller for the user edit hours screen
+    // init of lists for the drop down menus.
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     ProjectEmployeeRelation projectEmployeeRelation;
 
@@ -42,12 +43,12 @@ public class UserEditHoursController implements Initializable {
     private ChoiceBox userEditHoursSelectPreviousEnteredHours;
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//takes the user back to the user screen
         Launcher.setRoot("User/userScreen");
     }
 
     @FXML
-    void userEditConfirmButtonHandler(ActionEvent event) {
+    void userEditConfirmButtonHandler(ActionEvent event) {// Connects to the backend and confirms changes of hours, if wrong input then give error.
         if (Helper.legalInput(userEditHoursNewHour, userEditHourNewMinutes)) {
             try {
                 Main.command("edithours " + Main.getProjects().indexOf(((ProjectEmployeeRelation)userEditHoursSelectProject.getValue()).getProject()) + " " +
@@ -63,16 +64,16 @@ public class UserEditHoursController implements Initializable {
         }
     }
 
-    String startTime(TextField userEditHoursNewHour, TextField userEditHoursNewMinutes){
+    String startTime(TextField userEditHoursNewHour, TextField userEditHoursNewMinutes){ // method for creating the starttime
         return String.valueOf(Integer.parseInt(userEditHoursNewHour.getText()) * 3600 + Integer.parseInt(userEditHoursNewMinutes.getText()) * 60);
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {// Adds items to the dropdown menus from the observable lists.
         Helper.setText(userEditHoursCurrentUser, Main.getCurrentUser()+"");
         userEditHoursSelectProject.setItems(projectList);
 
-        userEditHoursSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        userEditHoursSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // depending on what project chosen, fill the list of possible hours to edit.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 System.out.println(userEditHoursSelectProject.getValue());

@@ -13,25 +13,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminRemoveProjectController implements Initializable {
+public class adminRemoveProjectController implements Initializable {//Admin remove project controller.
     ObservableList<Project> projects = FXCollections.observableArrayList(Main.getProjects());
 
     @FXML
     private ChoiceBox<Project> removeProject;
 
     @FXML
-    void confirmButtonHandler(ActionEvent event) throws IOException {
+    void confirmButtonHandler(ActionEvent event) throws IOException {//Connect confirm button to backend for removal of project
         Main.command("removeproject "+Main.getProjects().indexOf(removeProject.getValue()));
         Launcher.setRoot("Admin/adminScreen");
     }
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) throws IOException {
+    void cancelButtonHandler(ActionEvent event) throws IOException {//Takes the user back to the admin screen
         Launcher.setRoot("Admin/adminScreen");
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//Initializing the dropdown menu
         removeProject.setItems(projects);
     }
 }
