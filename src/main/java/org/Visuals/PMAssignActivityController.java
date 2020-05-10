@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class PMAssignActivityController implements Initializable {
     ObservableList<Project> projects = FXCollections.observableArrayList(Main.getProjects());
     ObservableList<Employee> employees = FXCollections.observableArrayList(Main.getEmployeesReal());
-    Activity projectEmployeeRelation;
+    Activity userAssignActivitySelectProject;
 
     @FXML
     private ChoiceBox<?> pmChooseProject;
@@ -42,6 +42,7 @@ public class PMAssignActivityController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
         Helper.setText(userAssignActivitySelectProject, Main.getCurrentUser()+"");
         userAssignActivitySelectProject.setItems(activities);
 
@@ -49,11 +50,12 @@ public class PMAssignActivityController implements Initializable {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 System.out.println(userAssignActivitySelectProject.getValue());
-                ObservableList<Activity> activities = FXCollections.observableArrayList(((Activity) userAssignActivitySelectProject.getValue()).get);
                 userAssignActivitySelectProject.setItems(activities);
                 activities = (Activity) t1;
             }
         });
+
+         */
 
     }
 }
