@@ -37,7 +37,7 @@ public class PMRemoveActivityController implements Initializable {
     @FXML
     void removeButtonHandler(ActionEvent event) throws IOException {
         Main.command("removeactivity " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " +
-                pmChooseProject.getValue().getProject().getActivities().indexOf(pmChooseActivity.getValue()));
+                pmChooseProject.getValue().getProject().getActivitiesReal().indexOf(pmChooseActivity.getValue()));
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
@@ -48,7 +48,7 @@ public class PMRemoveActivityController implements Initializable {
         pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                activityList = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivities());
+                activityList = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivitiesReal());
                 pmChooseActivity.setItems(activityList);
             }
         });

@@ -72,6 +72,7 @@ public class Employee {//here we have the constructor for employee with employee
         if (admin || this.equals(Main.getProjects().get(project).getProjectManager())){
             Main.getProjects().get(project).getActivities().get(activity).setRemoved(true);
             Main.getProjects().get(project).getActivities().get(activity).getEmployees().clear();
+            System.out.println("Activity "+activity+" has been removed from project "+project);
             return true;
         }
         else{
