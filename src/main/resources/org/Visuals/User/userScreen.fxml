@@ -71,22 +71,22 @@
          </children>
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
-      <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="8.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="45.0" prefWidth="150.0" text="Leave project">
+      <Button fx:id="userScreenLeaveProject" layoutX="75.0" layoutY="8.0" mnemonicParsing="false" onAction="#userScreenLeaveProjectHandler" prefHeight="35.0" prefWidth="150.0" text="Leave project">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenJoinProject" layoutX="75.0" layoutY="70.0" mnemonicParsing="false" onAction="#userScreenJoinProjectHandler" prefHeight="45.0" prefWidth="150.0" text="Join project">
+      <Button fx:id="userScreenJoinProject" layoutX="75.0" layoutY="60.0" mnemonicParsing="false" onAction="#userScreenJoinProjectHandler" prefHeight="35.0" prefWidth="150.0" text="Join project">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenAssignHoursButton" layoutX="75.0" layoutY="194.0" mnemonicParsing="false" onAction="#assignHoursButtonHandler" prefHeight="45.0" prefWidth="150.0" text="Assign hours">
+      <Button fx:id="userScreenAssignHoursButton" layoutX="75.0" layoutY="164.0" mnemonicParsing="false" onAction="#assignHoursButtonHandler" prefHeight="35.0" prefWidth="150.0" text="Assign hours">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScrenEditHoursButton" layoutX="75.0" layoutY="256.0" mnemonicParsing="false" onAction="#userScreenEditHoursButtonHandler" prefHeight="45.0" prefWidth="150.0" text="Edit hours">
+      <Button fx:id="userScrenEditHoursButton" layoutX="75.0" layoutY="268.0" mnemonicParsing="false" onAction="#userScreenEditHoursButtonHandler" prefHeight="35.0" prefWidth="150.0" text="Edit hours">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -96,7 +96,12 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="75.0" layoutY="132.0" mnemonicParsing="false" onAction="#userScreenJoinActivityHandler" prefHeight="45.0" prefWidth="150.0" text="Join activity">
+      <Button layoutX="75.0" layoutY="112.0" mnemonicParsing="false" onAction="#userScreenJoinActivityHandler" prefHeight="35.0" prefWidth="150.0" text="Join activity">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="userScreenAssignHoursButton1" layoutX="75.0" layoutY="216.0" mnemonicParsing="false" onAction="#getProjectInformationButtonHandler" prefHeight="35.0" prefWidth="150.0" text="Project information">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

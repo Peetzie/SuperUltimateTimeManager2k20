@@ -46,27 +46,27 @@
          </children>
       </AnchorPane>
       <!--left side pane (buttons)-->
-      <Button layoutX="70.0" layoutY="305.0" mnemonicParsing="false" onAction="#adminRemoveEmployeeButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove employe" textFill="WHITE">
+      <Button layoutX="69.0" layoutY="312.0" mnemonicParsing="false" onAction="#adminRemoveEmployeeButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove employe" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="70.0" layoutY="230.0" mnemonicParsing="false" onAction="#assignPMButtonHandler" prefHeight="50.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Assign project manager" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button layoutX="69.0" layoutY="241.0" mnemonicParsing="false" onAction="#assignPMButtonHandler" prefHeight="50.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Assign project manager" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="70.0" layoutY="100.0" mnemonicParsing="false" onAction="#createProjectButton" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new project" textFill="WHITE">
+      <Button layoutX="69.0" layoutY="111.0" mnemonicParsing="false" onAction="#createProjectButton" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new project" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="createNewUserButton" layoutX="70.0" layoutY="35.0" mnemonicParsing="false" onAction="#createNewUserButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new user" textFill="WHITE">
+      <Button fx:id="createNewUserButton" layoutX="69.0" layoutY="46.0" mnemonicParsing="false" onAction="#createNewUserButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new user" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="createNewUserButton1" layoutX="70.0" layoutY="165.0" mnemonicParsing="false" onAction="#removeProjectButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove project" textFill="WHITE">
+      <Button fx:id="createNewUserButton1" layoutX="69.0" layoutY="176.0" mnemonicParsing="false" onAction="#removeProjectButtonHandler" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Remove project" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

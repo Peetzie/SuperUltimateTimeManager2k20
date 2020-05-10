@@ -7,7 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.Backend.Project;
 import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 
 public class Helper {//class for functions used in a lot of files
@@ -40,4 +46,22 @@ public class Helper {//class for functions used in a lot of files
         label.setText(text);
     }
 
+    static void projectInfoUI(Project project, Label statusprint){
+        if (project.getStatus() == 0){
+            statusprint.setText("Not begun yet");
+        } else if (project.getStatus() == 1){
+            statusprint.setText("In progress");
+        } else if (project.getStatus() == 2){
+            statusprint.setText("Finished");
+        }
+    }
+
+    static void dateTostring(Long date, Label dateStringRepresenter){
+        Date end = new Date(date*1000 + 86400000); // + 1 day
+        SimpleDateFormat jdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
+        jdf.setTimeZone(TimeZone.getTimeZone("GMT+1"));
+        String java_date = jdf.format(end);
+        dateStringRepresenter.setText(java_date);
+
+    }
 }

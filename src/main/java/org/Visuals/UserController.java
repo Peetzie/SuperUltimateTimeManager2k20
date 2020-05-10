@@ -70,6 +70,11 @@ public class UserController implements Initializable {//controller for user scen
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
+    @FXML
+    void getProjectInformationButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("User/getProjectInformationScreen");
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for user interface
