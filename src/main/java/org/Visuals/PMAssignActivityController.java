@@ -21,7 +21,7 @@ public class PMAssignActivityController implements Initializable {
 
     @FXML
     private ChoiceBox<?> pmChooseProject;
-    ObservableList<Activity> activities = FXCollections.observableArrayList(Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue())).getActivities());
+   // ObservableList<Activity> activities = FXCollections.observableArrayList(Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue())).getActivities());
 
     @FXML
     private ChoiceBox<?> pmChooseActivity;
