@@ -52,13 +52,18 @@ public class PMAssignEmployeeHoursController implements Initializable {
     @FXML
     void confirmButtonHandler(ActionEvent event) throws ParseException, IOException {
         if (Helper.legalInput(startTimehours,startTimeMinutes)){
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(pmChooseDate.getValue().toString());
-            startDate = (date.getTime() / 1000L);
-            int startTime = (int) (Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60 + startDate);
-            Main.command("assignemployeehours "+Main.getProjects().indexOf(pmChooseProject.getValue().getProject())+" "+Main.getEmployees().indexOf(pmChooseEmployee.getValue().getEmployee())+" "+startTime+" "+Math.round(Float.parseFloat(duration.getText())));
-            Launcher.setRoot("User/ProjectManager/ProjectManagerController");
+            try {
+
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(pmChooseDate.getValue().toString());
+                startDate = (date.getTime() / 1000L);
+                int startTime = (int) (Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60 + startDate);
+                Main.command("assignemployeehours " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getEmployees().indexOf(pmChooseEmployee.getValue().getEmployee()) + " " + startTime + " " + Math.round(Float.parseFloat(duration.getText())));
+                Launcher.setRoot("User/ProjectManager/ProjectManagerController");
+            } catch (NumberFormatException e){
+                Helper.illegalInputAlert("Error assigning employee hours");
+            }
         } else {
-           Helper.illegalTimeInputAlert("Error assigning hours");
+           Helper.illegalTimeInputAlert("Error assigning employee hours");
         }
     }
 

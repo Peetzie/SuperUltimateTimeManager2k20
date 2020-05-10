@@ -45,14 +45,20 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
 
     @FXML
     void applyButtonHandler(ActionEvent event) {
-        if (Helper.legalInput(pmEnterHours,pmEnterMinutes)){
-
-            int startTime = Integer.parseInt(pmEnterHours.getText()) * 3600 + Integer.parseInt(pmEnterMinutes.getText()) * 60;
-            Main.command("editemployeehours " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
-            + Main.getEmployees().indexOf(pmSelectEmployee.getValue().getEmployee()) + " " +
-                    pmSelectEmployee.getValue().getHours().indexOf(pmPrevEnteredHours.getValue()) + " " +
-                    startTime + " " + Math.round(Float.parseFloat(pmEnterDuration.getText())));
-        }
+            if (Helper.legalInput(pmEnterHours, pmEnterMinutes)) {
+                try {
+                    int startTime = Integer.parseInt(pmEnterHours.getText()) * 3600 + Integer.parseInt(pmEnterMinutes.getText()) * 60;
+                    Main.command("editemployeehours " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
+                            + Main.getEmployees().indexOf(pmSelectEmployee.getValue().getEmployee()) + " " +
+                            pmSelectEmployee.getValue().getHours().indexOf(pmPrevEnteredHours.getValue()) + " " +
+                            startTime + " " + Math.round(Float.parseFloat(pmEnterDuration.getText())));
+                    Launcher.setRoot("User/ProjectManager/projectManagerScreen");
+                } catch (NumberFormatException | IOException e){
+                    Helper.illegalInputAlert("Error editing workhours");
+                }
+            } else {
+                Helper.illegalTimeInputAlert("Error editing workhours");
+            }
     }
 
     @FXML

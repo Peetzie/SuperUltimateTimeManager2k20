@@ -59,6 +59,7 @@ public class UserController implements Initializable {//controller for user scen
 
     @FXML
     void userScreenJoinActivityHandler(ActionEvent event) throws IOException {
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
         Launcher.setRoot("User/joinActivity");
 
     }
