@@ -7,7 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--Admin scene-->
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AdminController">
    <children>
       <!--right side pane (graphics)-->
@@ -54,7 +56,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="createNewProjectButton" layoutX="70.0" layoutY="125.0" mnemonicParsing="false" onAction="#createNewProjectButtonHandler" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new project" textFill="WHITE">
+      <Button layoutX="70.0" layoutY="125.0" mnemonicParsing="false" onAction="#createProjectButton" prefHeight="66.0" prefWidth="152.0" style="-fx-background-color: #999999;" text="Create new project" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

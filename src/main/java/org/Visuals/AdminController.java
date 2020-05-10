@@ -21,7 +21,7 @@ public class AdminController implements Initializable {//controller for admin in
     private Label adminCurrentUser;
 
     @FXML
-    void createNewProjectButtonHandler(ActionEvent event) throws IOException {//button takes admin to "create new project" scene
+    void createProjectButton(ActionEvent event) throws IOException {//button takes admin to "create new project" scene
         Launcher.setRoot("Admin/createNewProjectScreen");
     }
 
