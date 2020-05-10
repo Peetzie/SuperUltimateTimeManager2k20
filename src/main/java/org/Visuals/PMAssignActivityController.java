@@ -32,12 +32,12 @@ public class PMAssignActivityController implements Initializable {
     @FXML
     void assignButtonHandler(ActionEvent event) throws IOException {
         Main.command("assignactivity "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue())).getActivities().indexOf(pmChooseActivity.getValue())+" "+Main.getProjects().indexOf(pmChooseEmployee.getValue()));
-        Launcher.setRoot("Admin/adminScreen");
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {
-        Launcher.setRoot("Admin/adminScreen");
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
     @Override
