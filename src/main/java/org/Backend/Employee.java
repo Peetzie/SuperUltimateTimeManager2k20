@@ -184,8 +184,7 @@ public class Employee extends Actor{//here we have the constructor for employee 
         if (admin) {
             if (!this.equals(Main.getEmployees().get(employee))) {
                 while(Main.getEmployees().get(employee).getProjectRelations().size() > 0){
-                    Main.getEmployees().get(employee).getProjectRelations().get(0).getProject().getEmployeeRelations().remove(Main.getEmployees().get(employee).getProjectRelations().get(0));
-                    Main.getEmployees().get(employee).getProjectRelations().remove(0);
+                    Main.getEmployees().get(employee).leaveProject(Main.getProjects().indexOf(Main.getEmployees().get(employee).getProjectRelations().get(0).getProject()),employee);
                 }
                 Main.getEmployees().get(employee).setRemoved(true);
                 System.out.println("Employee "+employee+" has been removed");
@@ -203,8 +202,7 @@ public class Employee extends Actor{//here we have the constructor for employee 
     public boolean removeProject(int project){
         if (admin) {
             while(Main.getProjects().get(project).getEmployeeRelations().size() > 0){
-                Main.getProjects().get(project).getEmployeeRelations().get(0).getEmployee().getProjectRelations().remove(Main.getProjects().get(project).getEmployeeRelations().get(0));
-                Main.getProjects().get(project).getEmployeeRelations().remove(0);
+                Main.getEmployees().get(Main.getEmployees().indexOf(Main.getProjects().get(project).getEmployeeRelations().get(0).getEmployee())).leaveProject(project,Main.getEmployees().indexOf(Main.getProjects().get(project).getEmployeeRelations().get(0).getEmployee()));
             }
             Main.getProjects().get(project).setRemoved(true);
             System.out.println("Project "+project+" has been removed");
