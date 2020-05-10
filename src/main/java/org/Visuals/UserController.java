@@ -57,16 +57,17 @@ public class UserController implements Initializable {//controller for user scen
         Launcher.setRoot("User/leaveProjectScreen");
     }
 
+    @FXML
+    void userScreenJoinActivityHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("User/joinActivity");
+
+    }
 
     @FXML
     void userScreenProjectManagerButtonHandler(ActionEvent event) throws IOException {
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
-    @FXML
-    void startCollaborationButtonHandler(ActionEvent event) {
-        System.out.println("clicked start collaboration");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for user interface
