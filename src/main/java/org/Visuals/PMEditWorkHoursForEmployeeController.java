@@ -46,10 +46,11 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
     @FXML
     void applyButtonHandler(ActionEvent event) {
         if (Helper.legalInput(pmEnterHours,pmEnterMinutes)){
+
             int startTime = Integer.parseInt(pmEnterHours.getText()) * 3600 + Integer.parseInt(pmEnterMinutes.getText()) * 60;
             Main.command("editemployeehours " + Main.getProjects().indexOf(pmSelectProject.getValue().getProject()) + " "
-            + Main.getEmployees().indexOf(pmSelectEmployee.getValue()) + " " +
-                    projectEmployeeRelation.getHours().indexOf(pmPrevEnteredHours.getValue()) + " " +
+            + Main.getEmployees().indexOf(pmSelectEmployee.getValue().getEmployee()) + " " +
+                    pmSelectEmployee.getValue().getHours().indexOf(pmPrevEnteredHours.getValue()) + " " +
                     startTime + " " + Math.round(Float.parseFloat(pmEnterDuration.getText())));
         }
     }
@@ -73,6 +74,7 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
         pmSelectEmployee.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
+                Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
                 hours = FXCollections.observableArrayList(((ProjectEmployeeRelation) pmSelectProject.getValue()).getHours());
                 pmPrevEnteredHours.setItems(hours);
             }

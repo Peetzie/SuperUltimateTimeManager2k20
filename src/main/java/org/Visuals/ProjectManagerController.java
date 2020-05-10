@@ -96,7 +96,7 @@ public class ProjectManagerController implements Initializable {
                     }
                 }else if (pmOtherOptions.getValue().equals("Edit workhours" +" for other \n project bound employee")){
                     try {
-                        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+                        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
                         Launcher.setRoot("User/ProjectManager/pmEditWorkHoursForEmployee");
                     } catch (IOException e) {
                         e.printStackTrace();
