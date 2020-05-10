@@ -73,6 +73,7 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
         pmSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
+                 Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
                  employees = FXCollections.observableArrayList(pmSelectProject.getValue().getProject().getEmployeeRelations());
                  pmSelectEmployee.setItems(employees);
             }

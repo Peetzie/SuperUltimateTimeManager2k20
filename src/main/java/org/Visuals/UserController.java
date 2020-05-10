@@ -37,7 +37,7 @@ public class UserController implements Initializable {//controller for user scen
 
     @FXML
     void userScreenEditHoursButtonHandler(ActionEvent event) throws IOException {//takes user to edit hours scene
-        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
         Launcher.setRoot("User/editHoursScreen");
     }
 
@@ -66,6 +66,7 @@ public class UserController implements Initializable {//controller for user scen
 
     @FXML
     void userScreenProjectManagerButtonHandler(ActionEvent event) throws IOException {
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 

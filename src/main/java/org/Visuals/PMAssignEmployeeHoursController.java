@@ -53,7 +53,6 @@ public class PMAssignEmployeeHoursController implements Initializable {
     void confirmButtonHandler(ActionEvent event) throws ParseException, IOException {
         if (Helper.legalInput(startTimehours,startTimeMinutes)){
             try {
-
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse(pmChooseDate.getValue().toString());
                 startDate = (date.getTime() / 1000L);
                 int startTime = (int) (Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60 + startDate);
