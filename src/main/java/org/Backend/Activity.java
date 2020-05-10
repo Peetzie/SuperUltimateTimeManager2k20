@@ -2,7 +2,7 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Activity extends Actor{ //This class is the constructor for creating activities
+public class Activity extends Entity { //This class is the constructor for creating activities
     //variable initiation
     private int deadline;
     private int estimatedTime;

@@ -1,9 +1,8 @@
 package org.Backend;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Employee extends Actor{//here we have the constructor for employee with employee logic included
+public class Employee extends Entity {//here we have the constructor for employee with employee logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> projectRelations = new ArrayList<ProjectEmployeeRelation>();
     private boolean admin;

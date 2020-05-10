@@ -2,7 +2,7 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Project extends Actor{//here we have the constructor for project with project logic included
+public class Project extends Entity {//here we have the constructor for project with project logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> employeeRelations = new ArrayList<ProjectEmployeeRelation>();
     private ArrayList<Activity> activities = new ArrayList<Activity>();
