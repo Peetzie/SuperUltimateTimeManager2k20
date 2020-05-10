@@ -62,7 +62,7 @@ public class PMEditWorkHoursForEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
+        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
         pmSelectProject.setItems(projectList);
         pmSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
