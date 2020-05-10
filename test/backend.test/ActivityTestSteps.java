@@ -148,4 +148,14 @@ public class ActivityTestSteps {
     public void deadlineIsNotAdded() {
         assertEquals(10,Main.getProjects().get(0).getActivities().get(0).getDeadline());
     }
+
+    @And("user attempts gets help in console")
+    public void userAttemptsGetsHelpInConsole() {
+        Main.command("help");
+    }
+
+    @Then("user gets help in console")
+    public void userGetsHelpInConsole() {
+        assertEquals(true,Main.command("help"));
+    }
 }

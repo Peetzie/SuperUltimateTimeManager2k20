@@ -66,7 +66,7 @@ public class PMAssignEmployeeHoursController implements Initializable {
            Helper.illegalTimeInputAlert("Error assigning employee hours");
         }
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pmChooseProject.setItems(projectList);

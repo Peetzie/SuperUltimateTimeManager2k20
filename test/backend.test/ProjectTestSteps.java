@@ -234,15 +234,7 @@ public class ProjectTestSteps {
         assertNotEquals(0,Main.getProjects().get(0).getEmployeeRelations().size());
     }
 
-    @Then("employee is removed")
-    public void employeeIsRemoved() {
-        assertTrue(Main.getEmployees().get(3).isRemoved());
-    }
 
-    @Then("employee is not removed")
-    public void employeeIsNotRemoved() {
-        assertFalse(Main.getEmployees().get(3).isRemoved());
-    }
 
     @And("user attempts to set deadline")
     public void userAttemptsToSetDeadline() {
@@ -320,12 +312,20 @@ public class ProjectTestSteps {
         Main.command("signin "+current+" password");
     }
 
-    @And("user attempts to removes employee")
+    @And("user attempts to remove employee")
     public void userAttemptsToRemovesEmployee() {
-        Main.command("removeemployee 3");
+        Main.command("removeemployee 4");
     }
 
+    @Then("employee is removed")
+    public void employeeIsRemoved() {
+        assertTrue(Main.getEmployees().get(4).isRemoved());
+    }
 
+    @Then("employee is not removed")
+    public void employeeIsNotRemoved() {
+        assertFalse(Main.getEmployees().get(4).isRemoved());
+    }
 
     @And("user attempts to removes employee from project")
     public void userAttemptsToRemovesEmployeeFromProject() {
@@ -343,4 +343,25 @@ public class ProjectTestSteps {
         assertNotEquals(false, Main.projectEmployeeRelationExist(0,4));
     }
 
+    @And("two activities exists in project")
+    public void twoActivitiesExistsInProject() {
+        Main.command("signin 0 password");
+        Main.command("newproject testProject test 10 10");      //id:0
+        Main.command("newactivity 0 testActivity test 10 10");  //id:0
+        Main.command("newactivity 0 testActivity1 test 10 10"); //id:1
+        Main.command("signout");
+    }
+
+    @And("one activity is removed")
+    public void oneActivityIsRemoved() {
+        Main.command("signin 0 password");
+        Main.command("removeactivity 0 0");
+        Main.command("signout");
+    }
+
+
+    @Then("system gets real activities")
+    public void userGetsRealActivities() {
+        assertEquals(1,Main.getProjects().get(0).getActivitiesReal().size());
+    }
 }
