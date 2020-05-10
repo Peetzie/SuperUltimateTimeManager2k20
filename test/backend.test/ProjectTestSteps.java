@@ -234,11 +234,6 @@ public class ProjectTestSteps {
         assertNotEquals(0,Main.getProjects().get(0).getEmployeeRelations().size());
     }
 
-    @And("user attempts to removes employee from project")
-    public void userAttemptsToRemovesEmployeeFromProject() {
-        Main.command("removeemployee 3");
-    }
-
     @Then("employee is removed")
     public void employeeIsRemoved() {
         assertTrue(Main.getEmployees().get(3).isRemoved());
@@ -248,4 +243,104 @@ public class ProjectTestSteps {
     public void employeeIsNotRemoved() {
         assertFalse(Main.getEmployees().get(3).isRemoved());
     }
+
+    @And("user attempts to set deadline")
+    public void userAttemptsToSetDeadline() {
+        Main.command("setdeadline 0 5");
+    }
+
+    @Then("project deadline is set")
+    public void projectDeadlineIsSet() {
+        assertEquals(5,Main.getProjects().get(0).getDeadline());
+    }
+
+    @Then("project deadline is not set")
+    public void projectDeadlineIsNotSet() {
+        assertEquals(10,Main.getProjects().get(0).getDeadline());
+    }
+
+    @And("an activity exists")
+    public void anActivityExists() {
+        assertNotEquals(0,Main.getProjects().get(0).getActivities().size());
+    }
+
+    @And("user attempts to set activity status")
+    public void userAttemptsToSetActivityStatus() {
+        Main.command("setactivitystatus 0 0 1");
+    }
+
+    @Then("activity status is set")
+    public void activityStatusIsSet() {
+        assertEquals(1,Main.getProjects().get(0).getActivities().get(0).getStatus());
+    }
+
+    @Then("activity status is not set")
+    public void activityStatusIsNotSet() {
+        assertNotEquals(1,Main.getProjects().get(0).getActivities().get(0).getStatus());
+    }
+
+    @And("user attempts to assign employee hours")
+    public void userAttemptsToAssignEmployeeHours() {
+        Main.command("assignemployeehours 0 4 10 10");
+    }
+
+    @Then("user assigns employee hours")
+    public void userAssignsEmployeeHours() {
+        assertEquals(1,Main.getEmployees().get(4).getProjectRelations().get(0).getHours().size());
+    }
+
+    @Then("user does not assigns employee hours")
+    public void userDoesNotAssignsEmployeeHours() {
+        assertNotEquals(1,Main.getEmployees().get(4).getProjectRelations().get(0).getHours().size());
+    }
+
+    @And("user attempts to edits employee hours")
+    public void userAttemptsToEditsEmployeeHours() {
+        Main.command("editemployeehours 0 4 0 5 5");
+    }
+
+    @Then("user edits employee hours")
+    public void userEditsEmployeeHours() {
+        assertEquals(5,Main.getEmployees().get(4).getProjectRelations().get(0).getHours().get(0).getDuration());
+
+    }
+
+    @Then("user does not edits employee hours")
+    public void userDoesNotEditsEmployeeHours() {
+        assertNotEquals(5,Main.getEmployees().get(4).getProjectRelations().get(0).getHours().get(0).getDuration());
+    }
+
+    @And("employee has assigned employee hours")
+    public void employeeHasAssignedEmployeeHours() {
+        int current = Main.getCurrentUser();
+        Main.command("signout");
+        Main.command("signin 0 password");
+        Main.command("assignemployeehours 0 4 10 10");
+        Main.command("signout");
+        Main.command("signin "+current+" password");
+    }
+
+    @And("user attempts to removes employee")
+    public void userAttemptsToRemovesEmployee() {
+        Main.command("removeemployee 3");
+    }
+
+
+
+    @And("user attempts to removes employee from project")
+    public void userAttemptsToRemovesEmployeeFromProject() {
+        System.out.println(Main.projectEmployeeRelationExist(0,4));
+        Main.command("removeemployeefromproject 0 4");
+    }
+
+    @Then("employee is removed from project")
+    public void employeeIsRemovedFromProject() {
+        assertEquals(false, Main.projectEmployeeRelationExist(0,4));
+    }
+
+    @Then("employee is not removed from project")
+    public void employeeIsNotRemovedFromProject() {
+        assertNotEquals(false, Main.projectEmployeeRelationExist(0,4));
+    }
+
 }
