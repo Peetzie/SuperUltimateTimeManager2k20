@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,21 +21,23 @@
       </AnchorPane>
       <ChoiceBox fx:id="pmChooseProject" layoutX="125.0" layoutY="45.0" prefWidth="150.0" />
       <ChoiceBox fx:id="pmChooseEmployee" layoutX="125.0" layoutY="95.0" prefWidth="150.0" />
-      <TextField fx:id="startTimehours" layoutX="113.0" layoutY="145.0" />
-      <TextField fx:id="startTimeMinutes" layoutX="113.0" layoutY="195.0" />
-      <TextField fx:id="duration" layoutX="113.0" layoutY="245.0" />
-      <Button layoutX="125.0" layoutY="286.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
+      <TextField fx:id="startTimehours" layoutX="111.0" layoutY="187.0" promptText="Start time (hour)" />
+      <TextField fx:id="startTimeMinutes" layoutX="111.0" layoutY="237.0" promptText="Start time (minute)" />
+      <TextField fx:id="duration" layoutX="111.0" layoutY="287.0" promptText="Duration(minutes)" />
+      <Button layoutX="123.0" layoutY="328.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="220.0" layoutY="286.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807#C21807;" text="Cancel" textFill="WHITE">
+      <Button layoutX="218.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807#C21807;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
       <Label layoutX="30.0" layoutY="50.0" text="Choose project" />
       <Label layoutX="14.0" layoutY="100.0" text="Choose employee" />
-      <Label layoutX="22.0" layoutY="138.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (hour)" wrapText="true" />
-      <Label layoutX="22.0" layoutY="188.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (minutes)" wrapText="true" />
-      <Label layoutX="22.0" layoutY="238.0" prefHeight="42.0" prefWidth="83.0" text="Enter duration (minutes)" wrapText="true" />
+      <Label layoutX="20.0" layoutY="180.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (hour)" wrapText="true" />
+      <Label layoutX="20.0" layoutY="230.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (minutes)" wrapText="true" />
+      <Label layoutX="20.0" layoutY="280.0" prefHeight="42.0" prefWidth="83.0" text="Enter duration (minutes)" wrapText="true" />
+      <DatePicker fx:id="pmChooseDate" layoutX="98.0" layoutY="142.0" />
+      <Label layoutX="20.0" layoutY="147.0" text="Choose date" />
    </children>
 </AnchorPane>
