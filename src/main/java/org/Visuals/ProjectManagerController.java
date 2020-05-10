@@ -23,7 +23,7 @@ public class ProjectManagerController implements Initializable {
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
     ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
-    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities","Remove activity" ,"Assign activity","Edit workhours" +" for other \n project bound employee");
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities","Remove activity" ,"Assign activity","Set activity status","Assign employee hours","Edit workhours" +" for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
