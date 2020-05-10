@@ -45,7 +45,7 @@ public class AssignHoursController implements Initializable {//controller for as
             try {
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
                 startDate = (date.getTime() / 1000L);
-                int startTime = Integer.parseInt(assignHoursAssignStartHour.getText()) * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60;
+                int startTime = (int) (Integer.parseInt(assignHoursAssignStartHour.getText()) * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60 + startDate);
                 Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText()) * 3600));
                 Launcher.setRoot("User/userScreen");
             } catch (NumberFormatException e) {
