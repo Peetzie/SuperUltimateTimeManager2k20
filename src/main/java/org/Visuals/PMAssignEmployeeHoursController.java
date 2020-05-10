@@ -43,8 +43,12 @@ public class PMAssignEmployeeHoursController implements Initializable {
 
     @FXML
     void confirmButtonHandler(ActionEvent event) {
-        int startTime = Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60;
-        Main.command("assignemployeehours "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getEmployees().indexOf(pmChooseEmployee.getValue())+" "+startTime+" "+Math.round(Float.parseFloat(duration.getText())));
+        if (Helper.legalInput(startTimehours,startTimeMinutes)){
+            int startTime = Integer.parseInt(startTimehours.getText()) * 3600 + Integer.parseInt(startTimeMinutes.getText()) * 60;
+            Main.command("assignemployeehours "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getEmployees().indexOf(pmChooseEmployee.getValue())+" "+startTime+" "+Math.round(Float.parseFloat(duration.getText())));
+        } else {
+           Helper.illegalTimeInputAlert("Error assigning hours");
+        }
     }
 
     @Override
@@ -53,6 +57,7 @@ public class PMAssignEmployeeHoursController implements Initializable {
         pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
+                Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
                 employees = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getEmployeeRelations());
                 pmChooseEmployee.setItems(employees);
             }

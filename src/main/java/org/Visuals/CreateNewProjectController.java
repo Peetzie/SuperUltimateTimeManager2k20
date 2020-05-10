@@ -59,10 +59,7 @@ public class CreateNewProjectController implements Initializable {//controller f
             }
             Launcher.setRoot("Admin/adminScreen");
         } catch (NumberFormatException e){
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error createing new project");
-            alert.setContentText("Please make sure that the estimated hours are intered in numbers only.");
-            alert.showAndWait();
+            Helper.illegalInputAlert("Error creating new project");
         }
         }
 

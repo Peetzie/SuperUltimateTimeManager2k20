@@ -41,8 +41,6 @@ public class AssignHoursController implements Initializable {//controller for as
 
     @FXML
     void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending an assign hours attempt and takes the user back to main user interface
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error assigning hours");
         if (Helper.legalInput(assignHoursAssignStartHour,assignHoursAssignMinute)) {
             try {
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
@@ -51,12 +49,10 @@ public class AssignHoursController implements Initializable {//controller for as
                 Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText()) * 3600));
                 Launcher.setRoot("User/userScreen");
             } catch (NumberFormatException e) {
-                alert.setContentText("Please enter numbers only");
-                alert.showAndWait();
+                Helper.illegalInputAlert("Error assigning hours");
             }
         } else {
-            alert.setContentText("Please enter a maximum of 23 hours and 59 minutes in the hour and minutes fields");
-            alert.showAndWait();
+            Helper.illegalTimeInputAlert("Error assigning hors");
         }
     }
 

@@ -52,10 +52,7 @@ PMCreateActivityController implements Initializable {
                     .getText()) * 60 + " " + deadline);
             Launcher.setRoot("User/ProjectManager/projectManagerScreen");
         } catch(NumberFormatException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error creating new activity");
-            alert.setContentText("Error creating new activity. Please check the fields, and make sure they are filled correctly");
-            alert.showAndWait();
+            Helper.illegalInputAlert("Error creating activity");
         }
 
     }
