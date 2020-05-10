@@ -95,12 +95,10 @@ public class Main {//this is the central main function for running the program
                     employees.get(currentUser).joinActivity(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
                     return true;
                 case "leaveproject":
-                    if(input.length <= 2){
-                        employees.get(currentUser).leaveProject(Integer.parseInt(input[1]),currentUser);
-                    }
-                    else{
-                        employees.get(currentUser).leaveProject(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
-                    }
+                    employees.get(currentUser).leaveProject(Integer.parseInt(input[1]),currentUser);
+                    return true;
+                case "removeemployeefromproject":
+                    employees.get(currentUser).leaveProject(Integer.parseInt(input[1]), Integer.parseInt(input[2]));
                     return true;
                 case "joinproject":
                     employees.get(currentUser).joinProject(projects.get(Integer.parseInt(input[1])));
@@ -161,7 +159,8 @@ public class Main {//this is the central main function for running the program
         System.out.println("assignactivity [project] [activity] [employee]");
         System.out.println("joinactivity [project] [activity]");
         System.out.println("assignpm [project] [employee]");
-        System.out.println("leaveproject [project] (employee)");
+        System.out.println("leaveproject [project]");
+        System.out.println("removeemployeefromproject [project] [employee]");
         System.out.println("setstatus [project] [status]");
         System.out.println("setactivitystatus [project] [activity] [status]");
         System.out.println("joinproject [project]");

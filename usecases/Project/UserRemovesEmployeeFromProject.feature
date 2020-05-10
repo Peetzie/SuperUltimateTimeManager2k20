@@ -10,7 +10,7 @@ Scenario: project manager removes employee from project
   Given that the current user is a project manager
   And a project with atleast one employee exists
   And user attempts to removes employee from project
-  Then employee is removed
+  Then employee is not removed
 
 Scenario: project bound employee removes employee from project
   Given that the current user is a project bound employee
