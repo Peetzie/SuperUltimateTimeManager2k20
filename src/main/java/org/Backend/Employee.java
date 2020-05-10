@@ -3,17 +3,15 @@ package org.Backend;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Employee {//here we have the constructor for employee with employee logic included
+public class Employee extends Actor{//here we have the constructor for employee with employee logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> projectRelations = new ArrayList<ProjectEmployeeRelation>();
     private boolean admin;
     private String password;
-    private String name;
-    private boolean removed = false;
 
     public Employee(String password, String name, boolean admin){//initiatoin of the object "Employee"
         this.password = password;
-        this.name = name;
+        setName(name);
         this.admin = admin;
     }
 
@@ -309,28 +307,12 @@ public class Employee {//here we have the constructor for employee with employee
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     //to string function
     public String toString(){
         if(isAdmin()){
             return getName() + " (" + Main.getEmployees().indexOf(this) + ") [admin]";
         }
         return getName() + " (" + Main.getEmployees().indexOf(this) + ")";
-    }
-
-    public void setRemoved(boolean removed) {
-        this.removed = removed;
-    }
-
-    public boolean isRemoved() {
-        return removed;
     }
 }
 

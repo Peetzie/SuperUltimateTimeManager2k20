@@ -2,19 +2,17 @@ package org.Backend;
 
 import java.util.ArrayList;
 
-public class Project {//here we have the constructor for project with project logic included
+public class Project extends Actor{//here we have the constructor for project with project logic included
     //initiation of variables
     private ArrayList<ProjectEmployeeRelation> employeeRelations = new ArrayList<ProjectEmployeeRelation>();
     private ArrayList<Activity> activities = new ArrayList<Activity>();
     private int status;
-    private String name;
     private String description;
     private int estimatedTime;
     private long deadline;
-    private boolean removed = false;
 
     public Project(String name, String description, int estimatedTime, long deadline){//initiatoin of the object "Project"
-        this.name = name;
+        setName(name);
         this.description = description;
         this.estimatedTime = estimatedTime;
         this.deadline = deadline;
@@ -59,12 +57,12 @@ public class Project {//here we have the constructor for project with project lo
 
 
     public void printInformation(){
-        System.out.println("________________"+name+"________________");
+        System.out.println("________________"+getName()+"________________");
         System.out.println("Description: "+description);
         System.out.println("Status: "+status);
         System.out.println("Deadline: "+deadline);
         System.out.println("Estimated Time: "+estimatedTime);
-        System.out.println("Removed: "+removed);
+        System.out.println("Removed: "+isRemoved());
         System.out.println("Activities:");
         for(int i = 0; i < activities.size(); i++){
             System.out.println("    "+activities.get(i));
@@ -116,14 +114,6 @@ public class Project {//here we have the constructor for project with project lo
         this.status = status;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -150,13 +140,5 @@ public class Project {//here we have the constructor for project with project lo
 
     public void setDeadline(long deadline) {
         this.deadline = deadline;
-    }
-
-    public boolean isRemoved() {
-        return removed;
-    }
-
-    public void setRemoved(boolean removed) {
-        this.removed = removed;
     }
 }

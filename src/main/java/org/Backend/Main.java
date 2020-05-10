@@ -134,7 +134,7 @@ public class Main {//this is the central main function for running the program
                     return true;
                 case "help":
                     printHelp();
-                    break;
+                    return true;
 
             }
         } catch (NumberFormatException e) {
