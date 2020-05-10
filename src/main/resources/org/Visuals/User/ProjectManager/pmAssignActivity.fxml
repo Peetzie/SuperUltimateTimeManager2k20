@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.Visuals.PMAssignActivityController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.PMAssignActivityController">
    <children>
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
-            <Label layoutX="120.0" layoutY="112.0" text="Assign activity" textFill="WHITE" />
+            <Label layoutX="90.0" layoutY="123.0" text="Assign activity" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Label>
          </children>
       </AnchorPane>
-      <ChoiceBox fx:id="pmChooseProject" layoutX="104.0" layoutY="107.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="pmChooseActivity" layoutX="61.0" layoutY="173.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="pmChooseEmployee" layoutX="53.0" layoutY="269.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="pmChooseProject" layoutX="128.0" layoutY="80.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="pmChooseActivity" layoutX="128.0" layoutY="160.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="pmChooseEmployee" layoutX="128.0" layoutY="240.0" prefWidth="150.0" />
+      <Label layoutX="32.0" layoutY="85.0" text="Choose project">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="165.0" text="Choose activity">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="245.0" text="Choose employee">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="148.0" layoutY="295.0" mnemonicParsing="false" onAction="#assignButtonHandler" style="-fx-background-color: #0598ff;" text="Assign" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="223.0" layoutY="295.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807#C21807;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
