@@ -90,12 +90,14 @@ public class ProjectManagerController implements Initializable {
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 if (pmOtherOptions.getValue().equals("Create Activities")){
                     try {
+                        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
                         Launcher.setRoot("User/ProjectManager/pmCreateActivity");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }else if (pmOtherOptions.getValue().equals("Edit workhours" +" for other \n project bound employee")){
                     try {
+                        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
                         Launcher.setRoot("User/ProjectManager/pmEditWorkHoursForEmployee");
                     } catch (IOException e) {
                         e.printStackTrace();

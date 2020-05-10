@@ -15,23 +15,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PMAssignActivityController implements Initializable {
-    ObservableList<Project> projects = FXCollections.observableArrayList(Main.getProjects());
-    ObservableList<Employee> employees = FXCollections.observableArrayList(Main.getEmployeesReal());
-    Activity userAssignActivitySelectProject;
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<ProjectEmployeeRelation> employees;
+    ObservableList<Activity> activities;
 
     @FXML
-    private ChoiceBox<?> pmChooseProject;
-   // ObservableList<Activity> activities = FXCollections.observableArrayList(Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue())).getActivities());
+    private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
+
 
     @FXML
-    private ChoiceBox<?> pmChooseActivity;
+    private ChoiceBox<Activity> pmChooseActivity;
 
     @FXML
-    private ChoiceBox<?> pmChooseEmployee;
+    private ChoiceBox<ProjectEmployeeRelation> pmChooseEmployee;
 
     @FXML
     void assignButtonHandler(ActionEvent event) throws IOException {
-        Main.command("assignactivity "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue())).getActivities().indexOf(pmChooseActivity.getValue())+" "+Main.getProjects().indexOf(pmChooseEmployee.getValue()));
+        Main.command("assignactivity " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " " + Main.getEmployees().indexOf(pmChooseEmployee.getValue().getEmployee()));
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
@@ -42,20 +42,19 @@ public class PMAssignActivityController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
-        Helper.setText(userAssignActivitySelectProject, Main.getCurrentUser()+"");
-        userAssignActivitySelectProject.setItems(activities);
-
-        userAssignActivitySelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        pmChooseProject.setItems(projectList);
+        pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                System.out.println(userAssignActivitySelectProject.getValue());
-                userAssignActivitySelectProject.setItems(activities);
-                activities = (Activity) t1;
+                activities = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivitiesReal());
+                pmChooseActivity.setItems(activities);
+                Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+                employees = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getEmployeeRelations());
+                pmChooseEmployee.setItems(employees);
             }
         });
 
-         */
+
 
     }
 }

@@ -15,12 +15,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PMSetActivityStatusController implements Initializable {
-    ObservableList<Project> projects = FXCollections.observableArrayList(Main.getProjects());
-    ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
+    ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
+    ObservableList<String> statusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
     ObservableList<Activity> activities;
 
     @FXML
-    private ChoiceBox<Project> pmChooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
 
     @FXML
     private ChoiceBox<Activity> pmChooseActivity;
@@ -29,14 +29,15 @@ public class PMSetActivityStatusController implements Initializable {
     private ChoiceBox<String> pmChooseStatus;
 
     @FXML
-    void setButtonHandler(ActionEvent event) {
+    void setButtonHandler(ActionEvent event) throws IOException {
         if(pmChooseProject.getValue() !=null && pmChooseActivity.getValue() !=null && ("Not begun yet").equals(pmChooseStatus.getValue())){
-            Main.command("setactivitystatus "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getProjects().indexOf(pmChooseActivity.getValue())+" 0");
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 0");
         }else if (pmChooseProject.getValue() !=null && ("In progress").equals(pmChooseStatus.getValue())) {
-            Main.command("setactivitystatus "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getProjects().indexOf(pmChooseActivity.getValue())+" 1");
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 1");
         } else if (pmChooseProject.getValue() !=null && ("Finished").equals(pmChooseStatus.getValue())) {
-            Main.command("setactivitystatus "+Main.getProjects().indexOf(pmChooseProject.getValue())+" "+Main.getProjects().indexOf(pmChooseActivity.getValue())+" 2");
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 2");
         }
+        Launcher.setRoot("User/ProjectManager/projectManagerScreen");
 
     }
 
@@ -47,15 +48,19 @@ public class PMSetActivityStatusController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        pmChooseProject.setItems(projects);
+        pmChooseStatus.setItems(statusList);
+        pmChooseProject.setItems(projectList);
         pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                activities = FXCollections.observableArrayList(pmChooseProject.getValue().getActivitiesReal());
+                activities = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivitiesReal());
                 pmChooseActivity.setItems(activities);
             }
         });
-        pmChooseStatus.setItems(projectStatusList);
+
+
+
+
 
 
     }
