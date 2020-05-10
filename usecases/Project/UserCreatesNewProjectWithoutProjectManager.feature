@@ -20,3 +20,4 @@ Scenario: employee creates new project
   Given that the current user is an employee
   And user attempts to create new project
   Then New project is not created
+

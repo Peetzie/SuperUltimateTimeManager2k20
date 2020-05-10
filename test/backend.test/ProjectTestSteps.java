@@ -169,27 +169,27 @@ public class ProjectTestSteps {
 
     @And("user attempts to delete the project")
     public void userAttemptsToDeleteTheProject() {
+        Main.command("removeproject 0");
     }
 
     @Then("project is marked as removed")
     public void projectIsMarkedAsRemoved() {
+        assertTrue(Main.getProjects().get(0).isRemoved());
+    }
+
+    @Then("project is not marked as removed")
+    public void projectIsNotMarkedAsRemoved() {
+        assertFalse(Main.getProjects().get(0).isRemoved());
     }
 
     @And("user attempts to get the project information")
     public void userAttemptsToGetTheProjectInformation() {
-
+        Main.command("getprojectinfo 0");
     }
 
     @Then("user gets information")
     public void userGetsInformation() {
-    }
-
-    @Then("user attempts to gets the project information")
-    public void userAttemptsToGetsTheProjectInformation() {
-    }
-
-    @Then("user does not get information")
-    public void userDoesNotGetInformation() {
+        assertTrue(Main.command("getprojectinfo 0"));
     }
 
     @And("another project exists")
@@ -236,15 +236,16 @@ public class ProjectTestSteps {
 
     @And("user attempts to removes employee from project")
     public void userAttemptsToRemovesEmployeeFromProject() {
+        Main.command("removeemployee 3");
     }
 
     @Then("employee is removed")
     public void employeeIsRemoved() {
+        assertTrue(Main.getEmployees().get(3).isRemoved());
     }
 
     @Then("employee is not removed")
     public void employeeIsNotRemoved() {
+        assertFalse(Main.getEmployees().get(3).isRemoved());
     }
-
-
 }
