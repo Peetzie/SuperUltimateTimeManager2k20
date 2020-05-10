@@ -46,7 +46,7 @@ public class PMCreateActivityController implements Initializable {
         try {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(activityDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
-            Main.command("newactivity" + Main.getProjects().indexOf(chooseProject.getValue().getProject()) + " " +
+            Main.command("newactivity " + Main.getProjects().indexOf(chooseProject.getValue().getProject()) + " " +
                     activityTitle.getText() + " " + activityDescription.getText() + " " +  Integer.parseInt(activityTime
                     .getText()) * 60 + " " + deadline);
             Launcher.setRoot("User/ProjectManager/projectManagerScreen");
