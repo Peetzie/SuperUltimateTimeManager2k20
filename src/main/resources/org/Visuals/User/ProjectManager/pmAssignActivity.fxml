@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="org.Visuals.PMAssignActivityController">
+   <children>
+      <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <Label layoutX="120.0" layoutY="112.0" text="Assign activity" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <ChoiceBox fx:id="pmChooseProject" layoutX="104.0" layoutY="107.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="pmChooseActivity" layoutX="61.0" layoutY="173.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="pmChooseEmployee" layoutX="53.0" layoutY="269.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
