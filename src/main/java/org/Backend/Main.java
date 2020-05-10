@@ -250,6 +250,15 @@ public class Main {//this is the central main function for running the program
     public static ArrayList<Project> getProjects(){
         return projects;
     }
+    public static ArrayList<Project> getProjectsReal(){
+        ArrayList<Project> projectList = new ArrayList<Project>();
+        for(int i = 0; i < projects.size(); i++){
+            if(!projects.get(i).isRemoved()){
+                projectList.add(projects.get(i));
+            }
+        }
+        return projectList;
+    }
     public static int getCurrentUser(){
         return currentUser;
     }

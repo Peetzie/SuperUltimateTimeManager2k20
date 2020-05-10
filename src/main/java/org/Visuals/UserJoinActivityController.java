@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
+import java.io.IOException;
+
 public class UserJoinActivityController {
 
     @FXML
@@ -13,7 +15,8 @@ public class UserJoinActivityController {
     private ChoiceBox<?> chooseActivity;
 
     @FXML
-    void cancelButtonHandler(ActionEvent event) {
+    void cancelButtonHandler(ActionEvent event) throws IOException {
+        Launcher.setRoot("User/userScreen");
 
     }
 

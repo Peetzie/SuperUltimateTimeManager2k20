@@ -48,8 +48,6 @@ public class UserEditHoursController implements Initializable {
 
     @FXML
     void userEditConfirmButtonHandler(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error editing hours");
         if (Helper.legalInput(userEditHoursNewHour, userEditHourNewMinutes)) {
             try {
                 Main.command("edithours " + Main.getProjects().indexOf(((ProjectEmployeeRelation)userEditHoursSelectProject.getValue()).getProject()) + " " +
@@ -58,12 +56,10 @@ public class UserEditHoursController implements Initializable {
                         " " + (Integer.parseInt(userEditHoursNewDurationTime.getText()) * 60));
                 Launcher.setRoot("User/userScreen");
             } catch (NumberFormatException | IOException e) {
-                alert.setContentText("Please check input for corret format. In inserting time, please enter numbers only");
-                alert.showAndWait();
+                Helper.illegalInputAlert("Error editing hours");
             }
         } else {
-            alert.setContentText("Please enter a maximum of 23 hours and 59 minutes in the hour and minutes fields");
-            alert.showAndWait();
+           Helper.illegalTimeInputAlert("Error editing hours");
         }
     }
 
