@@ -343,4 +343,25 @@ public class ProjectTestSteps {
         assertNotEquals(false, Main.projectEmployeeRelationExist(0,4));
     }
 
+    @And("two activities exists in project")
+    public void twoActivitiesExistsInProject() {
+        Main.command("signin 0 password");
+        Main.command("newproject testProject test 10 10");      //id:0
+        Main.command("newactivity 0 testActivity test 10 10");  //id:0
+        Main.command("newactivity 0 testActivity1 test 10 10"); //id:1
+        Main.command("signout");
+    }
+
+    @And("one activity is removed")
+    public void oneActivityIsRemoved() {
+        Main.command("signin 0 password");
+        Main.command("removeactivity 0 0");
+        Main.command("signout");
+    }
+
+
+    @Then("system gets real activities")
+    public void userGetsRealActivities() {
+        assertEquals(1,Main.getProjects().get(0).getActivitiesReal().size());
+    }
 }
