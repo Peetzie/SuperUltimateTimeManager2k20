@@ -23,7 +23,7 @@ public class ProjectManagerController implements Initializable {
             get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> projectStatusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
     ObservableList<Employee> employeeList = FXCollections.observableArrayList(Main.getEmployeesReal());
-    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities","Remove activity" ,"Edit workhours" +" for other \n project bound employee");
+    ObservableList<String> optionslist = FXCollections.observableArrayList("Create Activities","Remove activity" ,"Assign activity","Edit workhours" +" for other \n project bound employee");
 
     @FXML
     private Label pmCurrentUser;
@@ -96,7 +96,7 @@ public class ProjectManagerController implements Initializable {
                     }
                 }else if (pmOtherOptions.getValue().equals("Edit workhours" +" for other \n project bound employee")){
                     try {
-                        Main.setPrintProjectInformationOnProjectEmployeeRelations(false);
+                        Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
                         Launcher.setRoot("User/ProjectManager/pmEditWorkHoursForEmployee");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -104,6 +104,12 @@ public class ProjectManagerController implements Initializable {
                 } else if (pmOtherOptions.getValue().equals("Remove activity")){
                     try {
                         Launcher.setRoot("User/ProjectManager/pmRemoveActivity");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if(pmOtherOptions.getValue().equals("Assign activity")){
+                    try {
+                        Launcher.setRoot("User/ProjectManager/pmAssignActivity");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
