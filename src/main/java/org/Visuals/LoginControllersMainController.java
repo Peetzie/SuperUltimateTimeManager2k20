@@ -21,13 +21,13 @@ public class LoginControllersMainController {//controller for the login scene
 
     @FXML
     void loginButtonHandler(ActionEvent event) throws IOException {//used to send login attempts and routes the user to the right screen
-        if (!Main.command("signin " + userID.getText() + " " + userPassword.getText())) {
+        if (!Main.command("signin " + userID.getText().replace(" ", "_") + " " + userPassword.getText().replace(" ", "_"))) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error logging in");
             alert.setContentText("Invalid login credentials");
             alert.showAndWait();
         } else { // Login sucessfull checks whether user has admin previliges and asks for scene if so.
-            Main.command("signin " + userID.getText() + " " + userPassword.getText());
+            Main.command("signin " + userID.getText().replace(" ", "_") + " " + userPassword.getText().replace(" ", "_"));
             if (Main.getEmployees().get(Main.getCurrentUser()).isAdmin()) {
                 Launcher.setRoot("loginScreenMode");
             } else {

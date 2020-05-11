@@ -30,10 +30,10 @@ public class AdminCreateNewUserController {//controller for create new user scen
     void createButtonHandler(ActionEvent event) throws IOException {//button for sending a create user attempt and takes the admin back to admin interface
         if (checkPassword(setPassword, setPasswordReentry)){
             if (giveAdminPreviliges){
-                Main.command("newemployee " + setPassword.getText() + " " + setUsername.getText() + " admin");
+                Main.command("newemployee " + setPassword.getText().replace(" ", "_") + " " + setUsername.getText().replace(" ", "_") + " admin");
                 Launcher.setRoot("Admin/adminScreen");
             } else{
-                Main.command("newemployee " + setPassword.getText() + " " + setUsername.getText());
+                Main.command("newemployee " + setPassword.getText().replace(" ", "_") + " " + setUsername.getText().replace(" ", "_"));
                 Launcher.setRoot("Admin/adminScreen");
             }
         } else{ // error if passwords are not identical
@@ -52,7 +52,7 @@ public class AdminCreateNewUserController {//controller for create new user scen
     }
 
     boolean checkPassword(PasswordField createUserPassword, PasswordField createUserPasswordrReentry){//checks if password and reentry match
-        if(createUserPassword.getText().equals(createUserPasswordrReentry.getText())){
+        if(createUserPassword.getText().replace(" ", "_").equals(createUserPasswordrReentry.getText().replace(" ", "_"))){
             return true;
         } else{
             return false;

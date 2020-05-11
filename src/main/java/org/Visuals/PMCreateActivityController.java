@@ -49,7 +49,7 @@ PMCreateActivityController implements Initializable { // create activity control
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
             Main.command("newactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " +
-                    setTitle.getText() + " " + setDescription.getText() + " " +  Integer.parseInt(setDuration
+                    setTitle.getText().replace(" ", "_") + " " + setDescription.getText().replace(" ", "_") + " " +  Integer.parseInt(setDuration
                     .getText()) * 60 + " " + deadline);
             Launcher.setRoot("User/ProjectManager/projectManagerScreen");
         } catch(NumberFormatException e){
