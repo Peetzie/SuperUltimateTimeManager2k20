@@ -1,4 +1,4 @@
-package backend.test;
+package backendTest;
 
 import org.junit.runner.RunWith;
 
@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
         plugin = { "html:target/cucumber/wikipedia.html"},
         monochrome=true,
         snippets = SnippetType.CAMELCASE,
-        glue = { "backend.test"},
+        glue = {"backendTest"},
         strict = true)
 public class AcceptanceTest {
 
