@@ -1,13 +1,10 @@
-package backend.test;
+package backendTest;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.Backend.*;
 import org.Backend.Main;
-import org.junit.Assert;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;

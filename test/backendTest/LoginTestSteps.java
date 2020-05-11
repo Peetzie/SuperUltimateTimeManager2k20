@@ -1,9 +1,8 @@
-package backend.test;
+package backendTest;
 
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.Backend.Main;
 
 import static org.junit.Assert.*;
