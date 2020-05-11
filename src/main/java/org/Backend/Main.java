@@ -15,13 +15,14 @@ public class Main {//this is the central main function for running the program
     private static int currentUser;
     private static boolean printProjectInformationOnProjectEmployeeRelations;
     private static int setupCounter = 0;
+    private static boolean runInConsole = false;
 
     public static void main(String [] args){
         System.out.println(">>>Welcome to SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition<<<");
         setup();
 
 
-        if (true){//for debugging change true to false to use console mode
+        if (!runInConsole){//for debugging change true to false to use console mode
             Launcher launcher = new Launcher();
             launcher.launchThis();
         }
