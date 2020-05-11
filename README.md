@@ -30,3 +30,11 @@ We implemented a fix, for checking weather the deadline selected is prior to the
 
 ## Additional features; 
 It would be smart to create a storage, so that the program saves the user and projects etc, when closed down. So that the user could restart the program and conteniue working. 
+
+
+## IDE Used
+We used IntelliJ Idea Ultimate 2020  
+To coverage on backend classes, make sure to add them under the, code coverage folder of the run configruation foilder
+That will be generated when you run acceptanceTest for the first time.  
+For a general start op of UI either run backend -> main or use the Maven JavaFX:Run method. 
+
