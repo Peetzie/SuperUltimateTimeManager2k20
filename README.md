@@ -4,7 +4,7 @@ The program can run in both console and GUI mode, inside the Backend->Main line 
 ## Getting started (ONLY IN CONSOLE MODE) 
 Step 1: Signing in;  
 commandline: signin 0 password  
-Step 2: Getting help
+Step 2: Getting help  
 commandline: help  
 This will print a list of commands and their inputs
 
