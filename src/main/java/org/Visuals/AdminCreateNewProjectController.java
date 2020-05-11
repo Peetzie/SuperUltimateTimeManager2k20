@@ -1,5 +1,7 @@
 package org.Visuals;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,12 +15,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AdminCreateNewProjectController implements Initializable {//controller for create new project scene
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     long deadline;
+    long currentDate = Instant.now().getEpochSecond();
+    boolean hasBeenWarned = false;
     //ids for scene elements
     @FXML
     private TextField projectTitle;
@@ -40,21 +48,26 @@ public class AdminCreateNewProjectController implements Initializable {//control
         try {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
-            Main.command("newproject " + projectTitle.getText().replace(" ", "_") + " " + projectDescription.getText().replace(" ", "_") + " "
-                    + Math.round(Float.parseFloat(setEstimatedHours.getText()) * 3600) + " " + deadline);
-            if (setProjectManager.getValue() != null) {
-                Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(setProjectManager.getValue()));
-            } else { // error messages for information with out a project manager.
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Alert!");
-                alert.setContentText("Creating project with out a project manager");
-                alert.showAndWait();
+            if (deadline < System.currentTimeMillis() / 1000L && !hasBeenWarned) {
+               HelperMethods.dateError();
+               hasBeenWarned = true;
+            } else {
+                Main.command("newproject " + projectTitle.getText().replace(" ", "_") + " " + projectDescription.getText().replace(" ", "_") + " "
+                        + Math.round(Float.parseFloat(setEstimatedHours.getText()) * 3600) + " " + deadline);
+                if (setProjectManager.getValue() != null) {
+                    Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(setProjectManager.getValue()));
+                } else { // error messages for information with out a project manager.
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Alert!");
+                    alert.setContentText("Creating project with out a project manager");
+                    alert.showAndWait();
+                }
+                Launcher.setRoot("Admin/adminScreen");
             }
-            Launcher.setRoot("Admin/adminScreen");
-        } catch (NumberFormatException e){ // error message for wrong use of input.
+        } catch (NumberFormatException e) { // error message for wrong use of input.
             HelperMethods.illegalInputAlert("Error creating new project");
         }
-        }
+    }
 
 
     @FXML
@@ -67,7 +80,9 @@ public class AdminCreateNewProjectController implements Initializable {//control
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for create project interface
         setProjectManager.setItems(userList);
+
     }
+
 
 
 }

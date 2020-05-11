@@ -31,7 +31,6 @@ public class AdminAssignProjectManagerController implements Initializable { // C
     void assignButtonHandler(ActionEvent event) { // connects to backend and assignes pm of the selected values of the drop down menus.
         Main.command("assignpm " + Main.getProjects().indexOf(selectProject.getValue()) + " "
                 + Main.getEmployees().indexOf(selectEmployee.getValue()));
-
     }
 
     @FXML

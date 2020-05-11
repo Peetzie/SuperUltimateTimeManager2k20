@@ -22,6 +22,7 @@ PMCreateActivityController implements Initializable { // create activity control
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().
             get(Main.getCurrentUser()).getManagerProjects());
     long deadline;
+    boolean hasBeenWarned;
 
     @FXML
     private ChoiceBox<ProjectEmployeeRelation> selectProject;
@@ -48,10 +49,15 @@ PMCreateActivityController implements Initializable { // create activity control
         try {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
-            Main.command("newactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " +
-                    setTitle.getText().replace(" ", "_") + " " + setDescription.getText().replace(" ", "_") + " " +  Integer.parseInt(setDuration
-                    .getText()) * 60 + " " + deadline);
-            Launcher.setRoot("User/ProjectManager/projectManagerScreen");
+            if (deadline < System.currentTimeMillis() / 1000L && !hasBeenWarned){
+                HelperMethods.dateError();
+                hasBeenWarned = true;
+            }else {
+                Main.command("newactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " +
+                        setTitle.getText().replace(" ", "_") + " " + setDescription.getText().replace(" ", "_") + " " + Integer.parseInt(setDuration
+                        .getText()) * 60 + " " + deadline);
+                Launcher.setRoot("User/ProjectManager/projectManagerScreen");
+            }
         } catch(NumberFormatException e){
             HelperMethods.illegalInputAlert("Error creating activity");
         }
