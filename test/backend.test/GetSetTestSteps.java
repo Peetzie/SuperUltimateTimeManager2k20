@@ -17,7 +17,6 @@ public class GetSetTestSteps {
     private Activity testActivity = new Activity("test", "testing", 1337,1337);
     private Employee testEmployee = new Employee("testingpassword","TestEmployee",false);
     private Hour testHour;
-    private InterfaceMessage testInterfacemessage;
     private Project testProject;
     private ProjectEmployeeRelation testPME;
 
@@ -26,7 +25,6 @@ public class GetSetTestSteps {
         testEmployee = new Employee("testingpassword","TestEmployee",false);
         testHour = new Hour(0,1337);
         String[] TestInterfacemessageArray = {"TestInterfacemessage0","TestInterfacemessage1","TestInterfacemessage2","TestInterfacemessage3"};
-        testInterfacemessage = new InterfaceMessage(TestInterfacemessageArray);
         testProject = new Project("testProject","testing Project",1337,69420);
         testPME = new ProjectEmployeeRelation(testProject,testEmployee);
 
@@ -241,19 +239,6 @@ public class GetSetTestSteps {
         testHour.setStartTime(2500);
         int ssafter = testHour.getStartTime();
         assertEquals(true, ssbefore != ssafter);
-    }
-
-//interfacemessage.java
-
-    @Given("interfacemessage.java is instantiated")
-    public void interfacemessageJavaIsInstantiated() {
-        assertTrue(testInterfacemessage instanceof InterfaceMessage);
-    }
-
-    @Then("system gets interfacemessage")
-    public void systemGetsInterfacemessage() {
-        assertEquals(true,
-                testInterfacemessage.getStr() instanceof String[]);
     }
 
 //main.java

@@ -13,7 +13,6 @@ public class Main {//this is the central main function for running the program
     private static ArrayList<Employee> employees;
     private static Scanner sc;
     private static int currentUser;
-    private static BlockingQueue<InterfaceMessage> interfaceMessages;
     private static boolean printProjectInformationOnProjectEmployeeRelations;
     private static int setupCounter = 0;
 
@@ -40,7 +39,6 @@ public class Main {//this is the central main function for running the program
         employees = new ArrayList<Employee>();
         sc = new Scanner(System.in);
         currentUser = -1;
-        interfaceMessages = new ArrayBlockingQueue<InterfaceMessage>(128);
         printProjectInformationOnProjectEmployeeRelations = true;
 
         employees.add(new Employee("password","admin",true));
