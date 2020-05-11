@@ -2,14 +2,11 @@
 ## Gui VS console
 The program can run in both console and GUI mode, inside the Backend->Main line 25, set it to true then it will run in console, otherwise per defualt the program runs in GUI mode.
 ## Getting started (ONLY IN CONSOLE MODE) 
-Step 1: signing in;  
+Step 1: Signing in;  
 commandline: signin 0 password  
-Step 2:  
+Step 2: Getting help
 commandline: help  
-Step 3:  
-???  
-Step 4:  
-Profit  
+This will print a list of commands and their inputs
 
 
 ## To sign in
