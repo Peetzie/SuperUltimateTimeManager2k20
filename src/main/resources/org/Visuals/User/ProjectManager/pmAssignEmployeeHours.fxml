@@ -5,9 +5,14 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!-- Assign employee hours setup for the UI of positioning and naming of buttons to connect in the controllers -->
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.PMAssignEmployeeHoursController">
    <children>
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
@@ -17,11 +22,19 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
+            <ImageView fitHeight="133.0" fitWidth="114.0" layoutX="93.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/pmAssignHours.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ChoiceBox fx:id="pmChooseProject" layoutX="125.0" layoutY="45.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="pmChooseEmployee" layoutX="125.0" layoutY="95.0" prefWidth="150.0" />
-      <TextField fx:id="startTimehours" layoutX="111.0" layoutY="187.0" promptText="Start time (hour)" />
+      <ChoiceBox fx:id="selectProject" layoutX="125.0" layoutY="45.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="selectEmployee" layoutX="125.0" layoutY="95.0" prefWidth="150.0" />
+      <TextField fx:id="startTimeHours" layoutX="111.0" layoutY="187.0" promptText="Start time (hour)" />
       <TextField fx:id="startTimeMinutes" layoutX="111.0" layoutY="237.0" promptText="Start time (minute)" />
       <TextField fx:id="duration" layoutX="111.0" layoutY="287.0" promptText="Duration(minutes)" />
       <Button layoutX="123.0" layoutY="328.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
@@ -37,7 +50,7 @@
       <Label layoutX="20.0" layoutY="180.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (hour)" wrapText="true" />
       <Label layoutX="20.0" layoutY="230.0" prefHeight="42.0" prefWidth="83.0" text="Enter start time (minutes)" wrapText="true" />
       <Label layoutX="20.0" layoutY="280.0" prefHeight="42.0" prefWidth="83.0" text="Enter duration (minutes)" wrapText="true" />
-      <DatePicker fx:id="pmChooseDate" layoutX="98.0" layoutY="142.0" />
+      <DatePicker fx:id="setDate" layoutX="98.0" layoutY="142.0" />
       <Label layoutX="20.0" layoutY="147.0" text="Choose date" />
    </children>
 </AnchorPane>

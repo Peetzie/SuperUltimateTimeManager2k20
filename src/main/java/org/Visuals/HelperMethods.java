@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 
-public class Helper {//class for functions used in a lot of files
+public class HelperMethods {//class for functions used in a lot of files
 
     static boolean legalInput(TextField hours, TextField minutes){
         if(Integer.parseInt(hours.getText()) >= 24 || Integer.parseInt(minutes.getText()) >= 60){
@@ -46,7 +46,7 @@ public class Helper {//class for functions used in a lot of files
         label.setText(text);
     }
 
-    static void projectInfoUI(Project project, Label statusprint){
+    static void setTextDependingOnProjectStatus(Project project, Label statusprint){
         if (project.getStatus() == 0){
             statusprint.setText("Not begun yet");
         } else if (project.getStatus() == 1){

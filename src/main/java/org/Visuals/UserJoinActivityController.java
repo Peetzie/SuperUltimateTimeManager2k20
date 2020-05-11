@@ -22,10 +22,10 @@ public class UserJoinActivityController implements Initializable {//controller f
     ObservableList<Activity> activityList;
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> chooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> selectProject;
 
     @FXML
-    private ChoiceBox<Activity> chooseActivity;
+    private ChoiceBox<Activity> selectActivity;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes the user back to the previous screen, user screen
@@ -35,19 +35,19 @@ public class UserJoinActivityController implements Initializable {//controller f
 
     @FXML
     void joinButtonHandler(ActionEvent event) throws IOException {// connects to backend with the join activity, depending on whats chosen.
-        Main.command("joinactivity " + Main.getProjects().indexOf(chooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(chooseProject.getValue().getProject())).getActivities().indexOf(chooseActivity.getValue()));
+        Main.command("joinactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(selectProject.getValue().getProject())).getActivities().indexOf(selectActivity.getValue()));
         Launcher.setRoot("User/userScreen");
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {// init and set values in the drop down menus
-        chooseProject.setItems(projectList);
-        chooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {// depending on what project selected, find the assigned activities to chose from.
+        selectProject.setItems(projectList);
+        selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {// depending on what project selected, find the assigned activities to chose from.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                activityList = FXCollections.observableArrayList(chooseProject.getValue().getProject().getActivitiesReal());
-                chooseActivity.setItems(activityList);
+                activityList = FXCollections.observableArrayList(selectProject.getValue().getProject().getActivitiesReal());
+                selectActivity.setItems(activityList);
             }
         });
     }

@@ -8,32 +8,32 @@ import org.Backend.Main;
 
 import java.io.IOException;
 
-public class CreateNewUserController {//controller for create new user scene
+public class AdminCreateNewUserController {//controller for create new user scene
     // aid for the checkbox
-    private boolean CheckBoxValue = false;
+    private boolean giveAdminPreviliges = false;
     //ids for scene elements
     @FXML
-    private TextField createUserUsername;
+    private TextField setUsername;
 
     @FXML
-    private PasswordField createUserPassword;
+    private PasswordField setPassword;
 
     @FXML
-    private PasswordField createUserPasswordrReentry;
+    private PasswordField setPasswordReentry;
 
     @FXML
     void createNewUserCheckBoxHandler(ActionEvent event) {//checkbox for admin privilegies
-        CheckBoxValue = !CheckBoxValue;
+        giveAdminPreviliges = !giveAdminPreviliges;
     }
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException {//button for sending a create user attempt and takes the admin back to admin interface
-        if (checkPassword(createUserPassword,createUserPasswordrReentry)){
-            if (CheckBoxValue){
-                Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText() + " admin");
+        if (checkPassword(setPassword, setPasswordReentry)){
+            if (giveAdminPreviliges){
+                Main.command("newemployee " + setPassword.getText() + " " + setUsername.getText() + " admin");
                 Launcher.setRoot("Admin/adminScreen");
             } else{
-                Main.command("newemployee " + createUserPassword.getText() + " " + createUserUsername.getText());
+                Main.command("newemployee " + setPassword.getText() + " " + setUsername.getText());
                 Launcher.setRoot("Admin/adminScreen");
             }
         } else{ // error if passwords are not identical

@@ -6,51 +6,44 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import org.Backend.Employee;
 import org.Backend.Main;
-import org.w3c.dom.Text;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.zip.DataFormatException;
 
-public class CreateNewProjectController implements Initializable {//controller for create new project scene
+public class AdminCreateNewProjectController implements Initializable {//controller for create new project scene
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     long deadline;
     //ids for scene elements
     @FXML
-    private TextField createProjectTitle;
+    private TextField projectTitle;
 
     @FXML
-    private TextArea createProjectDescription;
+    private TextArea projectDescription;
 
     @FXML
-    private ChoiceBox createProjectProjectManager;
+    private ChoiceBox setProjectManager;
 
     @FXML
-    private TextField createProjectEstimatedHours;
+    private TextField setEstimatedHours;
 
     @FXML
-    private DatePicker createProjectDate;
+    private DatePicker setDeadline;
 
     @FXML
     void createButtonHandler(ActionEvent event) throws IOException, ParseException {//button for sending a create project attempt and takes the admin back to admin interface
         try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(createProjectDate.getValue().toString());
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
-            Main.command("newproject " + createProjectTitle.getText().replace(" ", "_") + " " + createProjectDescription.getText().replace(" ", "_") + " "
-                    + Math.round(Float.parseFloat(createProjectEstimatedHours.getText()) * 3600) + " " + deadline);
-            if (createProjectProjectManager.getValue() != null) {
-                Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(createProjectProjectManager.getValue()));
+            Main.command("newproject " + projectTitle.getText().replace(" ", "_") + " " + projectDescription.getText().replace(" ", "_") + " "
+                    + Math.round(Float.parseFloat(setEstimatedHours.getText()) * 3600) + " " + deadline);
+            if (setProjectManager.getValue() != null) {
+                Main.command("assignpm " + (Main.getProjects().size() - 1) + " " + Main.getEmployees().indexOf(setProjectManager.getValue()));
             } else { // error messages for information with out a project manager.
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Alert!");
@@ -59,7 +52,7 @@ public class CreateNewProjectController implements Initializable {//controller f
             }
             Launcher.setRoot("Admin/adminScreen");
         } catch (NumberFormatException e){ // error message for wrong use of input.
-            Helper.illegalInputAlert("Error creating new project");
+            HelperMethods.illegalInputAlert("Error creating new project");
         }
         }
 
@@ -73,7 +66,7 @@ public class CreateNewProjectController implements Initializable {//controller f
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for create project interface
-        createProjectProjectManager.setItems(userList);
+        setProjectManager.setItems(userList);
     }
 
 

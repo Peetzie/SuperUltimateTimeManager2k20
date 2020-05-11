@@ -2,22 +2,32 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--Create user screen setup file for the UI -->
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.CreateNewUserController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AdminCreateNewUserController">
    <children>
-      <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;" />
+      <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <Label layoutX="83.0" layoutY="140.0" text="Create new user" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
       <ImageView fitHeight="68.0" fitWidth="62.0" layoutX="112.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Icons/people.png" />
          </image>
       </ImageView>
-      <TextField fx:id="createUserUsername" layoutX="70.0" layoutY="115.0" promptText="Enter username" />
+      <TextField fx:id="setUsername" layoutX="70.0" layoutY="115.0" promptText="Enter username" />
       <Button fx:id="createUserCreateButton" layoutX="98.0" layoutY="299.0" mnemonicParsing="false" onAction="#createButtonHandler" style="-fx-background-color: #0598ff;" text="Create" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -33,7 +43,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <PasswordField fx:id="createUserPassword" layoutX="70.0" layoutY="160.0" promptText="Enter password" />
-      <PasswordField fx:id="createUserPasswordrReentry" layoutX="70.0" layoutY="205.0" promptText="Re-enter password" />
+      <PasswordField fx:id="setPassword" layoutX="70.0" layoutY="160.0" promptText="Enter password" />
+      <PasswordField fx:id="setPasswordReentry" layoutX="70.0" layoutY="205.0" promptText="Re-enter password" />
    </children>
 </AnchorPane>

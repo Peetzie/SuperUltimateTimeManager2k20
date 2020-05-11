@@ -16,43 +16,43 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class AssignHoursController implements Initializable {//controller for assign hours scene
+public class UserAssignHoursController implements Initializable {//controller for assign hours scene
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     long startDate;
     //ids for scene elements
     @FXML
-    private Label assignHoursCurrentUser;
+    private Label currentUser;
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> assignHoursChooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> selectProject;
 
     @FXML
-    private DatePicker assignHoursChooseDate;
+    private DatePicker setDate;
 
     @FXML
-    private TextField assignHoursAssignStartHour;
+    private TextField setStartHour;
 
     @FXML
-    private TextField assignHoursAssignMinute;
+    private TextField setStartMinute;
 
     @FXML
-    private TextField assignHoursDuration;
+    private TextField setDuration;
 
 
     @FXML
     void assignButtonHandler(ActionEvent event) throws ParseException, IOException {//button for sending an assign hours attempt and takes the user back to main user interface
-        if (Helper.legalInput(assignHoursAssignStartHour,assignHoursAssignMinute)) {
+        if (HelperMethods.legalInput(setStartHour, setStartMinute)) {
             try {
-                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(assignHoursChooseDate.getValue().toString());
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDate.getValue().toString());
                 startDate = (date.getTime() / 1000L);
-                int startTime = (int) (Integer.parseInt(assignHoursAssignStartHour.getText()) * 3600 + Integer.parseInt(assignHoursAssignMinute.getText()) * 60 + startDate);
-                Main.command("assignhours " + Main.getProjects().indexOf(assignHoursChooseProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(assignHoursDuration.getText()) * 3600));
+                int startTime = (int) (Integer.parseInt(setStartHour.getText()) * 3600 + Integer.parseInt(setStartMinute.getText()) * 60 + startDate);
+                Main.command("assignhours " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " + startTime + " " + Math.round(Float.parseFloat(setDuration.getText()) * 3600));
                 Launcher.setRoot("User/userScreen");
             } catch (NumberFormatException e) {
-                Helper.illegalInputAlert("Error assigning hours");
+                HelperMethods.illegalInputAlert("Error assigning hours");
             }
         } else {
-            Helper.illegalTimeInputAlert("Error assigning hors");
+            HelperMethods.illegalTimeInputAlert("Error assigning hors");
         }
     }
 
@@ -65,7 +65,7 @@ public class AssignHoursController implements Initializable {//controller for as
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for assign hours interface
         System.out.println(projectList);
-        assignHoursChooseProject.setItems(projectList);
-        Helper.setText(assignHoursCurrentUser,Main.getCurrentUser()+"");
+        selectProject.setItems(projectList);
+        HelperMethods.setText(currentUser,Main.getCurrentUser()+"");
     }
 }

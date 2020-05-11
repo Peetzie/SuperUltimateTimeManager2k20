@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.Backend.Main;
 
@@ -15,10 +14,9 @@ import org.Backend.Main;
  *
  */
 public class AdminController implements Initializable {//controller for admin interface
-    LoginController loginController;
 
     @FXML
-    private Label adminCurrentUser;
+    private Label userCurrentlySignedIn;
 
     @FXML
     void createProjectButton(ActionEvent event) throws IOException {//button takes admin to "create new project" scene
@@ -55,7 +53,7 @@ public class AdminController implements Initializable {//controller for admin in
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for admin interface
-        Helper.setText(adminCurrentUser,Main.getCurrentUser()+"");
+        HelperMethods.setText(userCurrentlySignedIn,Main.getCurrentUser()+"");
     }
 
 

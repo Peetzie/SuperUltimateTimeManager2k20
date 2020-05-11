@@ -13,15 +13,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LeaveProjectController implements Initializable {//controller for leave project interface
+public class UserLeaveProjectController implements Initializable {//controller for leave project interface
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getProjectRelations());
     //id for scene elements
     @FXML
-    private ChoiceBox leaveProjectChooseProject;
+    private ChoiceBox selectProject;
 
     @FXML
     void confirmButtonHandler(ActionEvent event) throws IOException {//button for sending a leave project attempt and takes the user back to user interface
-        String string1 = leaveProjectChooseProject.getValue().toString().split(" ")[1];
+        String string1 = selectProject.getValue().toString().split(" ")[1];
         string1 = string1.substring(1,string1.length()-1);
         Main.command("leaveproject " + string1);
         Launcher.setRoot("User/userScreen");
@@ -35,6 +35,6 @@ public class LeaveProjectController implements Initializable {//controller for l
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for leave project interface
 
-        leaveProjectChooseProject.setItems(projectList);
+        selectProject.setItems(projectList);
     }
 }

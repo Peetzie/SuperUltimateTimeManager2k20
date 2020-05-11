@@ -8,26 +8,24 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import org.Backend.Hour;
 import org.Backend.Main;
-import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class loginScreenModeController implements Initializable {//secondary screen for admin login | user login
-    ObservableList<String> options = FXCollections.observableArrayList("Adminstrator mode","User mode");
+public class LoginControllerStateController implements Initializable {//secondary screen for admin login | user login
+    ObservableList<String> optionsList = FXCollections.observableArrayList("Adminstrator mode","User mode");
     @FXML
-    private Label welcomeUserLabel;
+    private Label currentUser;
 
     @FXML
     private ChoiceBox<String> loginOptions;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {// Start up initialize values of drop down
-        loginOptions.setItems(options);
-        Helper.setText(welcomeUserLabel, Main.getCurrentUser()+"");
+        loginOptions.setItems(optionsList);
+        HelperMethods.setText(currentUser, Main.getCurrentUser()+"");
 
         loginOptions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {// Change scene depending on what mode is selected
             @Override

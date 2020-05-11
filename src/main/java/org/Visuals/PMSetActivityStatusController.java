@@ -18,25 +18,25 @@ public class PMSetActivityStatusController implements Initializable {//Project s
     // Init observable lists for drop down menus.
     ObservableList<ProjectEmployeeRelation> projectList = FXCollections.observableArrayList(Main.getEmployees().get(Main.getCurrentUser()).getManagerProjects());
     ObservableList<String> statusList = FXCollections.observableArrayList("Not begun yet", "In progress","Finished");
-    ObservableList<Activity> activities;
+    ObservableList<Activity> activityList;
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> selectProject;
 
     @FXML
-    private ChoiceBox<Activity> pmChooseActivity;
+    private ChoiceBox<Activity> selectActivity;
 
     @FXML
-    private ChoiceBox<String> pmChooseStatus;
+    private ChoiceBox<String> setStatus;
 
     @FXML
     void setButtonHandler(ActionEvent event) throws IOException {// Connect set button depending on what status selected with the backend and change scene back to project manager.
-        if(pmChooseProject.getValue() !=null && pmChooseActivity.getValue() !=null && ("Not begun yet").equals(pmChooseStatus.getValue())){
-            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 0");
-        }else if (pmChooseProject.getValue() !=null && ("In progress").equals(pmChooseStatus.getValue())) {
-            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 1");
-        } else if (pmChooseProject.getValue() !=null && ("Finished").equals(pmChooseStatus.getValue())) {
-            Main.command("setactivitystatus " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(pmChooseProject.getValue().getProject())).getActivities().indexOf(pmChooseActivity.getValue()) + " 2");
+        if(selectProject.getValue() !=null && selectActivity.getValue() !=null && ("Not begun yet").equals(setStatus.getValue())){
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(selectProject.getValue().getProject())).getActivities().indexOf(selectActivity.getValue()) + " 0");
+        }else if (selectProject.getValue() !=null && ("In progress").equals(setStatus.getValue())) {
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(selectProject.getValue().getProject())).getActivities().indexOf(selectActivity.getValue()) + " 1");
+        } else if (selectProject.getValue() !=null && ("Finished").equals(setStatus.getValue())) {
+            Main.command("setactivitystatus " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " + Main.getProjects().get(Main.getProjects().indexOf(selectProject.getValue().getProject())).getActivities().indexOf(selectActivity.getValue()) + " 2");
         }
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
 
@@ -49,13 +49,13 @@ public class PMSetActivityStatusController implements Initializable {//Project s
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//Adds item to the dropdowns, via the observable lists.
-        pmChooseStatus.setItems(statusList);
-        pmChooseProject.setItems(projectList);
-        pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {//depeending on the chose project, get the activities.
+        setStatus.setItems(statusList);
+        selectProject.setItems(projectList);
+        selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {//depeending on the chose project, get the activities.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                activities = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivitiesReal());
-                pmChooseActivity.setItems(activities);
+                activityList = FXCollections.observableArrayList(selectProject.getValue().getProject().getActivitiesReal());
+                selectActivity.setItems(activityList);
             }
         });
 

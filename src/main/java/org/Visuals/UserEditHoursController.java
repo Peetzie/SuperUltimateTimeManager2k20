@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,22 +24,22 @@ public class UserEditHoursController implements Initializable {// controller for
     ProjectEmployeeRelation projectEmployeeRelation;
 
     @FXML
-    private ChoiceBox userEditHoursSelectProject;
+    private ChoiceBox selectProject;
 
     @FXML
-    private Label userEditHoursCurrentUser;
+    private Label currentUser;
 
     @FXML
-    private TextField userEditHoursNewHour;
+    private TextField setNewHour;
 
     @FXML
-    private TextField userEditHourNewMinutes;
+    private TextField setNewMinute;
 
     @FXML
-    private TextField userEditHoursNewDurationTime;
+    private TextField setNewDuration;
 
     @FXML
-    private ChoiceBox userEditHoursSelectPreviousEnteredHours;
+    private ChoiceBox selectPreviousEnteredHours;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//takes the user back to the user screen
@@ -49,18 +48,18 @@ public class UserEditHoursController implements Initializable {// controller for
 
     @FXML
     void userEditConfirmButtonHandler(ActionEvent event) {// Connects to the backend and confirms changes of hours, if wrong input then give error.
-        if (Helper.legalInput(userEditHoursNewHour, userEditHourNewMinutes)) {
+        if (HelperMethods.legalInput(setNewHour, setNewMinute)) {
             try {
-                Main.command("edithours " + Main.getProjects().indexOf(((ProjectEmployeeRelation)userEditHoursSelectProject.getValue()).getProject()) + " " +
-                        projectEmployeeRelation.getHours().indexOf(userEditHoursSelectPreviousEnteredHours.getValue())
-                        + " " + startTime(userEditHoursNewHour, userEditHourNewMinutes) +
-                        " " + (Integer.parseInt(userEditHoursNewDurationTime.getText()) * 60));
+                Main.command("edithours " + Main.getProjects().indexOf(((ProjectEmployeeRelation) selectProject.getValue()).getProject()) + " " +
+                        projectEmployeeRelation.getHours().indexOf(selectPreviousEnteredHours.getValue())
+                        + " " + startTime(setNewHour, setNewMinute) +
+                        " " + (Integer.parseInt(setNewDuration.getText()) * 60));
                 Launcher.setRoot("User/userScreen");
             } catch (NumberFormatException | IOException e) {
-                Helper.illegalInputAlert("Error editing hours");
+                HelperMethods.illegalInputAlert("Error editing hours");
             }
         } else {
-           Helper.illegalTimeInputAlert("Error editing hours");
+           HelperMethods.illegalTimeInputAlert("Error editing hours");
         }
     }
 
@@ -70,15 +69,15 @@ public class UserEditHoursController implements Initializable {// controller for
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {// Adds items to the dropdown menus from the observable lists.
-        Helper.setText(userEditHoursCurrentUser, Main.getCurrentUser()+"");
-        userEditHoursSelectProject.setItems(projectList);
+        HelperMethods.setText(currentUser, Main.getCurrentUser()+"");
+        selectProject.setItems(projectList);
 
-        userEditHoursSelectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // depending on what project chosen, fill the list of possible hours to edit.
+        selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // depending on what project chosen, fill the list of possible hours to edit.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                System.out.println(userEditHoursSelectProject.getValue());
-                ObservableList<Hour> hourList = FXCollections.observableArrayList(((ProjectEmployeeRelation) userEditHoursSelectProject.getValue()).getHours());
-                userEditHoursSelectPreviousEnteredHours.setItems(hourList);
+                System.out.println(selectProject.getValue());
+                ObservableList<Hour> hourList = FXCollections.observableArrayList(((ProjectEmployeeRelation) selectProject.getValue()).getHours());
+                selectPreviousEnteredHours.setItems(hourList);
                 projectEmployeeRelation = (ProjectEmployeeRelation) t1;
             }
         });

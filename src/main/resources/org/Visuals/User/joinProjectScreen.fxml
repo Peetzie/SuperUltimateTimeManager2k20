@@ -11,19 +11,19 @@
 
 <!--employee join project scene-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.JoinProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserJoinProjectController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
-            <Label layoutX="107.0" layoutY="166.0" text="Join Project" textFill="WHITE">
+            <Label layoutX="95.0" layoutY="162.0" text="Join Project" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <ImageView fitHeight="125.0" fitWidth="128.0" layoutX="93.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Icons/joinProject.png" />
+                  <Image url="@../Icons/Join.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -37,7 +37,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="joinProjectProjectChooser" layoutX="118.0" layoutY="87.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="selectProject" layoutX="118.0" layoutY="87.0" prefWidth="150.0" />
       <Button fx:id="joinProjectCancelButton" layoutX="213.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancelButtonHandler" style="-fx-background-color: #C21807 #C21807;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />

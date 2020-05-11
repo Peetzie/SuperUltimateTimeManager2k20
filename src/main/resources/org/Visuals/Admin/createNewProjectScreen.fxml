@@ -11,8 +11,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--Admin create project scene-->
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.CreateNewProjectController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AdminCreateNewProjectController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
@@ -25,12 +27,17 @@
                   <ColorAdjust brightness="1.0" />
                </effect>
             </ImageView>
+            <Label layoutX="72.0" layoutY="187.0" text="Create new project" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
-      <TextField fx:id="createProjectTitle" layoutX="140.0" layoutY="14.0" promptText="Enter title" />
-      <TextArea fx:id="createProjectDescription" layoutX="140.0" layoutY="54.0" prefHeight="87.0" prefWidth="149.0" promptText="Enter description" wrapText="true" />
-      <ChoiceBox fx:id="createProjectProjectManager" layoutX="140.0" layoutY="224.0" prefWidth="150.0" />
+      <TextField fx:id="projectTitle" layoutX="140.0" layoutY="14.0" promptText="Enter title" />
+      <TextArea fx:id="projectDescription" layoutX="140.0" layoutY="54.0" prefHeight="87.0" prefWidth="149.0" promptText="Enter description" wrapText="true" />
+      <ChoiceBox fx:id="setProjectManager" layoutX="140.0" layoutY="224.0" prefWidth="150.0" />
       <Label layoutX="82.0" layoutY="18.0" text="Title">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -61,13 +68,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <DatePicker fx:id="createProjectDate" layoutX="122.0" layoutY="277.0" />
+      <DatePicker fx:id="setDeadline" layoutX="122.0" layoutY="277.0" />
       <Label layoutX="57.0" layoutY="281.0" text="Deadline">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="createProjectEstimatedHours" layoutX="140.0" layoutY="170.0" promptText="Enter number of seconds" />
+      <TextField fx:id="setEstimatedHours" layoutX="140.0" layoutY="170.0" promptText="Enter number of seconds" />
       <Label fx:id="createProjectRequiredTitle" layoutX="13.0" layoutY="18.0" text="Required * " textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />

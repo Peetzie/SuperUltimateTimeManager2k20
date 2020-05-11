@@ -10,7 +10,7 @@
 
 <!--login mode scene-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.loginScreenModeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.LoginControllerStateController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="welcomeUserLabel" layoutX="150.0" layoutY="147.0" textFill="WHITE">
+            <Label fx:id="currentUser" layoutX="150.0" layoutY="147.0" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>

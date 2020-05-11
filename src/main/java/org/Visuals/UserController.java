@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.Backend.Main;
 import org.Backend.Project;
@@ -20,14 +19,14 @@ public class UserController implements Initializable {//controller for user scen
     ObservableList<Project> totalProjects = FXCollections.observableArrayList(Main.getProjects());
     //id for scene elements
     @FXML
-    private Label userScreenCurrentUser;
+    private Label currentUser;
 
 
     @FXML
-    private Label inAmmountOfProjects;
+    private Label userInAmmountOfProjects;
 
     @FXML
-    private Label noOfProjects;
+    private Label totalNumberOfProjects;
 
     @FXML
     void assignHoursButtonHandler(ActionEvent event) throws IOException {//takes user to assign hours scene
@@ -78,9 +77,9 @@ public class UserController implements Initializable {//controller for user scen
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {//starts setup for user interface
-        Helper.setText(userScreenCurrentUser,Main.getCurrentUser()+"");
-        Helper.setText(inAmmountOfProjects,projectList.size()+"");
-        Helper.setText(noOfProjects,totalProjects.size()+"");
+        HelperMethods.setText(currentUser,Main.getCurrentUser()+"");
+        HelperMethods.setText(userInAmmountOfProjects,projectList.size()+"");
+        HelperMethods.setText(totalNumberOfProjects,totalProjects.size()+"");
     }
 
 

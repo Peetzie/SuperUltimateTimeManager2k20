@@ -24,19 +24,19 @@ PMCreateActivityController implements Initializable { // create activity control
     long deadline;
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> chooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> selectProject;
 
     @FXML
-    private DatePicker activityDeadline;
+    private DatePicker setDeadline;
 
     @FXML
-    private TextField activityTitle;
+    private TextField setTitle;
 
     @FXML
-    private TextArea activityDescription;
+    private TextArea setDescription;
 
     @FXML
-    private TextField activityTime;
+    private TextField setDuration;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//cancel button changes scenes
@@ -46,19 +46,19 @@ PMCreateActivityController implements Initializable { // create activity control
     @FXML
     void createButtonHandler(ActionEvent event) throws ParseException, IOException {
         try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(activityDeadline.getValue().toString());
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(setDeadline.getValue().toString());
             deadline = (date.getTime() / 1000L);
-            Main.command("newactivity " + Main.getProjects().indexOf(chooseProject.getValue().getProject()) + " " +
-                    activityTitle.getText() + " " + activityDescription.getText() + " " +  Integer.parseInt(activityTime
+            Main.command("newactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " +
+                    setTitle.getText() + " " + setDescription.getText() + " " +  Integer.parseInt(setDuration
                     .getText()) * 60 + " " + deadline);
             Launcher.setRoot("User/ProjectManager/projectManagerScreen");
         } catch(NumberFormatException e){
-            Helper.illegalInputAlert("Error creating activity");
+            HelperMethods.illegalInputAlert("Error creating activity");
         }
 
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        chooseProject.setItems(projectList);
+        selectProject.setItems(projectList);
     }
 }

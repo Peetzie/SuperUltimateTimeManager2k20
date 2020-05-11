@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="userScreenCurrentUser" layoutX="135.0" layoutY="175.0" textFill="WHITE">
+            <Label fx:id="currentUser" layoutX="135.0" layoutY="175.0" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="inAmmountOfProjects" layoutX="147.0" layoutY="234.0" textFill="WHITE">
+            <Label fx:id="userInAmmountOfProjects" layoutX="147.0" layoutY="234.0" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="noOfProjects" layoutX="182.0" layoutY="234.0" textFill="WHITE">
+            <Label fx:id="totalNumberOfProjects" layoutX="182.0" layoutY="234.0" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -101,9 +101,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="userScreenAssignHoursButton1" layoutX="75.0" layoutY="216.0" mnemonicParsing="false" onAction="#getProjectInformationButtonHandler" prefHeight="35.0" prefWidth="150.0" text="Project information">
+      <Button fx:id="userScreenAssignHoursButton1" layoutX="75.0" layoutY="216.0" mnemonicParsing="false" onAction="#getProjectInformationButtonHandler" prefHeight="35.0" prefWidth="150.0" text="Project information" wrapText="true">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Button>
    </children>

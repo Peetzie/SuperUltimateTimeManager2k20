@@ -11,19 +11,19 @@
 
 <!--employee deletion scene-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.adminRemoveProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AdminRemoveProjectController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
-            <Label layoutX="84.0" layoutY="200.0" text="Remove Project" textFill="WHITE">
+            <Label layoutX="76.0" layoutY="185.0" text="Remove Project" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
             <ImageView fitHeight="134.0" fitWidth="143.0" layoutX="83.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Icons/trashcan.png" />
+                  <Image url="@../Icons/rubbish-can.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -32,7 +32,7 @@
          </children>
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
-      <ChoiceBox fx:id="removeProject" layoutX="128.0" layoutY="119.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="selectProject" layoutX="128.0" layoutY="119.0" prefWidth="150.0" />
       <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#confirmButtonHandler" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />

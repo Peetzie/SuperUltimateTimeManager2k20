@@ -10,15 +10,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <!--employee assign hours scene-->
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.AssignHoursController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Visuals.UserAssignHoursController">
    <children>
       <!--right side pane (graphics)-->
       <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0598ff;">
          <children>
             <Label layoutX="90.0" layoutY="142.0" text="Assign hours" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <ImageView fitHeight="109.0" fitWidth="121.0" layoutX="96.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +36,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="assignHoursCurrentUser" layoutX="130.0" layoutY="188.0" textFill="WHITE">
+            <Label fx:id="currentUser" layoutX="130.0" layoutY="188.0" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
@@ -42,7 +44,7 @@
          </children>
       </AnchorPane>
       <!--left side pane (buttons and controls)-->
-      <ChoiceBox fx:id="assignHoursChooseProject" layoutX="126.0" layoutY="81.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="selectProject" layoutX="126.0" layoutY="81.0" prefWidth="150.0" />
       <Label layoutX="25.0" layoutY="85.0" text="Choose project">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -53,8 +55,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <DatePicker fx:id="assignHoursChooseDate" layoutX="102.0" layoutY="140.0" />
-      <TextField fx:id="assignHoursAssignStartHour" layoutX="127.0" layoutY="200.0" promptText="Example: 17" />
+      <DatePicker fx:id="setDate" layoutX="102.0" layoutY="140.0" />
+      <TextField fx:id="setStartHour" layoutX="127.0" layoutY="200.0" promptText="Example: 17" />
       <Label layoutX="26.0" layoutY="200.0" text="Assign start hour">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -65,7 +67,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="assignHoursAssignMinute" layoutX="127.0" layoutY="251.0" promptText="Example: 55" />
+      <TextField fx:id="setStartMinute" layoutX="127.0" layoutY="251.0" promptText="Example: 55" />
       <Label layoutX="13.0" layoutY="255.0" text="Assign start minute">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -81,7 +83,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="assignHoursDuration" layoutX="127.0" layoutY="295.0" promptText="example 200" />
+      <TextField fx:id="setDuration" layoutX="127.0" layoutY="295.0" promptText="example 200" />
       <Button fx:id="assignHoursAssignButton" layoutX="149.0" layoutY="343.0" mnemonicParsing="false" onAction="#assignButtonHandler" style="-fx-background-color: #0598ff;" text="Assign" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />

@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import org.Backend.Activity;
 import org.Backend.Main;
-import org.Backend.Project;
 import org.Backend.ProjectEmployeeRelation;
 
 import java.io.IOException;
@@ -24,10 +23,10 @@ public class PMRemoveActivityController implements Initializable {// Controller 
 
 
     @FXML
-    private ChoiceBox<ProjectEmployeeRelation> pmChooseProject;
+    private ChoiceBox<ProjectEmployeeRelation> selectProject;
 
     @FXML
-    private ChoiceBox<Activity> pmChooseActivity;
+    private ChoiceBox<Activity> selectActivity;
 
     @FXML
     void cancelButtonHandler(ActionEvent event) throws IOException {//Takes the user to the projectManager Screen.
@@ -36,20 +35,20 @@ public class PMRemoveActivityController implements Initializable {// Controller 
 
     @FXML
     void removeButtonHandler(ActionEvent event) throws IOException {// Connects backend with remove button, by removing the activity.
-        Main.command("removeactivity " + Main.getProjects().indexOf(pmChooseProject.getValue().getProject()) + " " +
-                pmChooseProject.getValue().getProject().getActivitiesReal().indexOf(pmChooseActivity.getValue()));
+        Main.command("removeactivity " + Main.getProjects().indexOf(selectProject.getValue().getProject()) + " " +
+                selectProject.getValue().getProject().getActivitiesReal().indexOf(selectActivity.getValue()));
         Launcher.setRoot("User/ProjectManager/projectManagerScreen");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {// Setting values in the drop down menus.
         Main.setPrintProjectInformationOnProjectEmployeeRelations(true);
-        pmChooseProject.setItems(projectList);
-        pmChooseProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // depending on selected project get activites.
+        selectProject.setItems(projectList);
+        selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() { // depending on selected project get activites.
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                activityList = FXCollections.observableArrayList(pmChooseProject.getValue().getProject().getActivitiesReal());
-                pmChooseActivity.setItems(activityList);
+                activityList = FXCollections.observableArrayList(selectProject.getValue().getProject().getActivitiesReal());
+                selectActivity.setItems(activityList);
             }
         });
 
