@@ -20,6 +20,7 @@ public class Launcher extends Application {//launcher for the gui (graphical use
         scene = new Scene(loadFXML("loginScreen"));
         stage.setScene(scene); 
         stage.setResizable(false);
+        stage.setTitle("SUPER ULTIMATE TIME MANAGER 2K20: Fuld kaos pilot edition");
         stage.show();
     }
 
