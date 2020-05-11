@@ -20,8 +20,6 @@ public class AdminAssignProjectManagerController implements Initializable { // C
     ObservableList<Employee> userList = FXCollections.observableArrayList(Main.getEmployeesReal());
     ObservableList<Project> projectList = FXCollections.observableArrayList(Main.getProjects());
 
-    @FXML
-    private Label userCurrentlySignedIn;
 
     @FXML
     private ChoiceBox selectEmployee;
@@ -44,7 +42,6 @@ public class AdminAssignProjectManagerController implements Initializable { // C
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // initiializing values for drop downs ans scene is loaded.
-        HelperMethods.setText(userCurrentlySignedIn,Main.getCurrentUser()+"");
         selectEmployee.setItems(userList);
         selectProject.setItems(projectList);
 
